@@ -16,8 +16,8 @@ Este repositorio contiene el código fuente de una aplicación de gimnasio con v
 4. **Registro de Series y Repeticiones**
    - Lleva un seguimiento de las series y repeticiones de tus ejercicios. Solo disponible si has iniciado sesión.
 
-5. **Chat Interactivo**
-   - Un chat interactivo lleno de opciones como radios y checks. Dependiendo de tus elecciones, recibirás recomendaciones de suplementos para tu entrenamiento.
+5. **Suplementacion**
+   - Una app que solo tiene opciones como radios y checks. Dependiendo de tus elecciones, recibirás recomendaciones de suplementos para tu entrenamiento.
 
 ## Notas
 - La aplicación está en fase inicial y estas son sus funcionalidades actuales.
