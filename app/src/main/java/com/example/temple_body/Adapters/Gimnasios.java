@@ -30,9 +30,7 @@ public class Gimnasios {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    public double getValoracion() {
-        return valoracion;
-    }
+    public double getValoracion() {return valoracion;}
     public void setValoracion(double valoracion) {
         this.valoracion = valoracion;
     }
@@ -42,9 +40,9 @@ public class Gimnasios {
      * */
     public static ArrayList<Gimnasios> generador() {
         ArrayList<Gimnasios> gimnasios = new ArrayList<Gimnasios>();
-        gimnasios.add(new Gimnasios("Gimnasio 1", 25, 4.6));
-        gimnasios.add(new Gimnasios("Gimnasio 2", 20, 3.8));
-        gimnasios.add(new Gimnasios("Gimnasio 3", 50, 4.9));
+        gimnasios.add(new Gimnasios("Fitness Park", 25, 4.6));
+        gimnasios.add(new Gimnasios("Basic Fit", 20, 3.8));
+        gimnasios.add(new Gimnasios("Gimnasios Paco", 50, 4.9));
         gimnasios.add(new Gimnasios("Gimnasio 4", 20, 4.0));
         gimnasios.add(new Gimnasios("Gimnasio 5", 29, 2.6));
         gimnasios.add(new Gimnasios("Gimnasio 6", 35, 5.0));
