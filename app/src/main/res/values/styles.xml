@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="spinner_text_color">#FFE500</color>
+    <style name="SpinnerTextStyle">
+        <item name="android:textColor">@color/spinner_text_color</item>
+    </style>
+</resources>

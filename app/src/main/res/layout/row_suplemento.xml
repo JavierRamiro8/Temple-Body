@@ -16,30 +16,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_tv_rows"
-        android:text="Fitness Park"
+        android:text="WHEY 80"
         android:textAlignment="center"
         android:textColor="#FFEB3B"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/marca1"
+        android:id="@+id/descripcionSuplemento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_tv_rows"
-        android:text="35"
+        android:text="El Concentrado Whey Protein 80 ha sido desarrollado sin hacer concesión alguna, utilizando exclusivamente el mejor concentrado de proteína de suero, ofreciendo un descomunal 82% de contenido de proteínas."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/marca5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/border_tv_rows"
-        android:text="4.6"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.temple_body.Adapters;
+package com.example.temple_body.Gimnasios;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.temple_body.Adapters;
+package com.example.temple_body.Suplementacion;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +11,14 @@ import com.example.temple_body.R;
 
 import java.util.ArrayList;
 
-public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.ViewHolder> {
-    private ArrayList<Gimnasios> datos;
+public class SuplementosAdapter extends RecyclerView.Adapter<SuplementosAdapter.ViewHolder> {
+    private ArrayList<Suplementos> datos;
 
     /*
      * Relacionado con el evento.
      */
     public interface ItemClickListener {
-        void onClick(View view, int position, Gimnasios gimnasio);
+        void onClick(View view, int position, Suplementos gimnasio);
     }
 
     private ItemClickListener clickListener;
@@ -33,25 +33,22 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
      * (custom ViewHolder).
      */
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView nombre;
-        private final TextView precio;
+        private final TextView nombre,descripcion;
 
-        private  final TextView valoracion;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            nombre = (TextView) view.findViewById(R.id.nombreGimnasio);
-            precio = (TextView) view.findViewById(R.id.precioGimnasio);
-            valoracion = (TextView) view.findViewById(R.id.valoracionGimnasio);
+            nombre = (TextView) view.findViewById(R.id.nombreSuplemento);
+            descripcion = (TextView) view.findViewById(R.id.descripcionSuplemento);
             view.setOnClickListener(this);
         }
 
-        public void setInfo(String i_nombre, int i_precio, double i_valoracion) {
+        public void setInfo(String i_nombre, String i_descripcion) {
             nombre.setText(i_nombre);
-            precio.setText("Precio: "+String.valueOf(i_precio) + "€");
-            valoracion.setText("Valoracion: "+String.valueOf(i_valoracion));
+            descripcion.setText(i_descripcion);
+
         }
 
         @Override
@@ -67,8 +64,8 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public GimnasiosAdapter(ArrayList<Gimnasios> dataSet) {
-        datos = new ArrayList<Gimnasios>();
+    public SuplementosAdapter(ArrayList<Suplementos> dataSet) {
+        datos = new ArrayList<Suplementos>();
         add(dataSet);
     }
 
@@ -77,7 +74,7 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.row_gimnasio, viewGroup, false);
+                .inflate(R.layout.row_suplemento, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -88,8 +85,8 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        Gimnasios e = datos.get(position);
-        viewHolder.setInfo(e.getNombre(),e.getPrecio(), e.getValoracion());
+        Suplementos e = datos.get(position);
+        viewHolder.setInfo(e.getNombre(),e.getDescripcion());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -98,7 +95,7 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
         return datos.size();
     }
 
-    public void add(ArrayList<Gimnasios> dataSet){
+    public void add(ArrayList<Suplementos> dataSet){
         datos.addAll(dataSet);
         notifyDataSetChanged();
     }

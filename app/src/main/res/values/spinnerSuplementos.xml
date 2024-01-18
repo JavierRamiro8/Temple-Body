@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_suplementos">
+        <item>Selecciona suplemento</item>
+        <item>Proteinas</item>
+        <item>Creatina</item>
+        <item>Aminoacidos</item>
+        <item>Pre-entrenos</item>
+        <item>Vitaminas</item>
+        <item>Mejora del sueño</item>
+        <item>Farmacia oscura</item>
+    </string-array>
+</resources>

@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="ReservedSystemPermission" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <queries>
+
         <intent>
             <action android:name="android.intent.action.VIEW" />
         </intent>
         <intent>
             <action android:name="android.intent.action.WEB_SEARCH" />
         </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
     </queries>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icono"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icono"
         android:supportsRtl="true"
         android:theme="@style/Theme.TEMPLE_BODY"
         tools:targetApi="31">
         <activity
             android:name=".Actividad_Gimnasios"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Gimnasios.ListaGimnasios"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Adapters.ListaGimnasios"
+            android:name=".Suplementacion.ListaSuplementos"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
