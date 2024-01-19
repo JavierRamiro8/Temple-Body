@@ -72,14 +72,10 @@ public class ListaSuplementos extends AppCompatActivity {
                     a = new SuplementosAdapter(Suplementos.generador(item.toString()));
                     rcv.setAdapter(a);
                 }
-
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // TODO Auto-generated method stub
-
             }
         });
             a = new SuplementosAdapter(Suplementos.generador(opcion));
