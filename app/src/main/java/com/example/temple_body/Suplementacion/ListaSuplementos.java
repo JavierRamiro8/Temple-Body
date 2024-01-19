@@ -3,10 +3,12 @@ package com.example.temple_body.Suplementacion;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -25,6 +27,7 @@ public class ListaSuplementos extends AppCompatActivity {
     public String nombre="";
     ActivityResultLauncher<String> requestPermissionLauncher;
     Spinner spinnerSuplementos;
+    TextView proe,hsn,prozis,big_supps,marcasRecomendadas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,61 +36,103 @@ public class ListaSuplementos extends AppCompatActivity {
 
         spinnerSuplementos = findViewById(R.id.spinnerSuplementos);
 
-        rcv = findViewById(R.id.listaContenedorGimnasios);
+        rcv = findViewById(R.id.listaContenedorSuplementos);
         rcv.setLayoutManager(new LinearLayoutManager(this));
+
+        marcasRecomendadas = findViewById(R.id.tvMarcasRecomendadas);
+        proe = findViewById(R.id.tvProe);
+        hsn = findViewById(R.id.tvHsn);
+        prozis = findViewById(R.id.tvProzis);
+        big_supps = findViewById(R.id.tvBig);
+
+        proe.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        proe.setText("Proe-Nutrition");
+
+        hsn.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        hsn.setText("HSN");
+
+        prozis.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        prozis.setText("Prozis");
+
+        big_supps.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        big_supps.setText("Big-Supps");
+
+        marcasRecomendadas.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        marcasRecomendadas.setText("Marcas Recomendadas");
+
 
         a = new SuplementosAdapter(Suplementos.generador());
         rcv.setAdapter(a);
 
+        proe.setOnClickListener((View v)->{
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.INTERNET) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realizar la acción
+                abrirWeb("https://proenutrition.es/");
+            } else {
+                // Solicitar permiso al usuario
+                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
+            }
+        });
+        hsn.setOnClickListener((View v)->{
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.INTERNET) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realizar la acción
+                abrirWeb("https://www.hsnstore.com/");
+            } else {
+                // Solicitar permiso al usuario
+                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
+            }
+        });
+        prozis.setOnClickListener((View v)->{
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.INTERNET) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realizar la acción
+                abrirWeb("https://www.prozis.com/es/es");
+            } else {
+                // Solicitar permiso al usuario
+                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
+            }
+        });
+        big_supps.setOnClickListener((View v)->{
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.INTERNET) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realizar la acción
+                abrirWeb("https://bigsupps.site/");
+            } else {
+                // Solicitar permiso al usuario
+                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
+            }
+        });
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
                 // app.
-                requestMaps();
+
             } else {
                 // Explain to the user that the feature is unavailable because the
                 // feature requires a permission that the user has denied. At the
                 // same time, respect the user's decision. Don't link to system
                 // settings in an effort to convince the user to change their
                 // decision.
-                Toast.makeText(ListaSuplementos.this, "Necesitamos permiso para obtener la localización.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaSuplementos.this, "Necesitamos permiso para abrir la web.", Toast.LENGTH_SHORT).show();
             }
         });
         a.setClickListener(new SuplementosAdapter.ItemClickListener() {
             @Override
             public void onClick(View view, int position, Suplementos suplemento) {
-               nombre = suplemento.getNombre();
-                if (ContextCompat.checkSelfPermission(
-                        ListaSuplementos.this, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                        PackageManager.PERMISSION_GRANTED) {
-                    // You can use the API that requires the permission.
-                    requestMaps();
-                } else if (false) {
-                    // In an educational UI, explain to the user why your app requires this
-                    // permission for a specific feature to behave as expected, and what
-                    // features are disabled if it's declined. In this UI, include a
-                    // "cancel" or "no thanks" button that lets the user continue
-                    // using your app without granting the permission.
-
-                    // Mostrar UI Dialog para explicar al usuarios la necesidad del permiso
-                    // Vamos a usar la de por defecto de Android. Se ejecuta en el else
-
-                }else {
-                    // You can directly ask for the permission.
-                    // The registered ActivityResultCallback gets the result of this request.
-                    requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-                }
-
 
             }
-
         });
     }
-    private void requestMaps() {
-        Uri uri = Uri.parse("geo:0,0?q="+ Uri.encode(nombre));
-        Intent i = new Intent(Intent.ACTION_VIEW, uri);
-        i.setPackage("com.google.android.apps.maps");
-        startActivity(i);
+    private void abrirWeb(String webSolicitada) {
+        Uri uri=Uri.parse(webSolicitada);
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,uri);
+        startActivity(webIntent);
     }
 
 }

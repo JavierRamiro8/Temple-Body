@@ -8,17 +8,17 @@
     tools:context=".Gimnasios.ListaGimnasios">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaContenedorGimnasios"
+        android:id="@+id/listaContenedorSuplementos"
         android:layout_width="0dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border_radius_recycler"
-        app:layout_constraintBottom_toTopOf="@+id/MarcasRecomendadas"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/border_radius_recycler_suplementos"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerSuplementos" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHsn"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -43,56 +43,97 @@
 
     <Spinner
         android:id="@+id/spinnerSuplementos"
+        style="@style/SpinnerTextStyle"
         android:layout_width="299dp"
         android:layout_height="49dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/border_radius_recycler"
-        android:backgroundTint="#005393"
+        android:backgroundTint="#007BFF"
         android:entries="@array/spinner_suplementos"
         android:textAlignment="center"
-        style= "@style/SpinnerTextStyle"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="Proe-Nutrition"
-        android:textColor="#FFE500"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/HSN"
+        android:id="@+id/tvProe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="HSN"
-        android:textColor="#FFE500"
+        android:layout_marginTop="8dp"
+        android:background="#000000"
+        android:text="Proe-Nutrition"
+        android:textColor="#FF0000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toStartOf="@+id/tvHsn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMarcasRecomendadas" />
 
     <TextView
-        android:id="@+id/MarcasRecomendadas"
+        android:id="@+id/tvHsn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:background="#000000"
+        android:text="HSN"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProe"
+        app:layout_constraintEnd_toStartOf="@+id/tvProzis"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvProe"
+        app:layout_constraintTop_toTopOf="@+id/tvProe"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvMarcasRecomendadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Marcas Recomendadas"
         android:textColor="#FFE500"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/HSN"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerSuplementos"
+        app:layout_constraintStart_toStartOf="@+id/spinnerSuplementos"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSuplementos" />
+
+    <TextView
+        android:id="@+id/tvProzis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="#000000"
+        android:text="Prozis"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHsn"
+        app:layout_constraintEnd_toStartOf="@+id/tvBig"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvHsn"
+        app:layout_constraintTop_toTopOf="@+id/tvHsn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvBig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="#000000"
+        android:text="BIG-SUPPS"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProzis"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvProzis"
+        app:layout_constraintTop_toTopOf="@+id/tvProzis"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
