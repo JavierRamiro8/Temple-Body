@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,9 +61,30 @@ public class ListaSuplementos extends AppCompatActivity {
         marcasRecomendadas.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         marcasRecomendadas.setText("Marcas Recomendadas");
 
+        String opcion = spinnerSuplementos.getSelectedItem().toString();
+        spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-        a = new SuplementosAdapter(Suplementos.generador());
-        rcv.setAdapter(a);
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view,
+                                       int position, long id) {
+                Object item = adapterView.getItemAtPosition(position);
+                if (item != null) {
+                    a = new SuplementosAdapter(Suplementos.generador(item.toString()));
+                    rcv.setAdapter(a);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+            a = new SuplementosAdapter(Suplementos.generador(opcion));
+            rcv.setAdapter(a);
+
 
         proe.setOnClickListener((View v)->{
             if (ContextCompat.checkSelfPermission(
