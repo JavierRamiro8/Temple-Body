@@ -130,7 +130,7 @@ public class ListaSuplementos extends AppCompatActivity {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
                 // app.
-
+                abrirWeb("https://refactoring.guru/es/design-patterns");
             } else {
                 // Explain to the user that the feature is unavailable because the
                 // feature requires a permission that the user has denied. At the

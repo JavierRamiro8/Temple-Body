@@ -47,7 +47,7 @@
         android:layout_width="299dp"
         android:layout_height="49dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/border_radius_recycler"
+        android:background="@drawable/border_radius_recycler_gimnasios"
         android:backgroundTint="#007BFF"
         android:entries="@array/spinner_suplementos"
         android:textAlignment="center"
