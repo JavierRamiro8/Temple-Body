@@ -28,7 +28,19 @@
         app:mbn_shadowColor="#1f212121" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/FragmentSuplementos"
+        android:id="@+id/fragmentGimnasiosCercanos"
+        android:name="com.example.temple_body.Gimnasios.GimnasiosFragment"
+        android:layout_width="388dp"
+        android:layout_height="623dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.148" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentSuplementos"
         android:name="com.example.temple_body.Suplementacion.SuplementosFragment"
         android:layout_width="388dp"
         android:layout_height="623dp"
