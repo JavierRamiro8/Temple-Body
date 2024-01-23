@@ -6,6 +6,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -14,15 +20,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.temple_body.Actividad_Gimnasios;
 import com.example.temple_body.R;
 
 /**
@@ -87,7 +84,7 @@ public class SuplementosFragment extends Fragment {
         spinnerSuplementos = layout.findViewById(R.id.spinnerSuplementos);
 
         rcv = layout.findViewById(R.id.listaContenedorSuplementos);
-        rcv.setLayoutManager(new LinearLayoutManager(this));
+        rcv.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         marcasRecomendadas = layout.findViewById(R.id.tvMarcasRecomendadas);
         proe = layout.findViewById(R.id.tvProe);
@@ -133,7 +130,7 @@ public class SuplementosFragment extends Fragment {
 
         proe.setOnClickListener((View v)->{
             if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.INTERNET) ==
+                    requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
                 abrirWeb("https://proenutrition.es/");
@@ -144,7 +141,7 @@ public class SuplementosFragment extends Fragment {
         });
         hsn.setOnClickListener((View v)->{
             if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.INTERNET) ==
+                    requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
                 abrirWeb("https://www.hsnstore.com/");
@@ -155,7 +152,7 @@ public class SuplementosFragment extends Fragment {
         });
         prozis.setOnClickListener((View v)->{
             if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.INTERNET) ==
+                    requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
                 abrirWeb("https://www.prozis.com/es/es");
@@ -166,7 +163,7 @@ public class SuplementosFragment extends Fragment {
         });
         big_supps.setOnClickListener((View v)->{
             if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.INTERNET) ==
+                    requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
                 abrirWeb("https://bigsupps.site/");

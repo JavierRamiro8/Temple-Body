@@ -1,24 +1,13 @@
 package com.example.temple_body;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentContainerView;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.example.temple_body.Gimnasios.Gimnasios;
-import com.example.temple_body.Gimnasios.ListaGimnasios;
-import com.example.temple_body.Suplementacion.ListaSuplementos;
-import com.example.temple_body.Suplementacion.Suplementos;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -26,6 +15,7 @@ import kotlin.jvm.functions.Function1;
 public class Actividad_Gimnasios extends AppCompatActivity {
 
     private MeowBottomNavigation bottomNavigation;
+    private FragmentContainerView fragmentSuplementos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +25,8 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(2,R.drawable.home));
         bottomNavigation.add(new MeowBottomNavigation.Model(3,R.drawable.settings));
         bottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.settings));
+        fragmentSuplementos=findViewById(R.id.FragmentSuplementos);
+        fragmentSuplementos.setVisibility(View.INVISIBLE);
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
@@ -43,18 +35,17 @@ public class Actividad_Gimnasios extends AppCompatActivity {
 
                 switch(model.getId()){
                     case 1:
-                        intent=new Intent(Actividad_Gimnasios.this,ListaGimnasios.class);
-                        startActivity(intent);
-
+                        fragmentSuplementos.setVisibility(View.VISIBLE);
                         break;
                     case 2:
-                        intent=new Intent(Actividad_Gimnasios.this, ListaSuplementos.class);
-                        startActivity(intent);
+                        fragmentSuplementos.setVisibility(View.INVISIBLE);
                         break;
                     case 3:
+                        fragmentSuplementos.setVisibility(View.INVISIBLE);
 
                         break;
                     case 4:
+                        fragmentSuplementos.setVisibility(View.INVISIBLE);
                         break;
                 }
                 return null;
