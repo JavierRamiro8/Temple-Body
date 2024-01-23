@@ -21,10 +21,10 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_gimnasios);
         bottomNavigation=findViewById(R.id.bottomNavigation);
-        bottomNavigation.add(new MeowBottomNavigation.Model(1,R.drawable.settings));
-        bottomNavigation.add(new MeowBottomNavigation.Model(2,R.drawable.home));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3,R.drawable.settings));
-        bottomNavigation.add(new MeowBottomNavigation.Model(4,R.drawable.settings));
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.peso));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.manzana));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.mapa));
+        bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.usuario));
         fragmentSuplementos=findViewById(R.id.FragmentSuplementos);
         fragmentSuplementos.setVisibility(View.INVISIBLE);
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
@@ -35,10 +35,10 @@ public class Actividad_Gimnasios extends AppCompatActivity {
 
                 switch(model.getId()){
                     case 1:
-                        fragmentSuplementos.setVisibility(View.VISIBLE);
+                        fragmentSuplementos.setVisibility(View.INVISIBLE);
                         break;
                     case 2:
-                        fragmentSuplementos.setVisibility(View.INVISIBLE);
+                        fragmentSuplementos.setVisibility(View.VISIBLE);
                         break;
                     case 3:
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
