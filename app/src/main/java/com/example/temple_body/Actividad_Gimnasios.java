@@ -17,6 +17,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
     private MeowBottomNavigation bottomNavigation;
     private FragmentContainerView fragmentSuplementos;
     private FragmentContainerView fragmentGimnasiosCercanos;
+    private FragmentContainerView fragmentLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +29,11 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.mapa));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.usuario));
         fragmentSuplementos=findViewById(R.id.fragmentSuplementos);
+        fragmentLogin=findViewById(R.id.fragmentLogin);
         fragmentGimnasiosCercanos=findViewById(R.id.fragmentGimnasiosCercanos);
         fragmentSuplementos.setVisibility(View.INVISIBLE);
         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-
+        bottomNavigation.show(4,true);
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -43,18 +45,22 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                     case 1:
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
+                        fragmentLogin.setVisibility(View.INVISIBLE);
 
                         break;
                     case 2:
                         fragmentSuplementos.setVisibility(View.VISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
+                        fragmentLogin.setVisibility(View.INVISIBLE);
                         break;
                     case 3:
                         fragmentGimnasiosCercanos.setVisibility(View.VISIBLE);
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
+                        fragmentLogin.setVisibility(View.INVISIBLE);
 
                         break;
                     case 4:
+                        fragmentLogin.setVisibility(View.VISIBLE);
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
                         break;

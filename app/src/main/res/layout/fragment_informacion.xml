@@ -30,12 +30,12 @@
             android:layout_height="145dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/TempleBody"
+            android:src="@drawable/templebody"
             app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
             app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
             app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
             app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:srcCompat="@drawable/TempleBody" />
+            app:srcCompat="@drawable/templebody" />
 
 
         <TextView
