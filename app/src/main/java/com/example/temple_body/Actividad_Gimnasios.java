@@ -33,7 +33,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         fragmentGimnasiosCercanos=findViewById(R.id.fragmentGimnasiosCercanos);
         fragmentSuplementos.setVisibility(View.INVISIBLE);
         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-        bottomNavigation.show(4,true);
+        bottomNavigation.show(4,false);
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
