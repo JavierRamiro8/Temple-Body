@@ -1,44 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.loginPrincipal">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#005393"
+        android:background="@drawable/icono3"
         tools:context=".login">
 
         <!-- android:scaleType="centerCrop" -->
-
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="0dp"
-            android:layout_height="165dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:srcCompat="@drawable/templebody" />
 
         <TextView
             android:id="@+id/tvBienvenida"
@@ -49,59 +23,53 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.070" />
+            app:layout_constraintBottom_toTopOf="@+id/et_usuario"
+            app:layout_constraintEnd_toEndOf="@+id/et_usuario"
+            app:layout_constraintStart_toStartOf="@+id/et_usuario"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:background="@color/material_dynamic_neutral90"
             android:drawablePadding="10dp"
             android:hint="Usuario"
             android:inputType="text"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBienvenida"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintBottom_toTopOf="@+id/et_password"
+            app:layout_constraintEnd_toEndOf="@+id/et_password"
+            app:layout_constraintStart_toStartOf="@+id/et_password"
+            app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
 
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="410dp"
+            android:layout_height="62dp"
             android:layout_marginHorizontal="20dp"
             android:background="@color/material_dynamic_neutral90"
             android:drawablePadding="10dp"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_usuario"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintBottom_toTopOf="@+id/register_link"
+            app:layout_constraintEnd_toEndOf="@+id/register_link"
+            app:layout_constraintStart_toStartOf="@+id/register_link"
+            app:layout_constraintTop_toBottomOf="@+id/et_usuario" />
 
         <Button
-            android:id="@+id/bt_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="#000000"
-            android:text="Iniciar sesión"
-            android:textColor="#FFFFFF"
+            android:id="@+id/button_accept"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="238dp"
+            android:layout_height="52dp"
+            android:layout_centerInParent="true"
+            android:text="Aceptar"
+            android:textColor="#000000"
+            app:backgroundTint="#FFEA00"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_password"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintTop_toBottomOf="@+id/register_link" />
 
         <TextView
             android:id="@+id/register_link"
@@ -111,9 +79,9 @@
             android:text="¿No tienes una cuenta? Regístrate aquí"
             android:textColor="#DFDFDF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button_accept"
+            app:layout_constraintEnd_toEndOf="@+id/button_accept"
+            app:layout_constraintStart_toStartOf="@+id/button_accept"
             app:layout_constraintTop_toBottomOf="@+id/et_password" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

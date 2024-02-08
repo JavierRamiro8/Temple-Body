@@ -10,14 +10,12 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentSuplementos"
         android:name="com.example.temple_body.Suplementacion.SuplementosFragment"
-        android:layout_width="388dp"
-        android:layout_height="623dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomNavigation"
@@ -26,10 +24,7 @@
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:mbn_backgroundBottomColor="#FFEB3B"
         app:mbn_circleColor="#ffffff"
         app:mbn_countBackgroundColor="#ff6f00"
@@ -42,25 +37,23 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentGimnasiosCercanos"
         android:name="com.example.temple_body.Gimnasios.GimnasiosFragment"
-        android:layout_width="388dp"
-        android:layout_height="623dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="@+id/fragmentLogin"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentLogin"
         android:name="com.example.temple_body.Login.loginPrincipal"
-        android:layout_width="388dp"
-        android:layout_height="623dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/border_radius_recycler_suplementos"
+            android:background="@drawable/icono3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -28,12 +28,9 @@
 
         <TextView
             android:id="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/border_color_recyclerview"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
@@ -45,7 +42,10 @@
             android:textColor="#FFEB3B"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteY="40dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinnerSuplementos"
@@ -79,12 +79,6 @@
 
         <TextView
             android:id="@+id/tvHsn"
-            app:layout_constraintBottom_toBottomOf="@+id/tvProe"
-            app:layout_constraintEnd_toStartOf="@+id/tvProzis"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvProe"
-            app:layout_constraintTop_toTopOf="@+id/tvProe"
-            app:layout_constraintVertical_bias="1.0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -92,6 +86,12 @@
             android:textColor="#FF0000"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProe"
+            app:layout_constraintEnd_toStartOf="@+id/tvProzis"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvProe"
+            app:layout_constraintTop_toTopOf="@+id/tvProe"
+            app:layout_constraintVertical_bias="1.0"
             tools:layout_editor_absoluteX="20dp" />
 
         <TextView
@@ -109,12 +109,6 @@
 
         <TextView
             android:id="@+id/tvProzis"
-            app:layout_constraintBottom_toBottomOf="@+id/tvHsn"
-            app:layout_constraintEnd_toStartOf="@+id/tvBig"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvHsn"
-            app:layout_constraintTop_toTopOf="@+id/tvHsn"
-            app:layout_constraintVertical_bias="0.0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -122,16 +116,16 @@
             android:textColor="#FF0000"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvHsn"
+            app:layout_constraintEnd_toStartOf="@+id/tvBig"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvHsn"
+            app:layout_constraintTop_toTopOf="@+id/tvHsn"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="20dp" />
 
         <TextView
             android:id="@+id/tvBig"
-            app:layout_constraintBottom_toBottomOf="@+id/tvProzis"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/tvProzis"
-            app:layout_constraintTop_toTopOf="@+id/tvProzis"
-            app:layout_constraintVertical_bias="0.0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -139,6 +133,12 @@
             android:textColor="#FF0000"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProzis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvProzis"
+            app:layout_constraintTop_toTopOf="@+id/tvProzis"
+            app:layout_constraintVertical_bias="0.0"
             tools:layout_editor_absoluteX="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
