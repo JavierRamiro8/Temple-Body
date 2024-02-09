@@ -33,7 +33,7 @@ public class ListaSuplementos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_suplementos);
+        setContentView(R.layout.fragment_suplementos);
 
         spinnerSuplementos = findViewById(R.id.spinnerSuplementos);
 

@@ -48,9 +48,9 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
             view.setOnClickListener(this);
         }
 
-        public void setInfo(String i_nombre, int i_precio, double i_valoracion) {
+        public void setInfo(String i_nombre, double i_precio, double i_valoracion) {
             nombre.setText(i_nombre);
-            precio.setText("Precio: "+String.valueOf(i_precio) + "€");
+            precio.setText("Precio mensual: "+String.valueOf(i_precio) + "€");
             valoracion.setText("Valoracion: "+String.valueOf(i_valoracion));
         }
 

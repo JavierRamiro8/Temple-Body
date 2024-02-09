@@ -10,17 +10,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000">
+        android:background="#272727">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaContenedorGimnasios"
-            android:layout_width="396dp"
-            android:layout_height="619dp"
-            android:layout_marginTop="56dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/icono3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.125" />
@@ -29,8 +28,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border_color_recyclerview"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
@@ -38,9 +38,10 @@
             android:text="Listado de Gimnasios"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#FFEB3B"
+            android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/listaContenedorGimnasios"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"

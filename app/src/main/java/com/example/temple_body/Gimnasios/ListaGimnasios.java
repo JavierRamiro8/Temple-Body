@@ -27,7 +27,7 @@ public class ListaGimnasios extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_gimnasios);
+        setContentView(R.layout.fragment_gimnasios);
 
         rcv = findViewById(R.id.listaContenedorGimnasios);
         rcv.setLayoutManager(new LinearLayoutManager(this));

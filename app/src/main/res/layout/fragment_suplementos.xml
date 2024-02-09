@@ -11,13 +11,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#272727">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaContenedorSuplementos"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/icono3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@drawable/border_color_recyclerview"
+            android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
@@ -39,11 +40,11 @@
             android:text="Suplementos"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#FFEB3B"
+            android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +55,7 @@
             android:layout_height="49dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/border_radius_recycler_gimnasios"
-            android:backgroundTint="#007BFF"
+            android:backgroundTint="#FFFFFF"
             android:entries="@array/spinner_suplementos"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/textView"
@@ -67,9 +68,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="#000000"
+            android:background="#272727"
             android:text="Proe-Nutrition"
-            android:textColor="#FF0000"
+            android:textColor="#FFC107"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/tvHsn"
@@ -81,9 +82,9 @@
             android:id="@+id/tvHsn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000000"
+            android:background="#272727"
             android:text="HSN"
-            android:textColor="#FF0000"
+            android:textColor="#FFC107"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tvProe"
@@ -91,8 +92,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvProe"
             app:layout_constraintTop_toTopOf="@+id/tvProe"
-            app:layout_constraintVertical_bias="1.0"
-            tools:layout_editor_absoluteX="20dp" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/tvMarcasRecomendadas"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Marcas Recomendadas"
-            android:textColor="#FFE500"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/spinnerSuplementos"
@@ -111,9 +111,9 @@
             android:id="@+id/tvProzis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000000"
+            android:background="#272727"
             android:text="Prozis"
-            android:textColor="#FF0000"
+            android:textColor="#FFC107"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tvHsn"
@@ -121,16 +121,15 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvHsn"
             app:layout_constraintTop_toTopOf="@+id/tvHsn"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="20dp" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvBig"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#000000"
+            android:background="#272727"
             android:text="BIG-SUPPS"
-            android:textColor="#FF0000"
+            android:textColor="#FFC107"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tvProzis"
@@ -138,7 +137,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvProzis"
             app:layout_constraintTop_toTopOf="@+id/tvProzis"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="20dp" />
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

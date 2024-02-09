@@ -8,7 +8,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvIVlogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#000000"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="305dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/templebody"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
+            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
+            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
+            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/templebody" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
         android:background="@drawable/icono3"
         tools:context=".login">
 
@@ -18,10 +51,12 @@
             android:id="@+id/tvBienvenida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/baskervville"
             android:gravity="center"
             android:text="Bienvenido"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textColor="#FFC107"
+            android:textSize="60sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/et_usuario"
             app:layout_constraintEnd_toEndOf="@+id/et_usuario"
@@ -30,9 +65,10 @@
 
         <EditText
             android:id="@+id/et_usuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/material_dynamic_neutral90"
+            android:layout_width="334dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/border_radius_et_login"
             android:drawablePadding="10dp"
             android:hint="Usuario"
             android:inputType="text"
@@ -44,17 +80,18 @@
 
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="410dp"
+            android:layout_width="334dp"
             android:layout_height="62dp"
             android:layout_marginHorizontal="20dp"
-            android:background="@color/material_dynamic_neutral90"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border_radius_et_login"
             android:drawablePadding="10dp"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/register_link"
-            app:layout_constraintEnd_toEndOf="@+id/register_link"
-            app:layout_constraintStart_toStartOf="@+id/register_link"
+            app:layout_constraintBottom_toTopOf="@+id/button_accept"
+            app:layout_constraintEnd_toEndOf="@+id/button_accept"
+            app:layout_constraintStart_toStartOf="@+id/button_accept"
             app:layout_constraintTop_toBottomOf="@+id/et_usuario" />
 
         <Button
@@ -63,26 +100,28 @@
             android:layout_width="238dp"
             android:layout_height="52dp"
             android:layout_centerInParent="true"
+            android:layout_marginTop="32dp"
             android:text="Aceptar"
             android:textColor="#000000"
-            app:backgroundTint="#FFEA00"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_link" />
+            app:backgroundTint="#FFC107"
+            app:layout_constraintBottom_toTopOf="@+id/register_link"
+            app:layout_constraintEnd_toEndOf="@+id/register_link"
+            app:layout_constraintStart_toStartOf="@+id/register_link"
+            app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
         <TextView
             android:id="@+id/register_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="¿No tienes una cuenta? Regístrate aquí"
+            android:textAlignment="center"
             android:textColor="#DFDFDF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_accept"
-            app:layout_constraintEnd_toEndOf="@+id/button_accept"
-            app:layout_constraintStart_toStartOf="@+id/button_accept"
-            app:layout_constraintTop_toBottomOf="@+id/et_password" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvBienvenida"
+            app:layout_constraintTop_toBottomOf="@+id/button_accept" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

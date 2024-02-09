@@ -2,12 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- Fondo del TextView -->
-    <solid android:color="#272727" />
-
-    <!-- Color del borde y ancho del borde -->
-    <stroke
-        android:width="4dp"
-        android:color="#FFC107" /> <!-- Cambia esto al ancho que desees -->
+    <solid android:color="#E5F4FF" />
 
     <!-- Especifica las esquinas del borde (puedes ajustar el radio según tus necesidades) -->
     <corners android:radius="8dp" />
