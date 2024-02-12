@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner_ejercicios">
-        <item>Selecciona suplemento</item>
+        <item>Selecciona Musculo para ejercitar</item>
         <item>Biceps</item>
         <item>Pecho</item>
         <item>brazos</item>
