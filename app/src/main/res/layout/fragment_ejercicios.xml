@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ejercicios.ListaEjercicios"
+    tools:context=".Ejercicios.EjerciciosFragment"
     android:background="@drawable/icono3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,6 @@
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/listaContenedorGimnasios"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,26 +35,26 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleEjercicios"
-            android:layout_width="408dp"
-            android:layout_height="469dp"
+            android:layout_width="0dp"
+            android:layout_height="490dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerEjercicios"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.985" />
 
         <Spinner
             android:id="@+id/spinnerEjercicios"
             style="@style/SpinnerTextStyle"
             android:layout_width="299dp"
             android:layout_height="49dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="44dp"
             android:background="@drawable/border_radius_recycler_gimnasios"
             android:backgroundTint="@color/black"
             android:entries="@array/spinner_ejercicios"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintHorizontal_bias="0.566"
             app:layout_constraintStart_toStartOf="@+id/textView"

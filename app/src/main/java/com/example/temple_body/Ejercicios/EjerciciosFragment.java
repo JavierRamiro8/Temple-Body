@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListaEjercicios extends Fragment {
+public class EjerciciosFragment extends Fragment {
     private RecyclerView recyclerView;
     private EjercicioAdapter adapter;
     private Spinner spinnerEjercicios;
@@ -43,7 +42,10 @@ public class ListaEjercicios extends Fragment {
         spinnerEjercicios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                getEjercicios();
+                if(spinnerEjercicios.getSelectedItemPosition()!=0){
+                    getEjercicios();
+
+                }
             }
 
             @Override
@@ -63,7 +65,7 @@ public class ListaEjercicios extends Fragment {
             call = ServiceEjercicios.getAPI().getEjercicio("chest");
         } else if (spinnerEjercicios.getSelectedItem().toString().equals("brazos")) {
             call = ServiceEjercicios.getAPI().getEjercicio("forearms");
-        } else {
+        } else{
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");
         }
 
