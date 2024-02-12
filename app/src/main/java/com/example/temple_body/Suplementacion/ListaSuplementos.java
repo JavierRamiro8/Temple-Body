@@ -35,7 +35,7 @@ public class ListaSuplementos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_suplementos);
 
-        spinnerSuplementos = findViewById(R.id.spinnerSuplementos);
+        spinnerSuplementos = findViewById(R.id.spinnerEjercicios);
 
         rcv = findViewById(R.id.listaContenedorSuplementos);
         rcv.setLayoutManager(new LinearLayoutManager(this));

@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/spinnerSuplementos"
+            android:id="@+id/spinnerEjercicios"
             style="@style/SpinnerTextStyle"
             android:layout_width="299dp"
             android:layout_height="49dp"
@@ -104,9 +104,9 @@
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerSuplementos"
-            app:layout_constraintStart_toStartOf="@+id/spinnerSuplementos"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerSuplementos" />
+            app:layout_constraintEnd_toEndOf="@+id/spinnerEjercicios"
+            app:layout_constraintStart_toStartOf="@+id/spinnerEjercicios"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerEjercicios" />
 
         <TextView
             android:id="@+id/tvProzis"

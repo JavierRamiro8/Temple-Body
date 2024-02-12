@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function1;
 public class Actividad_Gimnasios extends AppCompatActivity {
 
     private MeowBottomNavigation bottomNavigation;
-    private FragmentContainerView fragmentSuplementos,fragmentGimnasiosCercanos,fragmentLogin,fragmentPerfil,fragmentCambioContrasena,fragmentConfiguracion,fragmentInformacion,fragmentRegistro;
+    private FragmentContainerView fragmentEjercicios,fragmentSuplementos,fragmentGimnasiosCercanos,fragmentLogin,fragmentPerfil,fragmentCambioContrasena,fragmentConfiguracion,fragmentInformacion,fragmentRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +26,11 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.manzana));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.mapa));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.usuario));
+        fragmentEjercicios=findViewById(R.id.fragmentEjercicios);
         fragmentSuplementos=findViewById(R.id.fragmentSuplementos);
         fragmentGimnasiosCercanos=findViewById(R.id.fragmentGimnasiosCercanos);
         fragmentLogin=findViewById(R.id.fragmentLogin);
+
         fragmentConfiguracion=findViewById(R.id.fragmentConfiguracion);
         fragmentInformacion=findViewById(R.id.fragmentInformacion);
         fragmentCambioContrasena=findViewById(R.id.fragmentCambioContrasena);
@@ -40,7 +42,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         fragmentCambioContrasena.setVisibility(View.INVISIBLE);
         fragmentPerfil.setVisibility(View.INVISIBLE);
         fragmentRegistro.setVisibility(View.INVISIBLE);
-
+        fragmentEjercicios.setVisibility(View.INVISIBLE);
         fragmentSuplementos.setVisibility(View.INVISIBLE);
         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
         bottomNavigation.show(4,false);
@@ -53,6 +55,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
 
                 switch(model.getId()){
                     case 1:
+                        fragmentEjercicios.setVisibility(View.VISIBLE);
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
                         fragmentLogin.setVisibility(View.INVISIBLE);
@@ -65,6 +68,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         break;
                     case 2:
                         fragmentSuplementos.setVisibility(View.VISIBLE);
+                        fragmentEjercicios.setVisibility(View.INVISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
                         fragmentLogin.setVisibility(View.INVISIBLE);
                         fragmentConfiguracion.setVisibility(View.INVISIBLE);
@@ -76,6 +80,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         break;
                     case 3:
                         fragmentGimnasiosCercanos.setVisibility(View.VISIBLE);
+                        fragmentEjercicios.setVisibility(View.INVISIBLE);
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
                         fragmentLogin.setVisibility(View.INVISIBLE);
                         fragmentConfiguracion.setVisibility(View.INVISIBLE);
@@ -87,6 +92,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         break;
                     case 4:
                         fragmentLogin.setVisibility(View.VISIBLE);
+                        fragmentEjercicios.setVisibility(View.INVISIBLE);
                         fragmentSuplementos.setVisibility(View.INVISIBLE);
                         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
                         fragmentConfiguracion.setVisibility(View.INVISIBLE);

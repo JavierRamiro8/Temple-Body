@@ -81,7 +81,7 @@ public class SuplementosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_suplementos, container, false);
-        spinnerSuplementos = layout.findViewById(R.id.spinnerSuplementos);
+        spinnerSuplementos = layout.findViewById(R.id.spinnerEjercicios);
 
         rcv = layout.findViewById(R.id.listaContenedorSuplementos);
         rcv.setLayoutManager(new LinearLayoutManager(requireContext()));

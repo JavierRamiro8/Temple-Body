@@ -42,6 +42,8 @@ dependencies {
     implementation ("com.etebarian:meow-bottom-navigation:1.2.0")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22")
     implementation ("com.google.android.material:material:1.11.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
 buildscript {
     repositories {
