@@ -57,5 +57,55 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentRegistro"
+        android:name="com.example.temple_body.Login.Registro"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentConfiguracion"
+        android:name="com.example.temple_body.Login.configuracion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentInformacion"
+        android:name="com.example.temple_body.Login.informacion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentCambioContrasena"
+        android:name="com.example.temple_body.Login.CambioContrasena"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentPerfil"
+        android:name="com.example.temple_body.Login.Perfil"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
