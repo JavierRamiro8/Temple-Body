@@ -48,12 +48,8 @@ public class Gimnasios {
         gimnasios.add(new Gimnasios("Synergym", 24.99, 4.2));
         gimnasios.add(new Gimnasios("DreamFit", 34.90, 4.2));
         gimnasios.add(new Gimnasios("McFit", 29.90, 4.1));
-        gimnasios.add(new Gimnasios("Gimnasio 9", 15, 4.6));
-        gimnasios.add(new Gimnasios("Gimnasio 10", 10, 1.7));
-        gimnasios.add(new Gimnasios("Gimnasio 11", 33, 3.3));
-        gimnasios.add(new Gimnasios("Gimnasio 12", 15, 2.6));
-        gimnasios.add(new Gimnasios("Gimnasio 13", 40, 4.1));
-        gimnasios.add(new Gimnasios("Gimnasio 14", 39, 4.3));
+        gimnasios.add(new Gimnasios("Go-Fit", 47.45, 4.2));
+        gimnasios.add(new Gimnasios("Holiday gym", 49, 3.6));
 
         return gimnasios;
     }

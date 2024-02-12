@@ -92,20 +92,22 @@ public class SuplementosFragment extends Fragment {
         prozis = layout.findViewById(R.id.tvProzis);
         big_supps = layout.findViewById(R.id.tvBig);
 
-        proe.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        proe.setText("Proe-Nutrition");
-
-        hsn.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        hsn.setText("HSN");
-
-        prozis.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        prozis.setText("Prozis");
-
-        big_supps.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-        big_supps.setText("Big-Supps");
-
-        marcasRecomendadas.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
         marcasRecomendadas.setText("Marcas Recomendadas");
+        marcasRecomendadas.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        proe.setText("Proe-Nutrition");
+        proe.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        hsn.setText("HSN");
+        hsn.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        prozis.setText("Prozis");
+        prozis.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+        big_supps.setText("Big-Supps");
+        big_supps.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+
+
 
         String opcion = spinnerSuplementos.getSelectedItem().toString();
         spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -176,7 +178,7 @@ public class SuplementosFragment extends Fragment {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
                 // app.
-                abrirWeb("https://refactoring.guru/es/design-patterns");
+                abrirWeb("");
             } else {
                 // Explain to the user that the feature is unavailable because the
                 // feature requires a permission that the user has denied. At the

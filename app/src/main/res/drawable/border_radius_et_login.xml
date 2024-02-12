@@ -4,6 +4,6 @@
     <!-- Fondo del TextView -->
     <solid android:color="#E5F4FF" />
 
-    <!-- Especifica las esquinas del borde (puedes ajustar el radio según tus necesidades) -->
+    <!-- Especifica las esquinas del borde -->
     <corners android:radius="8dp" />
 </shape>

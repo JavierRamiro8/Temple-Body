@@ -63,7 +63,6 @@ public class ListaSuplementos extends AppCompatActivity {
 
         String opcion = spinnerSuplementos.getSelectedItem().toString();
         spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view,
                                        int position, long id) {
@@ -87,7 +86,7 @@ public class ListaSuplementos extends AppCompatActivity {
                     this, Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://proenutrition.es/");
+                abrirWeb("https://proenutrition.es/module/iqitsearch/searchiqit?s=" + opcion);
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -98,7 +97,7 @@ public class ListaSuplementos extends AppCompatActivity {
                     this, Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://www.hsnstore.com/");
+                abrirWeb("https://www.hsnstore.com/?q=" + opcion);
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -109,7 +108,7 @@ public class ListaSuplementos extends AppCompatActivity {
                     this, Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://www.prozis.com/es/es");
+                abrirWeb("https://www.prozis.com/es/es/search?text=" + opcion);
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -120,7 +119,7 @@ public class ListaSuplementos extends AppCompatActivity {
                     this, Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://bigsupps.site/");
+                abrirWeb("https://bigsupps.site/search?type=product,article,page&q=*" + opcion + "*");
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -130,7 +129,7 @@ public class ListaSuplementos extends AppCompatActivity {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
                 // app.
-                abrirWeb("https://refactoring.guru/es/design-patterns");
+                abrirWeb("");
             } else {
                 // Explain to the user that the feature is unavailable because the
                 // feature requires a permission that the user has denied. At the
@@ -143,7 +142,6 @@ public class ListaSuplementos extends AppCompatActivity {
         a.setClickListener(new SuplementosAdapter.ItemClickListener() {
             @Override
             public void onClick(View view, int position, Suplementos suplemento) {
-
             }
         });
     }
