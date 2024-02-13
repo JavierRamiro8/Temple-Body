@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <Spinner
             android:id="@+id/spinnerEjercicios"
             style="@style/SpinnerTextStyle"
@@ -26,10 +27,10 @@
             app:layout_constraintBottom_toTopOf="@+id/recycleEjercicios"
             app:layout_constraintEnd_toEndOf="@+id/recycleEjercicios"
             app:layout_constraintStart_toStartOf="@+id/recycleEjercicios"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/TVNombreEjercicio" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/TVNombreEjercicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -59,7 +60,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerEjercicios"
-            app:layout_constraintVertical_bias="0.985" />
+            app:layout_constraintVertical_bias="0.985"></androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentDetalleEjercicio"
+            android:name="com.example.temple_body.Ejercicios.DetalleEjercicioFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#272727"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

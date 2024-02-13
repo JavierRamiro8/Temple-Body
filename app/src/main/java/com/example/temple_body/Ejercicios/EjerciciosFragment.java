@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,18 +28,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EjerciciosFragment extends Fragment {
-    private RecyclerView recyclerView;
+    private RecyclerView recycleEjercicios;
     private EjercicioAdapter adapter;
     private Spinner spinnerEjercicios;
+
+    private FragmentContainerView detalles;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ejercicios, container, false);
 
-        recyclerView = view.findViewById(R.id.recycleEjercicios);
+        recycleEjercicios = view.findViewById(R.id.recycleEjercicios);
         spinnerEjercicios = view.findViewById(R.id.spinnerEjercicios);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recycleEjercicios.setLayoutManager(new LinearLayoutManager(getContext()));
+        detalles=view.findViewById(R.id.fragmentDetalleEjercicio);
 
         // Agregar listener al Spinner para detectar cambios de selección
         spinnerEjercicios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -47,7 +53,6 @@ public class EjerciciosFragment extends Fragment {
 
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -55,7 +60,6 @@ public class EjerciciosFragment extends Fragment {
 
         return view;
     }
-
 
     private void getEjercicios() {
         Call<JsonArray> call;
@@ -77,8 +81,21 @@ public class EjerciciosFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         JsonArray jsonArray = response.body();
                         List<Ejercicio> listaEjercicios = parseJson(jsonArray);
+
+                        // Crear el adaptador
                         adapter = new EjercicioAdapter(listaEjercicios);
-                        recyclerView.setAdapter(adapter);
+
+                        // Establecer el listener en el adaptador
+                        adapter.setOnItemClickListener(new EjercicioAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(Ejercicio ejercicio) {
+                                // Manejar el clic aquí, abrir el detalle del ejercicio
+                                openDetalleEjercicioFragment(ejercicio);
+                            }
+                        });
+
+                        // Establecer el adaptador en el RecyclerView
+                        recycleEjercicios.setAdapter(adapter);
                     }
                 }
 
@@ -90,6 +107,14 @@ public class EjerciciosFragment extends Fragment {
         }
     }
 
+    private void openDetalleEjercicioFragment(Ejercicio ejercicio) {
+        DetalleEjercicioFragment detalleFragment = DetalleEjercicioFragment.newInstance(ejercicio.getName());
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentDetalleEjercicio, detalleFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+        detalles.setVisibility(View.VISIBLE);
+    }
 
     private List<Ejercicio> parseJson(JsonArray jsonArray) {
         List<Ejercicio> listaEjercicios = new ArrayList<>();
@@ -106,4 +131,6 @@ public class EjerciciosFragment extends Fragment {
 
         return listaEjercicios;
     }
+
 }
+
