@@ -63,7 +63,7 @@ public class EjerciciosFragment extends Fragment {
             call = ServiceEjercicios.getAPI().getEjercicio("biceps");
         } else if (spinnerEjercicios.getSelectedItem().toString().equals("Pecho")) {
             call = ServiceEjercicios.getAPI().getEjercicio("chest");
-        } else if (spinnerEjercicios.getSelectedItem().toString().equals("brazos")) {
+        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Brazos")) {
             call = ServiceEjercicios.getAPI().getEjercicio("forearms");
         } else{
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");

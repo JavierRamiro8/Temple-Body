@@ -54,7 +54,7 @@
             android:layout_height="49dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/border_radius_recycler_gimnasios"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/white"
             android:entries="@array/spinner_suplementos"
             android:textAlignment="center"
             android:textColor="#FFFFFF"

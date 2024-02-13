@@ -47,8 +47,8 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.Ejer
 
         public void bind(Ejercicio ejercicio) {
             nombreEjercicio.setText(ejercicio.getName());
-            musculoEjercicio.setText(ejercicio.getMuscle());
-            dificultadEjercicio.setText(ejercicio.getDifficulty());
+            musculoEjercicio.setText(ejercicio.getMuscle().toUpperCase());
+            dificultadEjercicio.setText(ejercicio.getDifficulty().toUpperCase());
         }
     }
 }
