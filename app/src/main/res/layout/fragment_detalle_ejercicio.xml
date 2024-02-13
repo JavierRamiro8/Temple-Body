@@ -16,7 +16,7 @@
             android:layout_width="136dp"
             android:layout_height="35dp"
             android:text="Peso"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.99"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.995"
@@ -58,7 +58,7 @@
             android:layout_width="136dp"
             android:layout_height="35dp"
             android:text="Series"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +72,7 @@
             android:layout_width="154dp"
             android:layout_height="33dp"
             android:text="Repeticiones"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:textColor="@color/spinner_text_color"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -96,16 +96,16 @@
             app:layout_constraintVertical_bias="0.183" />
 
         <TextView
-            android:id="@+id/Resultado"
-            android:layout_width="145dp"
-            android:layout_height="67dp"
-            android:textSize="24sp"
+            android:id="@+id/TVResultado"
+            android:layout_width="373dp"
+            android:layout_height="214dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.443"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.731" />
+            app:layout_constraintVertical_bias="0.839" />
 
         <TextView
             android:id="@+id/TVNombreEjercicio"
@@ -128,6 +128,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.023" />
+
+        <Button
+            android:id="@+id/BTGenerar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.53" />
+
+        <Button
+            android:id="@+id/BTSalir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salir"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TVResultado" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

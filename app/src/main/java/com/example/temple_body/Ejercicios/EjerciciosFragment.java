@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,26 +34,30 @@ public class EjerciciosFragment extends Fragment {
     private Spinner spinnerEjercicios;
 
     private FragmentContainerView detalles;
+    private View mainView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ejercicios, container, false);
 
+        mainView = view;
+
         recycleEjercicios = view.findViewById(R.id.recycleEjercicios);
         spinnerEjercicios = view.findViewById(R.id.spinnerEjercicios);
         recycleEjercicios.setLayoutManager(new LinearLayoutManager(getContext()));
-        detalles=view.findViewById(R.id.fragmentDetalleEjercicio);
+        detalles = view.findViewById(R.id.fragmentDetalleEjercicio);
 
         // Agregar listener al Spinner para detectar cambios de selección
         spinnerEjercicios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(spinnerEjercicios.getSelectedItemPosition()!=0){
+                if (spinnerEjercicios.getSelectedItemPosition() != 0) {
                     getEjercicios();
 
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -69,7 +74,7 @@ public class EjerciciosFragment extends Fragment {
             call = ServiceEjercicios.getAPI().getEjercicio("chest");
         } else if (spinnerEjercicios.getSelectedItem().toString().equals("Brazos")) {
             call = ServiceEjercicios.getAPI().getEjercicio("forearms");
-        } else{
+        } else {
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");
         }
 
@@ -81,20 +86,13 @@ public class EjerciciosFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         JsonArray jsonArray = response.body();
                         List<Ejercicio> listaEjercicios = parseJson(jsonArray);
-
-                        // Crear el adaptador
                         adapter = new EjercicioAdapter(listaEjercicios);
-
-                        // Establecer el listener en el adaptador
                         adapter.setOnItemClickListener(new EjercicioAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(Ejercicio ejercicio) {
-                                // Manejar el clic aquí, abrir el detalle del ejercicio
                                 openDetalleEjercicioFragment(ejercicio);
                             }
                         });
-
-                        // Establecer el adaptador en el RecyclerView
                         recycleEjercicios.setAdapter(adapter);
                     }
                 }
@@ -111,9 +109,23 @@ public class EjerciciosFragment extends Fragment {
         DetalleEjercicioFragment detalleFragment = DetalleEjercicioFragment.newInstance(ejercicio.getName());
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentDetalleEjercicio, detalleFragment);
-        transaction.addToBackStack(null);
+        transaction.addToBackStack("detalleEjercicio");
         transaction.commit();
         detalles.setVisibility(View.VISIBLE);
+        View mainView = getView();
+        if (mainView != null) {
+            mainView.setClickable(false);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        detalles.setVisibility(View.INVISIBLE);
+        View mainView = getView();
+        if (mainView != null) {
+            mainView.setClickable(true);
+        }
     }
 
     private List<Ejercicio> parseJson(JsonArray jsonArray) {
