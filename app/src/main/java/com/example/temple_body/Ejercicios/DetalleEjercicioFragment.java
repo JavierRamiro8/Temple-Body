@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.temple_body.Login.loginPrincipal;
 import com.example.temple_body.R;
 
 import org.w3c.dom.Text;
@@ -91,7 +92,11 @@ public class DetalleEjercicioFragment extends Fragment {
             }
         });
         salir.setOnClickListener(v -> {
-            getParentFragmentManager().popBackStackImmediate();
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentEjercicios, new EjerciciosFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
 
         return view;
