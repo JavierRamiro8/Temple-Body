@@ -2,9 +2,21 @@
 <resources>
     <string-array name="spinner_ejercicios">
         <item>Selecciona Musculo</item>
-        <item>Biceps</item>
-        <item>Pecho</item>
-        <item>Brazos</item>
         <item>Abdominales</item>
+        <item>Abductores</item>
+        <item>Adductores</item>
+        <item>Biceps</item>
+        <item>Gemelos</item>
+        <item>Pecho</item>
+        <item>Antebrazos</item>
+        <item>Gluteos</item>
+        <item>Femoral</item>
+        <item>Dorsales</item>
+        <item>Lumbar</item>
+        <item>Espalda Media</item>
+        <item>Cuello</item>
+        <item>Cuadriceps</item>
+        <item>Trapecios</item>
+        <item>Triceps</item>
     </string-array>
 </resources>

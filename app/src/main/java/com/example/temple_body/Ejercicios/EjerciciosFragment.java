@@ -68,17 +68,40 @@ public class EjerciciosFragment extends Fragment {
 
     private void getEjercicios() {
         Call<JsonArray> call;
-        if (spinnerEjercicios.getSelectedItem().toString().equals("Biceps")) {
-            call = ServiceEjercicios.getAPI().getEjercicio("biceps");
-        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Pecho")) {
-            call = ServiceEjercicios.getAPI().getEjercicio("chest");
-        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Brazos")) {
-            call = ServiceEjercicios.getAPI().getEjercicio("forearms");
-        } else {
+        if (spinnerEjercicios.getSelectedItem().toString().equals("Abdominales")) {
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");
+        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Abductores")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("abductors");
+        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Adductores")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("adductors");
+        } else if(spinnerEjercicios.getSelectedItem().toString().equals("Biceps")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("biceps");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Gemelos")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("calves");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Pecho")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("chest");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Antebrazos")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("forearms");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Gluteos")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("glutes");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Femoral")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("hamstrings");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Dorsales")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("lats");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Lumbar")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("lower_back");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Espalda Media")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("middle_back");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Cuello")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("neck");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Cuadriceps")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("quadriceps");
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Trapecios")) {
+            call = ServiceEjercicios.getAPI().getEjercicio("traps");
+        }else {
+            call = ServiceEjercicios.getAPI().getEjercicio("triceps");
         }
 
-        // Verificar que la llamada no sea nula
         if (call != null) {
             call.enqueue(new Callback<JsonArray>() {
                 @Override
@@ -115,16 +138,6 @@ public class EjerciciosFragment extends Fragment {
         View mainView = getView();
         if (mainView != null) {
             mainView.setClickable(false);
-        }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        detalles.setVisibility(View.INVISIBLE);
-        View mainView = getView();
-        if (mainView != null) {
-            mainView.setClickable(true);
         }
     }
 
