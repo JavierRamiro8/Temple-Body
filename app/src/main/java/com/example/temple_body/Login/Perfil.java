@@ -4,8 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.temple_body.R;
 
@@ -51,11 +55,48 @@ public class Perfil extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    EditText etNombre, etCorreo;
+    Button btInformacion, btConfiguracion, btCerrarSesion;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View layout = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        etNombre = layout.findViewById(R.id.APetNombrePerfil);
+        etCorreo = layout.findViewById(R.id.APetEmail);
+        btConfiguracion = layout.findViewById(R.id.APbtConfiguracion);
+        btInformacion = layout.findViewById(R.id.APbtInformacion);
+        btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
+
+        etNombre.setText(loginPrincipal.User.toString());
+        etCorreo.setText(loginPrincipal.Pass.toString());
+
+        btConfiguracion.setOnClickListener((v)->{
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentLogin, new configuracion());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+        btInformacion.setOnClickListener((v)->{
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentLogin, new informacion());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+        btCerrarSesion.setOnClickListener((v)->{
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentLogin, new loginPrincipal());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+        return layout;
     }
 }

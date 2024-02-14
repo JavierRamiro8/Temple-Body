@@ -108,6 +108,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentInformacionLegal"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragPoliticasInformacion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentCondicionesUso"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragCondicionesUso"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentReglamento"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragReglamento"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#272727"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentEjercicios"
         android:name="com.example.temple_body.Ejercicios.EjerciciosFragment"
         android:layout_width="0dp"

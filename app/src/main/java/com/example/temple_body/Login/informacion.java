@@ -4,9 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.temple_body.Login.fragmentsInformacion.fragCondicionesUso;
+import com.example.temple_body.Login.fragmentsInformacion.fragPoliticasInformacion;
+import com.example.temple_body.Login.fragmentsInformacion.fragReglamento;
 import com.example.temple_body.R;
 
 /**
@@ -55,11 +61,64 @@ public class informacion extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+    Button btInformacion, btCondiciones, btReglamento, btActulizaciones, btRegresar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_informacion, container, false);
+        View layout = inflater.inflate(R.layout.fragment_informacion, container, false);
+
+        btInformacion = layout.findViewById(R.id.AIbtInformacionLegal);
+        btReglamento = layout.findViewById(R.id.AIbtReglamento);
+        btCondiciones = layout.findViewById(R.id.AIbtCondicionesUso);
+        btActulizaciones = layout.findViewById(R.id.AIbtActualizaciones);
+        btRegresar = layout.findViewById(R.id.ACbtRegresar);
+
+        btInformacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new fragPoliticasInformacion());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btReglamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new fragReglamento());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btCondiciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new fragCondicionesUso());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new Perfil());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        return layout;
     }
 }

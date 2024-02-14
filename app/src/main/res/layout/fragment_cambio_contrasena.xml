@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.CambioContrasena">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#005393"
-        tools:context=".ActivityCambioPassword">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvIVlogo"
-            android:layout_width="0dp"
-            android:layout_height="165dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:background="#000000"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_logo"
             android:layout_width="305dp"
             android:layout_height="145dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/templebody"
             app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
             app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
             app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo" />
+            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/templebody" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/icono3"
+        tools:context=".ActivityCambioPassword">
 
         <TextView
             android:id="@+id/tv_CambioPass"
@@ -43,15 +51,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Cambio de Contraseña"
-            android:textColor="#FFFFFF"
+            android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
 
         <EditText
             android:id="@+id/acp_et_usuario"
@@ -105,13 +113,15 @@
             app:layout_constraintVertical_bias="0.05" />
 
         <Button
-            android:id="@+id/btRegistro"
+            android:id="@+id/btCambiar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:backgroundTint="#000000"
             android:text="Cambiar"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

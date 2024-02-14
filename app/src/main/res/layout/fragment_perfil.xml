@@ -1,129 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.loginPrincipal">
+    tools:context=".Login.Perfil">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvIVlogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#000000"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="305dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/templebody"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
+            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
+            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
+            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/templebody" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#005393"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/icono3"
         tools:context=".perfil">
 
-    <TextView
-        android:id="@+id/tvIVlogo"
-        android:layout_width="0dp"
-        android:layout_height="165dp"
-        android:background="#000000"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <EditText
+            android:id="@+id/APetNombrePerfil"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.15" />
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="305dp"
-        android:layout_height="145dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/templebody"
-        app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-        app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-        app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-        app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-        app:srcCompat="@drawable/templebody" />
+        <EditText
+            android:id="@+id/APetEmail"
+            android:layout_width="350dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/APetNombrePerfil"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/APetNombrePerfil"
+            app:layout_constraintTop_toBottomOf="@+id/APetNombrePerfil"
+            app:layout_constraintVertical_bias="0.15" />
 
-    <TextView
-        android:id="@+id/tvNegro"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:background="#005393"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvIVlogo"
-        app:layout_constraintVertical_bias="0.2" />
+        <Button
+            android:id="@+id/APbtInformacion"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Informacion"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="#FFC107"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/APetEmail"
+            app:layout_constraintStart_toStartOf="@+id/APetEmail"
+            app:layout_constraintTop_toBottomOf="@+id/APetEmail"
+            app:layout_constraintVertical_bias="0.25" />
 
-    <EditText
-        android:id="@+id/APetNombrePerfil"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#FFFFFF"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvNegro"
-        app:layout_constraintEnd_toEndOf="@+id/tvNegro"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/tvNegro"
-        app:layout_constraintTop_toTopOf="@+id/tvNegro"
-        app:layout_constraintVertical_bias="0.12" />
+        <Button
+            android:id="@+id/APbtConfiguracion"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:text="Configuracion"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="#FFC107"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
+            app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
+            app:layout_constraintTop_toBottomOf="@+id/APbtInformacion"
+            app:layout_constraintVertical_bias="0.20" />
 
-    <EditText
-        android:id="@+id/APetEmail"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:text="Email"
-        android:inputType="textEmailAddress"
-        android:backgroundTint="#FFFFFF"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tvNegro"
-        app:layout_constraintEnd_toEndOf="@+id/tvNegro"
-        app:layout_constraintStart_toStartOf="@+id/tvNegro"
-        app:layout_constraintTop_toBottomOf="@+id/APetNombrePerfil" />
+        <Button
+            android:id="@+id/APbtCerrarSesion"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#F44336"
+            android:text="Cerrar Sesion"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/APbtConfiguracion"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
+            app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion"
+            app:layout_constraintVertical_bias="0.30" />
 
-    <Button
-        android:id="@+id/APbtInformacion"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#FFE500"
-        android:text="Informacion"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNegro"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <Button
-        android:id="@+id/APbtConfiguracion"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#FFE500"
-        android:text="Configuracion"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/APbtInformacion"
-        app:layout_constraintVertical_bias="0.10" />
-
-    <Button
-        android:id="@+id/APbtCerrarSesion"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#F44336"
-        android:text="Cerrar Sesion"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion"
-        app:layout_constraintVertical_bias="0.15" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

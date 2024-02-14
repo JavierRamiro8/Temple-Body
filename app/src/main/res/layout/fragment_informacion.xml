@@ -8,26 +8,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#005393"
-        tools:context=".InfromacionActivity">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvIVlogo"
-            android:layout_width="0dp"
-            android:layout_height="165dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:background="#000000"
             android:text=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_logo"
             android:layout_width="305dp"
             android:layout_height="145dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/templebody"
@@ -35,43 +34,41 @@
             app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
             app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
             app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/templebody" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <TextView
-            android:id="@+id/tvNegro"
-            android:layout_width="0dp"
-            android:layout_height="225dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.087" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/icono3"
+        tools:context=".InfromacionActivity">
 
         <Button
             android:id="@+id/AIbtInformacionLegal"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
             android:background="@drawable/transparente"
-            android:text="Informacion Legal"
+            android:text="Informacion Legal y Politicas de Privacidad"
             android:textAlignment="viewStart"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvNegro"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.20" />
 
         <Button
-            android:id="@+id/AIbtPoliticaPrivacidad"
+            android:id="@+id/AIbtCondicionesUso"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/transparente"
-            android:text="Politica de Privacidad."
+            android:text="Condiciones de Uso."
             android:textAlignment="viewStart"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -80,26 +77,14 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/AIbtCondicionesUso"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:background="@drawable/transparente"
-            android:text="Condiciones de Uso."
-            android:textAlignment="viewStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtPoliticaPrivacidad"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
             android:id="@+id/AIbtReglamento"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/transparente"
             android:text="Reglamento la UE 2021/1232"
             android:textAlignment="viewStart"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -110,10 +95,12 @@
         <Button
             android:id="@+id/AIbtActualizaciones"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/transparente"
             android:text="Actualiza la App."
             android:textAlignment="viewStart"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -122,17 +109,18 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/AIbtRegresar"
+            android:id="@+id/ACbtRegresar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:backgroundTint="#FFE500"
             android:text="Regresar"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNegro" />
+            app:layout_constraintTop_toBottomOf="@+id/AIbtActualizaciones" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

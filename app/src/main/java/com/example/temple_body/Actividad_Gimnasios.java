@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function1;
 public class Actividad_Gimnasios extends AppCompatActivity {
 
     private MeowBottomNavigation bottomNavigation;
-    private FragmentContainerView fragmentEjercicios,fragmentSuplementos,fragmentGimnasiosCercanos,fragmentLogin,fragmentPerfil,fragmentCambioContrasena,fragmentConfiguracion,fragmentInformacion,fragmentRegistro;
+    private FragmentContainerView fragmentEjercicios,fragmentSuplementos,fragmentGimnasiosCercanos,fragmentLogin,fragmentPerfil,fragmentCambioContrasena,fragmentConfiguracion,fragmentInformacion,fragmentRegistro,fragmentPoliticasInformacion,fragmentCondicionesUso,fragmentReglamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,10 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         fragmentCambioContrasena=findViewById(R.id.fragmentCambioContrasena);
         fragmentPerfil=findViewById(R.id.fragmentPerfil);
         fragmentRegistro=findViewById(R.id.fragmentRegistro);
+        fragmentPoliticasInformacion=findViewById(R.id.fragmentInformacionLegal);
+        fragmentReglamento=findViewById(R.id.fragmentReglamento);
+        fragmentCondicionesUso=findViewById(R.id.fragmentCondicionesUso);
+
 
         fragmentConfiguracion.setVisibility(View.INVISIBLE);
         fragmentInformacion.setVisibility(View.INVISIBLE);
@@ -45,6 +49,9 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         fragmentEjercicios.setVisibility(View.INVISIBLE);
         fragmentSuplementos.setVisibility(View.INVISIBLE);
         fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
+        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
+        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
+        fragmentReglamento.setVisibility(View.INVISIBLE);
         bottomNavigation.show(4,false);
 
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
@@ -64,6 +71,9 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         fragmentCambioContrasena.setVisibility(View.INVISIBLE);
                         fragmentPerfil.setVisibility(View.INVISIBLE);
                         fragmentRegistro.setVisibility(View.INVISIBLE);
+                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
+                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
+                        fragmentReglamento.setVisibility(View.INVISIBLE);
 
                         break;
                     case 2:
@@ -76,6 +86,9 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         fragmentCambioContrasena.setVisibility(View.INVISIBLE);
                         fragmentPerfil.setVisibility(View.INVISIBLE);
                         fragmentRegistro.setVisibility(View.INVISIBLE);
+                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
+                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
+                        fragmentReglamento.setVisibility(View.INVISIBLE);
 
                         break;
                     case 3:
@@ -88,6 +101,9 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         fragmentCambioContrasena.setVisibility(View.INVISIBLE);
                         fragmentPerfil.setVisibility(View.INVISIBLE);
                         fragmentRegistro.setVisibility(View.INVISIBLE);
+                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
+                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
+                        fragmentReglamento.setVisibility(View.INVISIBLE);
 
                         break;
                     case 4:
@@ -100,6 +116,9 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                         fragmentCambioContrasena.setVisibility(View.INVISIBLE);
                         fragmentPerfil.setVisibility(View.INVISIBLE);
                         fragmentRegistro.setVisibility(View.INVISIBLE);
+                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
+                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
+                        fragmentReglamento.setVisibility(View.INVISIBLE);
 
                         break;
                 }

@@ -58,13 +58,13 @@
             android:textColor="#FFC107"
             android:textSize="60sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/et_usuario"
-            app:layout_constraintEnd_toEndOf="@+id/et_usuario"
-            app:layout_constraintStart_toStartOf="@+id/et_usuario"
+            app:layout_constraintBottom_toTopOf="@+id/ALetUsuario"
+            app:layout_constraintEnd_toEndOf="@+id/ALetUsuario"
+            app:layout_constraintStart_toStartOf="@+id/ALetUsuario"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_usuario"
+            android:id="@+id/ALetUsuario"
             android:layout_width="334dp"
             android:layout_height="62dp"
             android:layout_marginTop="70dp"
@@ -74,13 +74,13 @@
             android:inputType="text"
             android:padding="15dp"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/et_password"
-            app:layout_constraintEnd_toEndOf="@+id/et_password"
-            app:layout_constraintStart_toStartOf="@+id/et_password"
+            app:layout_constraintBottom_toTopOf="@+id/ALetPassword"
+            app:layout_constraintEnd_toEndOf="@+id/ALetPassword"
+            app:layout_constraintStart_toStartOf="@+id/ALetPassword"
             app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/ALetPassword"
             android:layout_width="334dp"
             android:layout_height="62dp"
             android:layout_marginHorizontal="20dp"
@@ -91,28 +91,29 @@
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/button_accept"
-            app:layout_constraintEnd_toEndOf="@+id/button_accept"
-            app:layout_constraintStart_toStartOf="@+id/button_accept"
-            app:layout_constraintTop_toBottomOf="@+id/et_usuario" />
+            app:layout_constraintBottom_toTopOf="@+id/ALbtAccept"
+            app:layout_constraintEnd_toEndOf="@+id/ALbtAccept"
+            app:layout_constraintStart_toStartOf="@+id/ALbtAccept"
+            app:layout_constraintTop_toBottomOf="@+id/ALetUsuario" />
 
         <Button
-            android:id="@+id/button_accept"
+            android:id="@+id/ALbtAccept"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="238dp"
             android:layout_height="52dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="32dp"
             android:text="Aceptar"
+            android:textSize="18sp"
             android:textColor="#000000"
             app:backgroundTint="#FFC107"
-            app:layout_constraintBottom_toTopOf="@+id/register_link"
-            app:layout_constraintEnd_toEndOf="@+id/register_link"
-            app:layout_constraintStart_toStartOf="@+id/register_link"
-            app:layout_constraintTop_toBottomOf="@+id/et_password" />
+            app:layout_constraintBottom_toTopOf="@+id/ALtvRegisterlink"
+            app:layout_constraintEnd_toEndOf="@+id/ALtvRegisterlink"
+            app:layout_constraintStart_toStartOf="@+id/ALtvRegisterlink"
+            app:layout_constraintTop_toBottomOf="@+id/ALetPassword" />
 
         <TextView
-            android:id="@+id/register_link"
+            android:id="@+id/ALtvRegisterlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -123,7 +124,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvBienvenida"
-            app:layout_constraintTop_toBottomOf="@+id/button_accept" />
+            app:layout_constraintTop_toBottomOf="@+id/ALbtAccept" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

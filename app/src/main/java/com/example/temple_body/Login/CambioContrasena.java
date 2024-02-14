@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
@@ -56,10 +57,19 @@ public class CambioContrasena extends Fragment {
         }
     }
 
+    EditText etUsuario, etPassOld, etPassNew;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cambio_contrasena, container, false);
+        View layout = inflater.inflate(R.layout.fragment_cambio_contrasena, container, false);
+
+        etUsuario = layout.findViewById(R.id.acp_et_usuario);
+        etPassOld = layout.findViewById(R.id.acp_et_OLDpassword);
+        etPassNew = layout.findViewById(R.id.acp_et_NEWpassword);
+
+
+        return layout;
     }
 }
