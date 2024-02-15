@@ -71,7 +71,7 @@ public class Perfil extends Fragment {
         btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
 
         etNombre.setText(loginPrincipal.User.toString());
-        etCorreo.setText(loginPrincipal.Pass.toString());
+        etCorreo.setText(loginPrincipal.User.toString().trim()+"@gmail.com");
 
         btConfiguracion.setOnClickListener((v)->{
             FragmentManager fragmentManager = getParentFragmentManager();

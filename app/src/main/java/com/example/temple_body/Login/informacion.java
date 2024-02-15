@@ -61,7 +61,7 @@ public class informacion extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    Button btInformacion, btCondiciones, btReglamento, btActulizaciones, btRegresar;
+    Button btInformacion, btCondiciones, btReglamento, btRegresar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,7 +72,6 @@ public class informacion extends Fragment {
         btInformacion = layout.findViewById(R.id.AIbtInformacionLegal);
         btReglamento = layout.findViewById(R.id.AIbtReglamento);
         btCondiciones = layout.findViewById(R.id.AIbtCondicionesUso);
-        btActulizaciones = layout.findViewById(R.id.AIbtActualizaciones);
         btRegresar = layout.findViewById(R.id.ACbtRegresar);
 
         btInformacion.setOnClickListener(new View.OnClickListener() {

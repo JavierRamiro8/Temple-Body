@@ -183,16 +183,6 @@ public class configuracion extends Fragment {
 
         btActualiza.setOnClickListener((v)->{
             pbActuliza.setVisibility(View.VISIBLE);
-            new Thread(
-                    ()->{
-                        try {
-                            Thread.sleep((long) ((Math.random() * DELAY) + DELAY));
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-            ).start();
-            pbActuliza.setVisibility(View.INVISIBLE);
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle("Info")
                     .setMessage("Tu APP esta actualizada a la ultima version!")
@@ -200,6 +190,8 @@ public class configuracion extends Fragment {
 
             AlertDialog dialog = builder.create();
             dialog.show();
+            pbActuliza.setVisibility(View.INVISIBLE);
+
         });
 
         return layout;

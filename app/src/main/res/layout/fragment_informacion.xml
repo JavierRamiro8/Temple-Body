@@ -48,11 +48,13 @@
         <Button
             android:id="@+id/AIbtInformacionLegal"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:background="@drawable/transparente"
+            android:layout_height="60dp"
             android:text="Informacion Legal y Politicas de Privacidad"
             android:textAlignment="viewStart"
             android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:backgroundTint="#4B8C8C8C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -63,12 +65,14 @@
         <Button
             android:id="@+id/AIbtCondicionesUso"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/transparente"
             android:text="Condiciones de Uso."
             android:textAlignment="viewStart"
             android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:backgroundTint="#4B8C8C8C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -79,33 +83,19 @@
         <Button
             android:id="@+id/AIbtReglamento"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/transparente"
             android:text="Reglamento la UE 2021/1232"
             android:textAlignment="viewStart"
             android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:backgroundTint="#4B8C8C8C"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/AIbtCondicionesUso"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/AIbtActualizaciones"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/transparente"
-            android:text="Actualiza la App."
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtReglamento"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
@@ -120,7 +110,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtActualizaciones" />
+            app:layout_constraintTop_toBottomOf="@+id/AIbtReglamento" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

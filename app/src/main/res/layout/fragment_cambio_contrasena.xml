@@ -46,7 +46,7 @@
         tools:context=".ActivityCambioPassword">
 
         <TextView
-            android:id="@+id/tv_CambioPass"
+            android:id="@+id/ACPtvCambioPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -62,7 +62,7 @@
             app:layout_constraintVertical_bias="0.15" />
 
         <EditText
-            android:id="@+id/acp_et_usuario"
+            android:id="@+id/ACPetUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -75,11 +75,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_CambioPass"
+            app:layout_constraintTop_toBottomOf="@+id/ACPtvCambioPass"
             app:layout_constraintVertical_bias="0.05" />
 
         <EditText
-            android:id="@+id/acp_et_OLDpassword"
+            android:id="@+id/ACPetOLDpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -92,11 +92,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acp_et_usuario"
+            app:layout_constraintTop_toBottomOf="@+id/ACPetUsuario"
             app:layout_constraintVertical_bias="0.05" />
 
         <EditText
-            android:id="@+id/acp_et_NEWpassword"
+            android:id="@+id/ACPetNEWpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -109,24 +109,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acp_et_OLDpassword"
+            app:layout_constraintTop_toBottomOf="@+id/ACPetOLDpassword"
             app:layout_constraintVertical_bias="0.05" />
 
         <Button
-            android:id="@+id/btCambiar"
+            android:id="@+id/ACPbtCambiar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:text="Cambiar"
+            android:text="¡Cambiar!"
             android:textColor="#000000"
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acp_et_NEWpassword"
+            app:layout_constraintTop_toBottomOf="@+id/ACPetNEWpassword"
             app:layout_constraintVertical_bias="0.25" />
+
+        <Button
+            android:id="@+id/ACPbtRegresar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:text="Regresar"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:backgroundTint="#FFC107"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ACPbtCambiar"
+            app:layout_constraintStart_toStartOf="@+id/ACPbtCambiar"
+            app:layout_constraintTop_toBottomOf="@+id/ACPbtCambiar"
+            app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

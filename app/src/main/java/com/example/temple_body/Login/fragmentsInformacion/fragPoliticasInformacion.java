@@ -3,12 +3,16 @@ package com.example.temple_body.Login.fragmentsInformacion;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.temple_body.Login.informacion;
 import com.example.temple_body.R;
 
 /**
@@ -59,14 +63,17 @@ public class fragPoliticasInformacion extends Fragment {
     }
 
     TextView tvTexto;
+    Button btRegresar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_frag_politicas_informacion, container, false);
+
+        btRegresar = layout.findViewById(R.id.AIPbtRegreso);
         tvTexto = layout.findViewById(R.id.fragmentInformacionLegal);
 
-        tvTexto.setText("Informacion y Politicas de privacidad de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+        tvTexto.setText("\n \n \n"+"Informacion y Politicas de privacidad de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
                 "\n" +
                 "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física con nosotros, te pedimos que leas detenidamente nuestra informacion y politica de privacidad a continuación: \n" +"1. Aceptación de los Términos:\n" +
                 "Al acceder y utilizar la aplicación Temple Body, aceptas cumplir con estos términos de uso. Si no estás de acuerdo con alguna parte de estos términos, te recomendamos que no utilices nuestra aplicación.\n" +
@@ -82,7 +89,18 @@ public class fragPoliticasInformacion extends Fragment {
                 "Todos los derechos de propiedad intelectual relacionados con Temple Body, incluidos pero no limitados a logos, imágenes y contenido, son propiedad exclusiva de Temple Body. No está permitido copiar, modificar, distribuir o reproducir ningún elemento sin nuestro consentimiento explícito." +
                 "Al utilizar Temple Body, te unes a una comunidad dedicada al bienestar y la salud. ¡Estamos emocionados de ser parte de tu viaje de fitness! ¡Entrena con determinación y alcanza tus metas con Temple Body!\n" +
                 "\n" +
-                "Fecha de entrada en vigencia: [01/01/2024]");
+                "Fecha de entrada en vigencia: [01/01/2024]"+"\n \n \n");
+
+        btRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new informacion());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
 
         return layout;
     }

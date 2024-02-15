@@ -107,7 +107,7 @@
             app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
             app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
             app:layout_constraintTop_toBottomOf="@+id/APbtInformacion"
-            app:layout_constraintVertical_bias="0.20" />
+            app:layout_constraintVertical_bias="0.17" />
 
         <Button
             android:id="@+id/APbtCerrarSesion"

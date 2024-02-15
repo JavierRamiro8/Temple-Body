@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.temple_body.R;
 
@@ -58,6 +61,7 @@ public class CambioContrasena extends Fragment {
     }
 
     EditText etUsuario, etPassOld, etPassNew;
+    Button btCambiar, btRegresar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,9 +69,22 @@ public class CambioContrasena extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_cambio_contrasena, container, false);
 
-        etUsuario = layout.findViewById(R.id.acp_et_usuario);
-        etPassOld = layout.findViewById(R.id.acp_et_OLDpassword);
-        etPassNew = layout.findViewById(R.id.acp_et_NEWpassword);
+        etUsuario = layout.findViewById(R.id.ACPetUsuario);
+        etPassOld = layout.findViewById(R.id.ACPetOLDpassword);
+        etPassNew = layout.findViewById(R.id.ACPetNEWpassword);
+        btCambiar = layout.findViewById(R.id.ACPbtCambiar);
+        btRegresar = layout.findViewById(R.id.ACPbtRegresar);
+
+        btRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new configuracion());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
 
 
         return layout;
