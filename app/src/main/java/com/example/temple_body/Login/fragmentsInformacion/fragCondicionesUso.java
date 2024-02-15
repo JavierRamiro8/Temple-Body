@@ -73,7 +73,7 @@ public class fragCondicionesUso extends Fragment {
         btRegresar = layout.findViewById(R.id.ACUbtRegreso);
         tvTexto = layout.findViewById(R.id.fragmentCondicionesUso);
 
-        tvTexto.setText("\n \n \n"+"Condiciones de Uso de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+        tvTexto.setText("\n"+"Condiciones de Uso de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
                 "\n" +
                 "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física con nosotros, te pedimos que leas detenidamente nuestras condiciones de uso a continuación: \n" +
                 "1. Uso Adecuado:\n" +

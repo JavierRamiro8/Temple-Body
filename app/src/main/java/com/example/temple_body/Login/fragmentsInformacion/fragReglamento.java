@@ -73,7 +73,7 @@ public class fragReglamento extends Fragment {
         btRegresar = layout.findViewById(R.id.ARbtRegreso);
         tvTexto = layout.findViewById(R.id.fragmentReglamento);
 
-        tvTexto.setText("\n \n \n"+"Reglamento (UE) 2021/1232 \n"+"Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+        tvTexto.setText("\n"+"Reglamento (UE) 2021/1232 \n"+"Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
                 "\n" +
                 "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte" +
                 " una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física " +

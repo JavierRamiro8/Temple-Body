@@ -45,39 +45,35 @@
         android:background="@drawable/icono3"
         tools:context=".perfil">
 
-        <EditText
-            android:id="@+id/APetNombrePerfil"
+        <TextView
+            android:id="@+id/APtvNombrePerfil"
             android:layout_width="350dp"
-            android:layout_height="55dp"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
+            android:layout_height="40dp"
             android:text="Name"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintVertical_bias="0.353" />
 
-        <EditText
-            android:id="@+id/APetEmail"
+        <TextView
+            android:id="@+id/APtvEmail"
             android:layout_width="350dp"
-            android:layout_height="55dp"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="textEmailAddress"
+            android:layout_height="40dp"
             android:text="Email"
-            android:textColor="@color/white"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APetNombrePerfil"
+            app:layout_constraintEnd_toEndOf="@+id/APtvNombrePerfil"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/APetNombrePerfil"
-            app:layout_constraintTop_toBottomOf="@+id/APetNombrePerfil"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintStart_toStartOf="@+id/APtvNombrePerfil"
+            app:layout_constraintTop_toBottomOf="@+id/APtvNombrePerfil"
+            app:layout_constraintVertical_bias="0.10" />
 
         <Button
             android:id="@+id/APbtInformacion"
@@ -89,10 +85,10 @@
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APetEmail"
-            app:layout_constraintStart_toStartOf="@+id/APetEmail"
-            app:layout_constraintTop_toBottomOf="@+id/APetEmail"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintEnd_toEndOf="@+id/APtvEmail"
+            app:layout_constraintStart_toStartOf="@+id/APtvEmail"
+            app:layout_constraintTop_toBottomOf="@+id/APtvEmail"
+            app:layout_constraintVertical_bias="0.15" />
 
         <Button
             android:id="@+id/APbtConfiguracion"
@@ -124,6 +120,20 @@
             app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
             app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion"
             app:layout_constraintVertical_bias="0.30" />
+
+        <ImageButton
+            android:id="@+id/APibAvatarPerfil"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/usuario"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toTopOf="@+id/APtvNombrePerfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

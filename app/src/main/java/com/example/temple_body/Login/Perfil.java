@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -55,8 +58,10 @@ public class Perfil extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    EditText etNombre, etCorreo;
+    TextView etNombre, etCorreo;
     Button btInformacion, btConfiguracion, btCerrarSesion;
+
+    ImageButton ibAvatar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,11 +69,12 @@ public class Perfil extends Fragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        etNombre = layout.findViewById(R.id.APetNombrePerfil);
-        etCorreo = layout.findViewById(R.id.APetEmail);
+        etNombre = layout.findViewById(R.id.APtvNombrePerfil);
+        etCorreo = layout.findViewById(R.id.APtvEmail);
         btConfiguracion = layout.findViewById(R.id.APbtConfiguracion);
         btInformacion = layout.findViewById(R.id.APbtInformacion);
         btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
+        ibAvatar = layout.findViewById(R.id.APibAvatarPerfil);
 
         etNombre.setText(loginPrincipal.User.toString());
         etCorreo.setText(loginPrincipal.User.toString().trim()+"@gmail.com");

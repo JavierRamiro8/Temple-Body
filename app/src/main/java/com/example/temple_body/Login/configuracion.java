@@ -68,10 +68,9 @@ public class configuracion extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    Button btinfProblema, btTelegram, btProbCuenta, btCambiaContra, btRegresar, btActualiza;
-    ProgressBar pbActuliza;
+    Button btinfProblema, btActualiza, btProbCuenta, btRegresar, btModificar;
+    ProgressBar pbActualiza;
     ActivityResultLauncher<String> requestPermissionLauncher;
-    private static final double DELAY = 2000;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,14 +79,13 @@ public class configuracion extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_configuracion, container, false);
 
         btinfProblema = layout.findViewById(R.id.ACbtInformacionProblema);
-        btCambiaContra = layout.findViewById(R.id.ACbtCambiarContra);
-        btRegresar = layout.findViewById(R.id.ACbtRegresar);
-        btTelegram = layout.findViewById(R.id.ACbtTelegram);
-        btProbCuenta  = layout.findViewById(R.id.ACbtProblemasCuenta);
         btActualiza = layout.findViewById(R.id.ACbtActulizarAPP);
-        pbActuliza = layout.findViewById(R.id.ACpbActualizacion);
+        pbActualiza = layout.findViewById(R.id.ACpbActualizacion);
+        btRegresar = layout.findViewById(R.id.ACbtRegresar);
+        btProbCuenta  = layout.findViewById(R.id.ACbtProblemasCuenta);
+        btModificar = layout.findViewById(R.id.ACbtModificarDatos);
 
-        pbActuliza.setVisibility(View.INVISIBLE);
+        pbActualiza.setVisibility(View.INVISIBLE);
 
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
@@ -95,7 +93,6 @@ public class configuracion extends Fragment {
                 // app.
                 requestCorreo();
                 requestLlamada();
-                requestTelegram();
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Error")
@@ -135,29 +132,7 @@ public class configuracion extends Fragment {
                 }
             }
         });
-        btTelegram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(
-                        getActivity(), Manifest.permission.SEND_SMS) ==
-                        PackageManager.PERMISSION_GRANTED) {
-                    requestTelegram();
-                } else {
-                    requestPermissionLauncher.launch(Manifest.permission.SEND_SMS);
-                }
-            }
-        });
 
-        btCambiaContra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentLogin, new CambioContrasena());
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
 
         btRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +145,7 @@ public class configuracion extends Fragment {
             }
         });
 
-        btCambiaContra.setOnClickListener(new View.OnClickListener() {
+        btModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getParentFragmentManager();
@@ -181,17 +156,19 @@ public class configuracion extends Fragment {
             }
         });
 
-        btActualiza.setOnClickListener((v)->{
-            pbActuliza.setVisibility(View.VISIBLE);
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Info")
-                    .setMessage("Tu APP esta actualizada a la ultima version!")
-                    .setPositiveButton("Aceptar", null);
+        btActualiza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pbActualiza.setVisibility(View.VISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Info")
+                        .setMessage("Tu APP esta actualizada a la ultima version!")
+                        .setPositiveButton("Aceptar", null);
 
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            pbActuliza.setVisibility(View.INVISIBLE);
-
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                pbActualiza.setVisibility(View.INVISIBLE);
+            }
         });
 
         return layout;
@@ -207,16 +184,5 @@ public class configuracion extends Fragment {
         phoneIntent.setData(Uri.parse("tel:0034 911 66 66 66"));
         startActivity(phoneIntent);
     }
-    private void requestTelegram(){
-        try {
-            String toNumber = "0034 644516218";
 
-            Intent sendIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + toNumber));
-            sendIntent.setPackage("com.telegram");
-            startActivity(sendIntent);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

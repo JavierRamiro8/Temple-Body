@@ -1,11 +1,20 @@
 package com.example.temple_body.Login;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -61,7 +70,8 @@ public class informacion extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    Button btInformacion, btCondiciones, btReglamento, btRegresar;
+    Button btInformacion, btCondiciones, btReglamento, btRegresar, btTelegram;
+    ActivityResultLauncher<String> requestPermissionLauncher;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,8 +82,24 @@ public class informacion extends Fragment {
         btInformacion = layout.findViewById(R.id.AIbtInformacionLegal);
         btReglamento = layout.findViewById(R.id.AIbtReglamento);
         btCondiciones = layout.findViewById(R.id.AIbtCondicionesUso);
-        btRegresar = layout.findViewById(R.id.ACbtRegresar);
+        btRegresar = layout.findViewById(R.id.AIbtRegresar);
+        btTelegram = layout.findViewById(R.id.AIbtTelegram);
 
+        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+            if (isGranted) {
+                // Permission is granted. Continue the action or workflow in your
+                // app.
+                requestTelegram();
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Error")
+                        .setMessage("Necesitamos que acepte los permisos para poder realizar la accion.")
+                        .setPositiveButton("Aceptar", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
         btInformacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +108,19 @@ public class informacion extends Fragment {
                 transaction.replace(R.id.fragmentLogin, new fragPoliticasInformacion());
                 transaction.addToBackStack(null);
                 transaction.commit();
+            }
+        });
+
+        btTelegram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(
+                        getActivity(), Manifest.permission.SEND_SMS) ==
+                        PackageManager.PERMISSION_GRANTED) {
+                    requestTelegram();
+                } else {
+                    requestPermissionLauncher.launch(Manifest.permission.SEND_SMS);
+                }
             }
         });
 
@@ -118,6 +157,20 @@ public class informacion extends Fragment {
             }
         });
 
+
+
         return layout;
+    }
+    private void requestTelegram(){
+        try {
+            String toNumber = "0034 644516218";
+
+            Intent sendIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + toNumber));
+            sendIntent.setPackage("com.telegram");
+            startActivity(sendIntent);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

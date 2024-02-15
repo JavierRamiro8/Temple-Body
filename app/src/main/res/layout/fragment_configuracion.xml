@@ -63,11 +63,11 @@
             app:layout_constraintVertical_bias="0.15" />
 
         <Button
-            android:id="@+id/ACbtTelegram"
+            android:id="@+id/ACbtActulizarAPP"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:text="Telegram."
+            android:text="Actualiza la APP."
             android:textAlignment="viewStart"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
@@ -79,6 +79,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ACbtInformacionProblema"
             app:layout_constraintVertical_bias="0.0" />
+
+        <ProgressBar
+            android:id="@+id/ACpbActualizacion"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateTint="#FFC107"
+            app:layout_constraintBottom_toBottomOf="@+id/ACbtActulizarAPP"
+            app:layout_constraintEnd_toEndOf="@+id/ACbtActulizarAPP"
+            app:layout_constraintStart_toStartOf="@+id/ACbtActulizarAPP"
+            app:layout_constraintTop_toTopOf="@+id/ACbtActulizarAPP" />
+
+
         <Button
             android:id="@+id/ACbtProblemasCuenta"
             android:layout_width="0dp"
@@ -94,15 +109,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ACbtTelegram"
+            app:layout_constraintTop_toBottomOf="@+id/ACbtActulizarAPP"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/ACbtActulizarAPP"
+            android:id="@+id/ACbtModificarDatos"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:text="Actualiza la APP."
+            android:text="Modificar datos."
             android:textAlignment="viewStart"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
@@ -114,22 +129,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ACbtProblemasCuenta"
             app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/ACbtCambiarContra"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:text="Cambiar Contraseña"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:backgroundTint="#FFC107"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ACbtActulizarAPP"
-            app:layout_constraintVertical_bias="0.265" />
 
         <Button
             android:id="@+id/ACbtRegresar"
@@ -144,19 +143,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ACbtCambiarContra"
-            app:layout_constraintVertical_bias="0.10" />
-
-        <ProgressBar
-            android:id="@+id/ACpbActualizacion"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ACbtActulizarAPP"
-            app:layout_constraintEnd_toEndOf="@+id/ACbtActulizarAPP"
-            app:layout_constraintStart_toStartOf="@+id/ACbtActulizarAPP"
-            app:layout_constraintTop_toTopOf="@+id/ACbtActulizarAPP" />
+            app:layout_constraintTop_toBottomOf="@+id/ACbtModificarDatos"
+            app:layout_constraintVertical_bias="0.25" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

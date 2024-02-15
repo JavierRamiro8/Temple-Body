@@ -73,7 +73,7 @@ public class fragPoliticasInformacion extends Fragment {
         btRegresar = layout.findViewById(R.id.AIPbtRegreso);
         tvTexto = layout.findViewById(R.id.fragmentInformacionLegal);
 
-        tvTexto.setText("\n \n \n"+"Informacion y Politicas de privacidad de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+        tvTexto.setText("\n"+"Informacion y Politicas de privacidad de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
                 "\n" +
                 "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física con nosotros, te pedimos que leas detenidamente nuestra informacion y politica de privacidad a continuación: \n" +"1. Aceptación de los Términos:\n" +
                 "Al acceder y utilizar la aplicación Temple Body, aceptas cumplir con estos términos de uso. Si no estás de acuerdo con alguna parte de estos términos, te recomendamos que no utilices nuestra aplicación.\n" +

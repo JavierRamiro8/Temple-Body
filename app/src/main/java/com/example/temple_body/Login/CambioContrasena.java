@@ -60,7 +60,7 @@ public class CambioContrasena extends Fragment {
         }
     }
 
-    EditText etUsuario, etPassOld, etPassNew;
+    EditText etUsuario, etCorreo, etPassOld, etPassNew;
     Button btCambiar, btRegresar;
 
     @Override
@@ -70,6 +70,7 @@ public class CambioContrasena extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_cambio_contrasena, container, false);
 
         etUsuario = layout.findViewById(R.id.ACPetUsuario);
+        etCorreo = layout.findViewById(R.id.ACPetMail);
         etPassOld = layout.findViewById(R.id.ACPetOLDpassword);
         etPassNew = layout.findViewById(R.id.ACPetNEWpassword);
         btCambiar = layout.findViewById(R.id.ACPbtCambiar);
@@ -85,7 +86,6 @@ public class CambioContrasena extends Fragment {
                 transaction.commit();
             }
         });
-
 
         return layout;
     }

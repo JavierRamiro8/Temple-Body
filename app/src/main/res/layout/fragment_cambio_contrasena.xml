@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Cambio de Contraseña"
+            android:text="Cambio de Datos"
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -59,7 +59,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintVertical_bias="0.08" />
 
         <EditText
             android:id="@+id/ACPetUsuario"
@@ -79,6 +79,23 @@
             app:layout_constraintVertical_bias="0.05" />
 
         <EditText
+            android:id="@+id/ACPetMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/material_dynamic_neutral90"
+            android:drawablePadding="10dp"
+            android:hint="Correo Electronico"
+            android:inputType="text"
+            android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ACPetUsuario"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <EditText
             android:id="@+id/ACPetOLDpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,10 +107,10 @@
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ACPetUsuario"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintTop_toBottomOf="@+id/ACPetMail"
+            app:layout_constraintVertical_bias="0.07" />
 
         <EditText
             android:id="@+id/ACPetNEWpassword"
@@ -107,10 +124,10 @@
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ACPetOLDpassword"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.09" />
 
         <Button
             android:id="@+id/ACPbtCambiar"
