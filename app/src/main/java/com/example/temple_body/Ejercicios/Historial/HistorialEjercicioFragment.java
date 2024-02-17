@@ -61,10 +61,16 @@ public class HistorialEjercicioFragment extends Fragment {
             tituloNombreEjercicio.setText(getTituloEjercicio);
         }
         generar.setOnClickListener(v -> {
-            if (peso.getText().equals(" ") | repeticiones.getText().equals(" ") | series.getText().equals(" ")) {
-                peso.setText(" ");
-                repeticiones.setText(" ");
-                series.setText(" ");
+            if(peso.getText().toString().isEmpty()) {
+                peso.setError("Por favor Introduzca Peso");
+
+            }else if(repeticiones.getText().toString().isEmpty()) {
+                repeticiones.setError("Por favor Introduzca Repeticiones");
+
+            }else if(series.getText().toString().isEmpty()) {
+                series.setError("Por favor Introduzca las series");
+            }else if(datepicker.getText().equals("Selecciona Fecha")){
+                datepicker.setError("Por favor Introduzca la fecha");
             } else {
                 agregarHistorial(Integer.valueOf(peso.getText().toString()), Integer.valueOf(repeticiones.getText().toString()), Integer.valueOf(series.getText().toString()),fecha);
             }
@@ -92,6 +98,7 @@ public class HistorialEjercicioFragment extends Fragment {
                 materialDatePicker.addOnPositiveButtonClickListener(selection -> {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                     fecha=dateFormat.format(new Date(selection));
+                    datepicker.setText(fecha);
                 });
                 materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
             }
