@@ -7,15 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.temple_body.Ejercicios.llamadaAPIMusculos.Ejercicio;
+import com.example.temple_body.Ejercicios.llamadaAPIMusculos.ServiceEjercicios;
 import com.example.temple_body.R;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -34,21 +35,15 @@ public class EjerciciosFragment extends Fragment {
     private Spinner spinnerEjercicios;
 
     private FragmentContainerView detalles;
-    private View mainView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ejercicios, container, false);
 
-        mainView = view;
-
         recycleEjercicios = view.findViewById(R.id.recycleEjercicios);
         spinnerEjercicios = view.findViewById(R.id.spinnerEjercicios);
         recycleEjercicios.setLayoutManager(new LinearLayoutManager(getContext()));
-        detalles = view.findViewById(R.id.fragmentDetalleEjercicio);
-
-        // Agregar listener al Spinner para detectar cambios de selección
         spinnerEjercicios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -113,7 +108,7 @@ public class EjerciciosFragment extends Fragment {
                         adapter.setOnItemClickListener(new EjercicioAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(Ejercicio ejercicio) {
-                                openDetalleEjercicioFragment(ejercicio);
+                                openDetalleEjercicioFragment(ejercicio.getName());
                             }
                         });
                         recycleEjercicios.setAdapter(adapter);
@@ -128,22 +123,15 @@ public class EjerciciosFragment extends Fragment {
         }
     }
 
-    private void openDetalleEjercicioFragment(Ejercicio ejercicio) {
-        DetalleEjercicioFragment detalleFragment = DetalleEjercicioFragment.newInstance(ejercicio.getName());
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentDetalleEjercicio, detalleFragment);
-        transaction.addToBackStack("detalleEjercicio");
-        transaction.commit();
-        detalles.setVisibility(View.VISIBLE);
-        View mainView = getView();
-        if (mainView != null) {
-            mainView.setClickable(false);
-        }
+    private void openDetalleEjercicioFragment(String ejercicio) {
+        Bundle bundle=new Bundle();
+        bundle.putString("nombreEjercicio",ejercicio);
+        NavController nav= NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_ejerciciosFragment_to_detalleEjercicio3,bundle);
     }
 
     private List<Ejercicio> parseJson(JsonArray jsonArray) {
         List<Ejercicio> listaEjercicios = new ArrayList<>();
-
         for (JsonElement jsonElement : jsonArray) {
             JsonObject ejercicioObject = jsonElement.getAsJsonObject();
             String name = ejercicioObject.get("name").getAsString();

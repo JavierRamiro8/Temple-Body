@@ -1,4 +1,4 @@
-package com.example.temple_body.Ejercicios;
+package com.example.temple_body.Ejercicios.llamadaAPIMusculos;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

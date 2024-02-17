@@ -4,143 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ejercicios.DetalleEjercicioFragment">
+    android:background="@drawable/icono3"
+    tools:context=".Ejercicios.Detalles.DetalleEjercicio">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/icono3">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textViewPeso"
-            android:layout_width="136dp"
-            android:layout_height="35dp"
-            android:text="Peso"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRepeticiones"
-            app:layout_constraintEnd_toStartOf="@+id/EDPeso"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVNombreEjercicio" />
-
-        <EditText
-            android:id="@+id/EDRepeticiones"
+        <Button
+            android:id="@+id/salida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/EDSeries"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewRepeticiones"
-            app:layout_constraintTop_toBottomOf="@+id/EDPeso" />
-
-        <EditText
-            android:id="@+id/EDSeries"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/BTGenerar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewSeries"
-            app:layout_constraintTop_toBottomOf="@+id/EDRepeticiones" />
-
-        <TextView
-            android:id="@+id/textViewSeries"
-            android:layout_width="136dp"
-            android:layout_height="35dp"
-            android:text="Series"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/BTGenerar"
-            app:layout_constraintEnd_toStartOf="@+id/EDSeries"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRepeticiones" />
-
-        <TextView
-            android:id="@+id/textViewRepeticiones"
-            android:layout_width="154dp"
-            android:layout_height="33dp"
-            android:text="Repeticiones"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewSeries"
-            app:layout_constraintEnd_toStartOf="@+id/EDRepeticiones"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPeso" />
-
-        <EditText
-            android:id="@+id/EDPeso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/EDRepeticiones"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textViewPeso"
-            app:layout_constraintTop_toBottomOf="@+id/TVNombreEjercicio" />
-
-        <TextView
-            android:id="@+id/TVResultado"
-            android:layout_width="373dp"
-            android:layout_height="214dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/BTSalir"
+            android:layout_marginTop="50dp"
+            android:text="Salida"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BTGenerar" />
+            app:layout_constraintTop_toBottomOf="@+id/historial" />
 
         <TextView
-            android:id="@+id/TVNombreEjercicio"
+            android:id="@+id/TVTituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
             android:paddingRight="8dp"
             android:paddingBottom="8dp"
-            android:text="Ejercicio"
+            android:text="Listado de Ejercicios"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/descripcion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/BTGenerar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generar"
-            app:layout_constraintBottom_toTopOf="@+id/TVResultado"
-            app:layout_constraintEnd_toEndOf="@+id/EDSeries"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/textViewSeries"
-            app:layout_constraintTop_toBottomOf="@+id/EDSeries" />
-
-        <Button
-            android:id="@+id/BTSalir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Salir"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="401dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="100dp"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVResultado" />
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
 
+        <Button
+            android:id="@+id/historial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Historial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descripcion" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

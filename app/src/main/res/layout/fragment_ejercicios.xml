@@ -28,10 +28,10 @@
             app:layout_constraintBottom_toTopOf="@+id/recycleEjercicios"
             app:layout_constraintEnd_toEndOf="@+id/recycleEjercicios"
             app:layout_constraintStart_toStartOf="@+id/recycleEjercicios"
-            app:layout_constraintTop_toBottomOf="@+id/TVNombreEjercicio" />
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
 
         <TextView
-            android:id="@+id/TVNombreEjercicio"
+            android:id="@+id/TVTituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -62,18 +62,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinnerEjercicios"
             app:layout_constraintVertical_bias="0.985" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentDetalleEjercicio"
-            android:name="com.example.temple_body.Ejercicios.DetalleEjercicioFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#272727"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

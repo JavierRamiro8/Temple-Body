@@ -140,13 +140,15 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentEjercicios"
-        android:name="com.example.temple_body.Ejercicios.EjerciciosFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#272727"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/grafoejercicios"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

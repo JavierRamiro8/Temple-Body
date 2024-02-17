@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.temple_body.Ejercicios.llamadaAPIMusculos.Ejercicio;
 import com.example.temple_body.R;
 
 import java.util.List;

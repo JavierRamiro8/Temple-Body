@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grafoejercicios"
+    app:startDestination="@id/ejerciciosFragment">
+
+    <fragment
+        android:id="@+id/ejerciciosFragment"
+        android:name="com.example.temple_body.Ejercicios.EjerciciosFragment"
+        android:label="fragment_ejercicios"
+        tools:layout="@layout/fragment_ejercicios" >
+        <action
+            android:id="@+id/action_ejerciciosFragment_to_detalleEjercicio3"
+            app:destination="@id/detalleEjercicio" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleEjercicio"
+        android:name="com.example.temple_body.Ejercicios.Detalles.DetalleEjercicio"
+        android:label="fragment_detalle_ejercicio"
+        tools:layout="@layout/fragment_detalle_ejercicio" >
+        <action
+            android:id="@+id/action_detalleEjercicio_to_historialEjercicioFragment3"
+            app:destination="@id/historialEjercicioFragment" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detalleEjercicio_to_ejerciciosFragment2"
+            app:destination="@id/ejerciciosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historialEjercicioFragment"
+        android:name="com.example.temple_body.Ejercicios.Historial.HistorialEjercicioFragment"
+        android:label="fragment_historial_ejercicio"
+        tools:layout="@layout/fragment_historial_ejercicio" >
+        <action
+            android:id="@+id/action_historialEjercicioFragment_to_detalleEjercicio"
+            app:destination="@id/detalleEjercicio" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+    </fragment>
+</navigation>

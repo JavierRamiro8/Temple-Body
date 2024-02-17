@@ -1,4 +1,4 @@
-package com.example.temple_body.Ejercicios;
+package com.example.temple_body.Ejercicios.llamadaAPIMusculos;
 
 public class Ejercicio {
     private String name;
