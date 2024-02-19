@@ -16,23 +16,18 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:text="Salida"
             android:textColor="@color/black"
             app:backgroundTint="#FF0000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historial"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/historial" />
 
         <TextView
             android:id="@+id/TVTituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="4dp"
             android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
@@ -45,35 +40,32 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/descripcion"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/descripcion"
+            app:layout_constraintStart_toStartOf="@+id/descripcion"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/descripcion"
-            android:layout_width="385dp"
-            android:layout_height="426dp"
-            android:layout_marginTop="40dp"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.615"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
 
         <Button
             android:id="@+id/historial"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Historial"
             android:textColor="@color/black"
             app:backgroundTint="#FFC107"
             app:iconTint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/salida"
+            app:layout_constraintEnd_toEndOf="@+id/salida"
+            app:layout_constraintStart_toStartOf="@+id/salida"
             app:layout_constraintTop_toBottomOf="@+id/descripcion"
             app:strokeColor="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/descripcion"
+            android:layout_width="400dp"
+            android:layout_height="472dp"
+            app:layout_constraintBottom_toTopOf="@+id/historial"
+            app:layout_constraintEnd_toEndOf="@+id/historial"
+            app:layout_constraintStart_toStartOf="@+id/historial"
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

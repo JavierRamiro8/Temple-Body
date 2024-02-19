@@ -52,7 +52,6 @@ public class EjerciciosFragment extends Fragment {
 
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

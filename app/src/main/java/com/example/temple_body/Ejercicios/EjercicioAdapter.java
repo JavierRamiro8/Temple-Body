@@ -58,7 +58,7 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.Ejer
 
         public EjercicioViewHolder(View itemView) {
             super(itemView);
-            nombreEjercicio = itemView.findViewById(R.id.nombreEjercicio);
+            nombreEjercicio = itemView.findViewById(R.id.descripcionEjercicio);
             musculoEjercicio = itemView.findViewById(R.id.musculoEjercicio);
             dificultadEjercicio = itemView.findViewById(R.id.dificultadEjercicio);
         }
