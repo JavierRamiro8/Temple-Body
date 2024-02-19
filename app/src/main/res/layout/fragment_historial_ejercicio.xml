@@ -67,13 +67,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewPeso" />
 
         <Button
-            android:textColor="@color/black"
-            app:backgroundTint="#FFC107"
             android:id="@+id/BTGenerar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generar"
-            app:layout_constraintBottom_toTopOf="@+id/TVResultado"
+            android:textColor="@color/black"
+            app:backgroundTint="#FFC107"
+            app:layout_constraintBottom_toTopOf="@+id/recycleHistorial"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datePicker" />
@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSeries" />
+            app:layout_constraintTop_toBottomOf="@+id/EDSeries" />
 
         <TextView
             android:id="@+id/TVTituloHistorial"
@@ -138,27 +138,26 @@
             app:layout_constraintTop_toBottomOf="@+id/EDPeso" />
 
         <Button
-            android:textColor="@color/black"
-            app:backgroundTint="#FFC107"
             android:id="@+id/BTSalir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Salir"
+            android:textColor="@color/black"
+            app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TVResultado" />
+            app:layout_constraintTop_toBottomOf="@+id/recycleHistorial" />
 
-        <TextView
-            android:id="@+id/TVResultado"
-            android:layout_width="378dp"
-            android:layout_height="174dp"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleHistorial"
+            android:layout_width="392dp"
+            android:layout_height="291dp"
             app:layout_constraintBottom_toTopOf="@+id/BTSalir"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/BTGenerar" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.temple_body.Ejercicios.Detalles;
+package com.example.temple_body.Ejercicios.Detalles.RecycleDetalles;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterDetalleEjercicio extends RecyclerView.Adapter<AdapterDetalleEjercicio.descripcionEjercicio> {
-    private static String nombreEjercicio;
 
     private List<String> descripciones = new ArrayList<>();
 
     public AdapterDetalleEjercicio(String nombreEjercicio) {
-        this.nombreEjercicio = nombreEjercicio;
     }
 
     @NonNull

@@ -3,11 +3,12 @@ package com.example.temple_body.Ejercicios.Historial;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.temple_body.Ejercicios.Historial.RecycleHistorial.AdapterHistorialEjercicio;
+import com.example.temple_body.Ejercicios.Historial.RecycleHistorial.Historial;
 import com.example.temple_body.R;
 import com.google.android.material.datepicker.CalendarConstraints;
 import com.google.android.material.datepicker.DateValidatorPointBackward;
@@ -37,7 +40,7 @@ public class HistorialEjercicioFragment extends Fragment {
     private Button datepicker,generar,salir;
     private String fecha;
     private MutableLiveData<List<Historial>> liveHistorial = new MutableLiveData<>();
-    private TextView resultado;
+    private RecyclerView resultado;
 
 
     public HistorialEjercicioFragment() {
@@ -51,11 +54,15 @@ public class HistorialEjercicioFragment extends Fragment {
         repeticiones = view.findViewById(R.id.EDRepeticiones);
         series = view.findViewById(R.id.EDSeries);
         tituloNombreEjercicio = view.findViewById(R.id.TVTituloHistorial);
-        resultado = view.findViewById(R.id.TVResultado);
+        resultado = view.findViewById(R.id.recycleHistorial);
         generar = view.findViewById(R.id.BTGenerar);
         salir = view.findViewById(R.id.BTSalir);
         datepicker=view.findViewById(R.id.datePicker);
         Bundle args=getArguments();
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
+        resultado.setLayoutManager(layoutManager);
+        AdapterHistorialEjercicio adapter=new AdapterHistorialEjercicio(new ArrayList<>());
+        resultado.setAdapter(adapter);
         if (args != null && args.containsKey(nombreEjercicio)) {
             String getTituloEjercicio = args.getString(nombreEjercicio);
             tituloNombreEjercicio.setText(getTituloEjercicio);
@@ -73,16 +80,6 @@ public class HistorialEjercicioFragment extends Fragment {
                 datepicker.setError("Por favor Introduzca la fecha");
             } else {
                 agregarHistorial(Integer.valueOf(peso.getText().toString()), Integer.valueOf(repeticiones.getText().toString()), Integer.valueOf(series.getText().toString()),fecha);
-            }
-        });
-        liveHistorial.observe(getViewLifecycleOwner(), new Observer<List<Historial>>() {
-            @Override
-            public void onChanged(List<Historial> historial) {
-                StringBuilder historialText = new StringBuilder();
-                for (Historial ejercicio : historial) {
-                    historialText.append("Peso: ").append(ejercicio.getPeso()).append(" Repeticiones: ").append(ejercicio.getRepeticiones()).append(" Series: ").append(ejercicio.getSeries()).append(" fecha: "+ ejercicio.getFecha()).append("\n");
-                }
-                resultado.setText(historialText.toString());
             }
         });
         datepicker.setOnClickListener(new View.OnClickListener() {
@@ -117,12 +114,9 @@ public class HistorialEjercicioFragment extends Fragment {
     }
 
     public void agregarHistorial(int peso, int repeticiones, int series, String fecha) {
-        List<Historial> listaHistorial = liveHistorial.getValue();
-        if (listaHistorial == null) {
-            listaHistorial = new ArrayList<>();
-        }
-        listaHistorial.add(new Historial(peso, repeticiones, series,fecha));
-        liveHistorial.setValue(listaHistorial);
+        Historial historial = new Historial(peso, repeticiones, series, fecha);
+        ((AdapterHistorialEjercicio) resultado.getAdapter()).addHistorial(historial);
     }
+
 }
 

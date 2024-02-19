@@ -1,4 +1,4 @@
-package com.example.temple_body.Ejercicios.Detalles;
+package com.example.temple_body.Ejercicios.Detalles.RecycleDetalles;
 
 public class Descripcion {
     private String descripcion;

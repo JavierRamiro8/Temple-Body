@@ -15,8 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.temple_body.Ejercicios.llamadaAPIMusculos.EjerciciosAPI;
-import com.example.temple_body.Ejercicios.llamadaAPIMusculos.ServiceEjercicios;
+import com.example.temple_body.Ejercicios.Detalles.RecycleDetalles.AdapterDetalleEjercicio;
 import com.example.temple_body.Ejercicios.llamadaAPINombre.EjerciciosAPIPorNombre;
 import com.example.temple_body.Ejercicios.llamadaAPINombre.ServiceNombreEjercicios;
 import com.example.temple_body.R;
