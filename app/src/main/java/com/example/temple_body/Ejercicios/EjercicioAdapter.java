@@ -12,7 +12,7 @@ import com.example.temple_body.R;
 
 import java.util.List;
 
-public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.EjercicioViewHolder> {
+public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.EjercicioViewHolder>  {
     private List<Ejercicio> listaEjercicios;
     private OnItemClickListener listener;
 

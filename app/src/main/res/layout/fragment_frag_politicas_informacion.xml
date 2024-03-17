@@ -28,12 +28,12 @@
         <Button
             android:id="@+id/AIPbtRegreso"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Regresar"
             android:textColor="#000000"
             android:textSize="18sp"
-            app:backgroundTint="#FFC107"
+            app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

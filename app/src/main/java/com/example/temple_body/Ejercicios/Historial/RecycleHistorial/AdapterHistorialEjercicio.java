@@ -57,9 +57,9 @@ public class AdapterHistorialEjercicio extends RecyclerView.Adapter<AdapterHisto
 
         public void bind(Historial historial) {
             fecha.setText(historial.getFecha());
-            peso.setText(String.valueOf(historial.getPeso()));
-            repeticiones.setText(String.valueOf(historial.getRepeticiones()));
-            series.setText(String.valueOf(historial.getSeries()));
+            peso.setText("Peso: " + String.valueOf(historial.getPeso() + "kg"));
+            repeticiones.setText("Repeticiones: " + String.valueOf(historial.getRepeticiones()));
+            series.setText("Series: " + String.valueOf(historial.getSeries()));
         }
     }
 }

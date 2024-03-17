@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,7 @@ public class EjerciciosFragment extends Fragment {
     private Spinner spinnerEjercicios;
 
     private FragmentContainerView detalles;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

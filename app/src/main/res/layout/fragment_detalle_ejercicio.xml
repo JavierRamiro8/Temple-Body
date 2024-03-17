@@ -14,11 +14,11 @@
         <Button
             android:id="@+id/salida"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:text="Salida"
+            android:text="Regresar"
             android:textColor="@color/black"
-            app:backgroundTint="#FF0000"
+            app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         <Button
             android:id="@+id/historial"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="Historial"
             android:textColor="@color/black"
