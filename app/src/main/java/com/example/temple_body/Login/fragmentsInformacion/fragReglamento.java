@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.temple_body.Login.informacion;
 import com.example.temple_body.R;
+import com.example.temple_body.Settings.Textos;
 
 
 public class fragReglamento extends Fragment {
@@ -31,17 +32,8 @@ public class fragReglamento extends Fragment {
 
         btRegresar = layout.findViewById(R.id.ARbtRegreso);
         tvTexto = layout.findViewById(R.id.fragmentReglamento);
-
-        tvTexto.setText("\n"+"Reglamento (UE) 2021/1232 \n"+"Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
-                "\n" +
-                "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte" +
-                " una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física " +
-                "con nosotros, te pedimos que leas detenidamente el Reglamento (UE) 2021/1232 a continuación: \n"
-                +"Reglamento (UE) 2021/1232 del Parlamento Europeo y del Consejo de 14 de julio de " +
-                        "2021 por el que se establece una excepción temporal a determinadas disposiciones de la Directiva " +
-                        "2002/58/CE en lo que respecta al uso de tecnologías por proveedores de servicios de comunicaciones interpersonales"+
-                "independientes de la numeración para el tratamiento de datos personales y de otro tipo con fines de lucha contra los abusos sexuales de menores en línea."
-        +"\n \n \n");
+        Textos textoReglamento=new Textos();
+        tvTexto.setText(textoReglamento.getREGLAMENTO());
 
         btRegresar.setOnClickListener(v -> {
             viajarInformacion();

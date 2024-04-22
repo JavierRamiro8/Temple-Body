@@ -15,6 +15,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -73,6 +74,7 @@ public class Perfil extends Fragment {
     }
 
     private void viajarLogin() {
+        FirebaseAuth.getInstance().signOut();
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_loginPrincipal);
     }

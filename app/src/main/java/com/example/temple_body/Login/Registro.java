@@ -1,6 +1,7 @@
 package com.example.temple_body.Login;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +12,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
+import com.example.temple_body.Settings.Textos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -37,6 +40,8 @@ public class Registro extends Fragment {
     Button registro;
     FirebaseAuth mauth;
 
+    private static final int MINCARACTERESPASSWORD = 6;
+
     DatabaseReference mDatabase;
 
     @Override
@@ -52,13 +57,33 @@ public class Registro extends Fragment {
 
         mauth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        checkTerminos.setOnClickListener(v -> {
+            Textos textos=new Textos();
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setTitle("Politicas de privacidad")
+                    .setMessage(textos.getPOLITICAS())
+                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            checkTerminos.setChecked(true);
+                        }
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            checkTerminos.setChecked(false);
+                        }
+                    });
 
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        });
 
         registro.setOnClickListener(v -> {
             if (usuario.getText().toString().isEmpty()) {
                 usuario.setError("Introduce nombre de usuario");
             } else if (contrasena.getText().toString().isEmpty()) {
                 contrasena.setError("Introduce contraseña");
+            } else if (contrasena.getText().length() <= MINCARACTERESPASSWORD) {
+                contrasena.setError("la contraseña tiene que tener al menos 6 caracteres");
             } else if (email.getText().toString().isEmpty()) {
                 email.setError("El correo está vacío o no es válido");
             } else if (!checkTerminos.isChecked()) {
@@ -93,6 +118,14 @@ public class Registro extends Fragment {
                     String nombreUsuario = usuario.getText().toString();
                     String correo = email.getText().toString();
                     viajarPerfil(nombreUsuario, correo);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                    builder.setTitle("Error")
+                            .setMessage("Error, es posible que ya se esté usando este mismo correo, Intentelo de nuevo!")
+                            .setPositiveButton("Aceptar", null);
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             }
         });
