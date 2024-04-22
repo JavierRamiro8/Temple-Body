@@ -12,6 +12,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +23,8 @@ public class loginPrincipal extends Fragment {
     public loginPrincipal() {}
     public static  final  String User = "prueba";
     public static  final  String Pass = "prueba";
+
+    private static final String MENSAJEERROR="Usuario o contraseña incorrectos, Es prueba, prueba.";
     EditText etUsuario;
     EditText etPassword;
     Button btIniciarSesion;
@@ -45,16 +49,13 @@ public class loginPrincipal extends Fragment {
 
             if (usuario.equals(User) && password.equals(Pass)) {
                 // Las credenciales son correctas, navegar al perfil Fragment
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentLogin, new Perfil());
-                transaction.addToBackStack(null);
-                transaction.commit();
+                viajarPerfil();
+
             } else {
                 // Las credenciales son incorrectas, mostrar AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Error")
-                        .setMessage("Usuario o contraseña incorrectos, Es prueba, prueba.")
+                        .setMessage(MENSAJEERROR)
                         .setPositiveButton("Aceptar", null);
 
                 AlertDialog dialog = builder.create();
@@ -63,13 +64,17 @@ public class loginPrincipal extends Fragment {
         });
 
         tvRegistrarse.setOnClickListener(v -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.fragmentLogin, new Registro());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            viajarRegistro();
         });
 
         return layout;
+    }
+    private void viajarPerfil(){
+        NavController nav= NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_loginPrincipal_to_perfil);
+    }
+    private void viajarRegistro(){
+        NavController nav= NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_loginPrincipal_to_registro);
     }
 }

@@ -1,11 +1,10 @@
 package com.example.temple_body;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
@@ -13,114 +12,52 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
 public class Actividad_Gimnasios extends AppCompatActivity {
-
     private MeowBottomNavigation bottomNavigation;
-    private FragmentContainerView fragmentEjercicios,fragmentSuplementos,fragmentGimnasiosCercanos,fragmentLogin,fragmentPerfil,fragmentCambioContrasena,fragmentConfiguracion,fragmentInformacion,fragmentRegistro,fragmentPoliticasInformacion,fragmentCondicionesUso,fragmentReglamento;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_gimnasios);
-        bottomNavigation=findViewById(R.id.bottomNavigation);
+
+        bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.peso));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.manzana));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.mapa));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.usuario));
-        fragmentEjercicios=findViewById(R.id.fragmentEjercicios);
-        fragmentSuplementos=findViewById(R.id.fragmentSuplementos);
-        fragmentGimnasiosCercanos=findViewById(R.id.fragmentGimnasiosCercanos);
-        fragmentLogin=findViewById(R.id.fragmentLogin);
 
-        fragmentConfiguracion=findViewById(R.id.fragmentConfiguracion);
-        fragmentInformacion=findViewById(R.id.fragmentInformacion);
-        fragmentCambioContrasena=findViewById(R.id.fragmentCambioContrasena);
-        fragmentPerfil=findViewById(R.id.fragmentPerfil);
-        fragmentRegistro=findViewById(R.id.fragmentRegistro);
-        fragmentPoliticasInformacion=findViewById(R.id.fragmentInformacionLegal);
-        fragmentReglamento=findViewById(R.id.fragmentReglamento);
-        fragmentCondicionesUso=findViewById(R.id.fragmentCondicionesUso);
+        bottomNavigation.show(4, false);
 
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                // Update the selected item in the bottom navigation view based on the current destination
+                if (navController != null) {
+                    bottomNavigation.show(navController.getCurrentDestination().getId(), true);
+                }
+            }
+        });
 
-        fragmentConfiguracion.setVisibility(View.INVISIBLE);
-        fragmentInformacion.setVisibility(View.INVISIBLE);
-        fragmentCambioContrasena.setVisibility(View.INVISIBLE);
-        fragmentPerfil.setVisibility(View.INVISIBLE);
-        fragmentRegistro.setVisibility(View.INVISIBLE);
-        fragmentEjercicios.setVisibility(View.INVISIBLE);
-        fragmentSuplementos.setVisibility(View.INVISIBLE);
-        fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
-        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
-        fragmentReglamento.setVisibility(View.INVISIBLE);
-        bottomNavigation.show(4,false);
-
+        // Set listener for bottom navigation item clicks
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
-                // YOUR CODES
-                Intent intent;
-
-                switch(model.getId()){
-                    case 1:
-                        fragmentEjercicios.setVisibility(View.VISIBLE);
-                        fragmentSuplementos.setVisibility(View.INVISIBLE);
-                        fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-                        fragmentLogin.setVisibility(View.INVISIBLE);
-                        fragmentConfiguracion.setVisibility(View.INVISIBLE);
-                        fragmentInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCambioContrasena.setVisibility(View.INVISIBLE);
-                        fragmentPerfil.setVisibility(View.INVISIBLE);
-                        fragmentRegistro.setVisibility(View.INVISIBLE);
-                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
-                        fragmentReglamento.setVisibility(View.INVISIBLE);
-
-                        break;
-                    case 2:
-                        fragmentSuplementos.setVisibility(View.VISIBLE);
-                        fragmentEjercicios.setVisibility(View.INVISIBLE);
-                        fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-                        fragmentLogin.setVisibility(View.INVISIBLE);
-                        fragmentConfiguracion.setVisibility(View.INVISIBLE);
-                        fragmentInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCambioContrasena.setVisibility(View.INVISIBLE);
-                        fragmentPerfil.setVisibility(View.INVISIBLE);
-                        fragmentRegistro.setVisibility(View.INVISIBLE);
-                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
-                        fragmentReglamento.setVisibility(View.INVISIBLE);
-
-                        break;
-                    case 3:
-                        fragmentGimnasiosCercanos.setVisibility(View.VISIBLE);
-                        fragmentEjercicios.setVisibility(View.INVISIBLE);
-                        fragmentSuplementos.setVisibility(View.INVISIBLE);
-                        fragmentLogin.setVisibility(View.INVISIBLE);
-                        fragmentConfiguracion.setVisibility(View.INVISIBLE);
-                        fragmentInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCambioContrasena.setVisibility(View.INVISIBLE);
-                        fragmentPerfil.setVisibility(View.INVISIBLE);
-                        fragmentRegistro.setVisibility(View.INVISIBLE);
-                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
-                        fragmentReglamento.setVisibility(View.INVISIBLE);
-
-                        break;
-                    case 4:
-                        fragmentLogin.setVisibility(View.VISIBLE);
-                        fragmentEjercicios.setVisibility(View.INVISIBLE);
-                        fragmentSuplementos.setVisibility(View.INVISIBLE);
-                        fragmentGimnasiosCercanos.setVisibility(View.INVISIBLE);
-                        fragmentConfiguracion.setVisibility(View.INVISIBLE);
-                        fragmentInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCambioContrasena.setVisibility(View.INVISIBLE);
-                        fragmentPerfil.setVisibility(View.INVISIBLE);
-                        fragmentRegistro.setVisibility(View.INVISIBLE);
-                        fragmentPoliticasInformacion.setVisibility(View.INVISIBLE);
-                        fragmentCondicionesUso.setVisibility(View.INVISIBLE);
-                        fragmentReglamento.setVisibility(View.INVISIBLE);
-
-                        break;
+                // Navigate to the corresponding fragment when a bottom navigation item is clicked
+                if (navController != null) {
+                    switch (model.getId()) {
+                        case 1:
+                            navController.navigate(R.id.ejerciciosFragment);
+                            break;
+                        case 2:
+                            navController.navigate(R.id.suplementosFragment);
+                            break;
+                        case 3:
+                            navController.navigate(R.id.gimnasiosFragment);
+                            break;
+                        case 4:
+                            navController.navigate(R.id.loginPrincipal);
+                            break;
+                    }
                 }
                 return null;
             }
@@ -174,5 +111,11 @@ public class Actividad_Gimnasios extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Initialize the NavController when the activity is started
+        navController = Navigation.findNavController(this, R.id.fragmentContainerView);
     }
 }

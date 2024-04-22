@@ -89,11 +89,11 @@ public class Registro extends Fragment {
                     args.putString("contraseña", contrasena.getText().toString());
                     args.putString("nombreUsuario", usuario.getText().toString());
 
-                    FragmentManager fragmentManager = getParentFragmentManager();
+                   /* FragmentManager fragmentManager = getParentFragmentManager();
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.replace(R.id.fragmentRegistro, new Perfil());
                     transaction.addToBackStack(null);
-                    transaction.commit();
+                    transaction.commit();*/
                 }
             }
         });

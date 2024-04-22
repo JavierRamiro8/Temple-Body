@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,17 +93,14 @@ public class fragPoliticasInformacion extends Fragment {
                 "\n" +
                 "Fecha de entrada en vigencia: [01/01/2024]"+"\n \n \n");
 
-        btRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentLogin, new informacion());
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
+        btRegresar.setOnClickListener(v -> {
+            viajarInformacion();
         });
 
         return layout;
+    }
+    private void viajarInformacion() {
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_fragPoliticasInformacion_to_informacion);
     }
 }

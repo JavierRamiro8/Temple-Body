@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
 import com.google.firebase.database.DataSnapshot;
@@ -51,30 +53,31 @@ public class Perfil extends Fragment {
         etCorreo.setText(email);
 
         btConfiguracion.setOnClickListener((v) -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.fragmentLogin, new configuracion());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            viajarConfiguracion();
         });
 
         btInformacion.setOnClickListener((v) -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.fragmentLogin, new informacion());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            viajarInformacion();
         });
 
         btCerrarSesion.setOnClickListener((v) -> {
-            FragmentManager fragmentManager = getParentFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.fragmentLogin, new loginPrincipal());
-            transaction.addToBackStack(null);
-            transaction.commit();
+            viajarLogin();
         });
 
         return layout;
     }
+    private void viajarConfiguracion(){
+        NavController nav= NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_perfil_to_configuracion);
+    }
+    private void viajarInformacion() {
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_perfil_to_informacion);
+    }
+    private void viajarLogin() {
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_perfil_to_loginPrincipal);
+    }
+
 }
 

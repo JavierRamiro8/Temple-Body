@@ -7,16 +7,6 @@
     android:background="#000000"
     tools:context=".Gimnasios.ListaGimnasios">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentSuplementos"
-        android:name="com.example.temple_body.Suplementacion.SuplementosFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -38,119 +28,15 @@
         app:mbn_shadowColor="#1f212121" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentGimnasiosCercanos"
-        android:name="com.example.temple_body.Gimnasios.GimnasiosFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="@+id/fragmentLogin"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentLogin"
-        android:name="com.example.temple_body.Login.loginPrincipal"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentRegistro"
-        android:name="com.example.temple_body.Login.Registro"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentConfiguracion"
-        android:name="com.example.temple_body.Login.configuracion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentInformacion"
-        android:name="com.example.temple_body.Login.informacion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentCambioContrasena"
-        android:name="com.example.temple_body.Login.CambioContrasena"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentPerfil"
-        android:name="com.example.temple_body.Login.Perfil"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentInformacionLegal"
-        android:name="com.example.temple_body.Login.fragmentsInformacion.fragPoliticasInformacion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentCondicionesUso"
-        android:name="com.example.temple_body.Login.fragmentsInformacion.fragCondicionesUso"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentReglamento"
-        android:name="com.example.temple_body.Login.fragmentsInformacion.fragReglamento"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentEjercicios"
+        android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#272727"
+        android:layout_width="409dp"
+        android:layout_height="653dp"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/grafoejercicios"/>
+        app:navGraph="@navigation/grafo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

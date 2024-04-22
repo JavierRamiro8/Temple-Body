@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/grafo"
+    app:startDestination="@id/loginPrincipal">
+
+    <fragment
+        android:id="@+id/ejerciciosFragment"
+        android:name="com.example.temple_body.Ejercicios.EjerciciosFragment"
+        android:label="fragment_ejercicios"
+        tools:layout="@layout/fragment_ejercicios" >
+        <action
+            android:id="@+id/action_ejerciciosFragment_to_detalleEjercicio3"
+            app:destination="@id/detalleEjercicio" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleEjercicio"
+        android:name="com.example.temple_body.Ejercicios.Detalles.DetalleEjercicio"
+        android:label="fragment_detalle_ejercicio"
+        tools:layout="@layout/fragment_detalle_ejercicio" >
+        <action
+            android:id="@+id/action_detalleEjercicio_to_historialEjercicioFragment3"
+            app:destination="@id/historialEjercicioFragment" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detalleEjercicio_to_ejerciciosFragment2"
+            app:destination="@id/ejerciciosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historialEjercicioFragment"
+        android:name="com.example.temple_body.Ejercicios.Historial.HistorialEjercicioFragment"
+        android:label="fragment_historial_ejercicio"
+        tools:layout="@layout/fragment_historial_ejercicio" >
+        <action
+            android:id="@+id/action_historialEjercicioFragment_to_detalleEjercicio"
+            app:destination="@id/detalleEjercicio" />
+        <argument
+            android:name="nombreEjercicio"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginPrincipal"
+        android:name="com.example.temple_body.Login.loginPrincipal"
+        android:label="fragment_login_principal"
+        tools:layout="@layout/fragment_login_principal" >
+        <action
+            android:id="@+id/action_loginPrincipal_to_registro"
+            app:destination="@id/registro" />
+        <action
+            android:id="@+id/action_loginPrincipal_to_perfil"
+            app:destination="@id/perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/registro"
+        android:name="com.example.temple_body.Login.Registro"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/action_registro_to_loginPrincipal"
+            app:destination="@id/loginPrincipal" />
+        <action
+            android:id="@+id/action_registro_to_perfil"
+            app:destination="@id/perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.example.temple_body.Login.Perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfil_to_configuracion"
+            app:destination="@id/configuracion" />
+        <action
+            android:id="@+id/action_perfil_to_loginPrincipal"
+            app:destination="@id/loginPrincipal" />
+        <action
+            android:id="@+id/action_perfil_to_informacion"
+            app:destination="@id/informacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracion"
+        android:name="com.example.temple_body.Login.configuracion"
+        android:label="fragment_configuracion"
+        tools:layout="@layout/fragment_configuracion" >
+        <action
+            android:id="@+id/action_configuracion_to_perfil"
+            app:destination="@id/perfil" />
+        <action
+            android:id="@+id/action_configuracion_to_cambioContrasena"
+            app:destination="@id/cambioContrasena" />
+    </fragment>
+    <fragment
+        android:id="@+id/informacion"
+        android:name="com.example.temple_body.Login.informacion"
+        android:label="fragment_informacion"
+        tools:layout="@layout/fragment_informacion" >
+        <action
+            android:id="@+id/action_informacion_to_perfil"
+            app:destination="@id/perfil" />
+        <action
+            android:id="@+id/action_informacion_to_fragPoliticasInformacion"
+            app:destination="@id/fragPoliticasInformacion" />
+        <action
+            android:id="@+id/action_informacion_to_fragCondicionesUso"
+            app:destination="@id/fragCondicionesUso" />
+        <action
+            android:id="@+id/action_informacion_to_fragReglamento"
+            app:destination="@id/fragReglamento" />
+    </fragment>
+    <fragment
+        android:id="@+id/gimnasiosFragment"
+        android:name="com.example.temple_body.Gimnasios.GimnasiosFragment"
+        android:label="fragment_gimnasios"
+        tools:layout="@layout/fragment_gimnasios" />
+    <fragment
+        android:id="@+id/suplementosFragment"
+        android:name="com.example.temple_body.Suplementacion.SuplementosFragment"
+        android:label="fragment_suplementos"
+        tools:layout="@layout/fragment_suplementos" />
+    <fragment
+        android:id="@+id/fragPoliticasInformacion"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragPoliticasInformacion"
+        android:label="fragment_frag_politicas_informacion"
+        tools:layout="@layout/fragment_frag_politicas_informacion" >
+        <action
+            android:id="@+id/action_fragPoliticasInformacion_to_informacion"
+            app:destination="@id/informacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragCondicionesUso"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragCondicionesUso"
+        android:label="fragment_frag_condiciones_uso"
+        tools:layout="@layout/fragment_frag_condiciones_uso" >
+        <action
+            android:id="@+id/action_fragCondicionesUso_to_informacion"
+            app:destination="@id/informacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragReglamento"
+        android:name="com.example.temple_body.Login.fragmentsInformacion.fragReglamento"
+        android:label="fragment_frag_reglamento"
+        tools:layout="@layout/fragment_frag_reglamento" >
+        <action
+            android:id="@+id/action_fragReglamento_to_informacion"
+            app:destination="@id/informacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/cambioContrasena"
+        android:name="com.example.temple_body.Login.CambioContrasena"
+        android:label="fragment_cambio_contrasena"
+        tools:layout="@layout/fragment_cambio_contrasena" >
+        <action
+            android:id="@+id/action_cambioContrasena_to_configuracion"
+            app:destination="@id/configuracion" />
+        <action
+            android:id="@+id/action_cambioContrasena_to_perfil2"
+            app:destination="@id/perfil" />
+    </fragment>
+</navigation>
