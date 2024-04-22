@@ -57,11 +57,12 @@
             android:backgroundTint="@color/white"
             android:entries="@array/spinner_suplementos"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="@+id/TVTituloHistorial"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/TVTituloHistorial"
-            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial"
+            android:textColorHint="#000000"/>
 
         <TextView
             android:id="@+id/tvProe"

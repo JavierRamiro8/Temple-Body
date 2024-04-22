@@ -28,7 +28,8 @@
             app:layout_constraintBottom_toTopOf="@+id/recycleEjercicios"
             app:layout_constraintEnd_toEndOf="@+id/recycleEjercicios"
             app:layout_constraintStart_toStartOf="@+id/recycleEjercicios"
-            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial"
+            android:textColorHint="#000000"/>
 
         <TextView
             android:id="@+id/TVTituloHistorial"

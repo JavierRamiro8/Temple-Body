@@ -8,42 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/templebody" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/icono3"
-        tools:context=".ActivityCambioPassword">
+        android:background="@drawable/icono3">
 
         <TextView
             android:id="@+id/ACPtvCambioPass"
@@ -54,29 +20,11 @@
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ACPetUsuario"
+            app:layout_constraintEnd_toEndOf="@+id/ACPetUsuario"
+            app:layout_constraintStart_toStartOf="@+id/ACPetUsuario"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.08" />
-
-        <EditText
-            android:id="@+id/ACPetUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:background="@color/material_dynamic_neutral90"
-            android:drawablePadding="10dp"
-            android:hint="Nombre Usuario"
-            android:inputType="text"
-            android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ACPtvCambioPass"
-            app:layout_constraintVertical_bias="0.05" />
+            android:textColorHint="#000000"/>
 
         <EditText
             android:id="@+id/ACPetMail"
@@ -88,12 +36,11 @@
             android:hint="Correo Electronico"
             android:inputType="text"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ACPetOLDpassword"
+            app:layout_constraintEnd_toEndOf="@+id/ACPetOLDpassword"
+            app:layout_constraintStart_toStartOf="@+id/ACPetOLDpassword"
             app:layout_constraintTop_toBottomOf="@+id/ACPetUsuario"
-            app:layout_constraintVertical_bias="0.05" />
+            android:textColorHint="#000000"/>
 
         <EditText
             android:id="@+id/ACPetOLDpassword"
@@ -105,12 +52,11 @@
             android:hint="Antigua Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ACPetNEWpassword"
+            app:layout_constraintEnd_toEndOf="@+id/ACPetNEWpassword"
+            app:layout_constraintStart_toStartOf="@+id/ACPetNEWpassword"
             app:layout_constraintTop_toBottomOf="@+id/ACPetMail"
-            app:layout_constraintVertical_bias="0.07" />
+            android:textColorHint="#000000"/>
 
         <EditText
             android:id="@+id/ACPetNEWpassword"
@@ -122,12 +68,11 @@
             android:hint="Nueva Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ACPbtCambiar"
+            app:layout_constraintEnd_toEndOf="@+id/ACPbtCambiar"
+            app:layout_constraintStart_toStartOf="@+id/ACPbtCambiar"
             app:layout_constraintTop_toBottomOf="@+id/ACPetOLDpassword"
-            app:layout_constraintVertical_bias="0.09" />
+            android:textColorHint="#000000"/>
 
         <Button
             android:id="@+id/ACPbtCambiar"
@@ -139,11 +84,11 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ACPbtRegresar"
+            app:layout_constraintEnd_toEndOf="@+id/ACPbtRegresar"
+            app:layout_constraintStart_toStartOf="@+id/ACPbtRegresar"
             app:layout_constraintTop_toBottomOf="@+id/ACPetNEWpassword"
-            app:layout_constraintVertical_bias="0.25" />
+            android:textColorHint="#000000"/>
 
         <Button
             android:id="@+id/ACPbtRegresar"
@@ -156,10 +101,25 @@
             android:textSize="16sp"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/ACPbtCambiar"
-            app:layout_constraintStart_toStartOf="@+id/ACPbtCambiar"
             app:layout_constraintTop_toBottomOf="@+id/ACPbtCambiar"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:layout_editor_absoluteX="65dp"
+            android:textColorHint="#000000"/>
+
+        <EditText
+            android:id="@+id/ACPetUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/material_dynamic_neutral90"
+            android:drawablePadding="10dp"
+            android:hint="Nombre Usuario"
+            android:inputType="text"
+            android:padding="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/ACPetMail"
+            app:layout_constraintEnd_toEndOf="@+id/ACPetMail"
+            app:layout_constraintStart_toStartOf="@+id/ACPetMail"
+            app:layout_constraintTop_toBottomOf="@+id/ACPtvCambioPass"
+            android:textColorHint="#000000"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

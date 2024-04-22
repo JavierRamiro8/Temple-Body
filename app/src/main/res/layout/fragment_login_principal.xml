@@ -8,50 +8,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/templebody" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/icono3"
-        tools:context=".login">
-
-        <!-- android:scaleType="centerCrop" -->
+        android:background="@drawable/icono3">
 
         <TextView
             android:id="@+id/tvBienvenida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
             android:fontFamily="@font/baskervville"
             android:gravity="center"
             android:text="Bienvenido"
@@ -64,33 +27,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/ALetUsuario"
-            android:layout_width="334dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/border_radius_et_login"
-            android:drawablePadding="10dp"
-            android:hint="Usuario"
-            android:inputType="text"
-            android:padding="15dp"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/ALetPassword"
-            app:layout_constraintEnd_toEndOf="@+id/ALetPassword"
-            app:layout_constraintStart_toStartOf="@+id/ALetPassword"
-            app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
-
-        <EditText
             android:id="@+id/ALetPassword"
             android:layout_width="334dp"
             android:layout_height="62dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="16dp"
             android:background="@drawable/border_radius_et_login"
             android:drawablePadding="10dp"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="#000000"
+            android:textColorHint="#000000"
             app:layout_constraintBottom_toTopOf="@+id/ALbtAccept"
             app:layout_constraintEnd_toEndOf="@+id/ALbtAccept"
             app:layout_constraintStart_toStartOf="@+id/ALbtAccept"
@@ -102,10 +49,9 @@
             android:layout_width="238dp"
             android:layout_height="52dp"
             android:layout_centerInParent="true"
-            android:layout_marginTop="32dp"
             android:text="Aceptar"
-            android:textSize="18sp"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toTopOf="@+id/ALtvRegisterlink"
             app:layout_constraintEnd_toEndOf="@+id/ALtvRegisterlink"
@@ -116,15 +62,32 @@
             android:id="@+id/ALtvRegisterlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="¿No tienes una cuenta? Regístrate aquí"
             android:textAlignment="center"
             android:textColor="#DFDFDF"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvBienvenida"
-            app:layout_constraintTop_toBottomOf="@+id/ALbtAccept" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ALbtAccept"
+            tools:layout_editor_absoluteX="3dp" />
+
+        <EditText
+            android:id="@+id/ALetUsuario"
+            android:layout_width="334dp"
+            android:layout_height="62dp"
+            android:background="@drawable/border_radius_et_login"
+            android:drawablePadding="10dp"
+            android:hint="Usuario"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/ALetPassword"
+            app:layout_constraintEnd_toEndOf="@+id/ALetPassword"
+            app:layout_constraintStart_toStartOf="@+id/ALetPassword"
+            app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -8,56 +8,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/templebody" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/icono3"
-        tools:context=".registro">
+        android:background="@drawable/icono3">
 
         <EditText
             android:id="@+id/reg_et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="44dp"
             android:background="@color/material_dynamic_neutral90"
             android:drawablePadding="10dp"
             android:hint="Email"
             android:inputType="text"
             android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/reg_et_password"
+            app:layout_constraintEnd_toEndOf="@+id/reg_et_password"
+            app:layout_constraintStart_toStartOf="@+id/reg_et_password"
             app:layout_constraintTop_toBottomOf="@+id/reg_et_usuario" />
 
         <TextView
@@ -69,26 +36,25 @@
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.072" />
+            app:layout_constraintBottom_toTopOf="@+id/reg_et_usuario"
+            app:layout_constraintEnd_toEndOf="@+id/reg_et_usuario"
+            app:layout_constraintStart_toStartOf="@+id/reg_et_usuario"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/reg_et_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="40dp"
             android:background="@color/material_dynamic_neutral90"
             android:drawablePadding="10dp"
             android:hint="Nombre Usuario"
             android:inputType="text"
             android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/reg_et_email"
+            app:layout_constraintEnd_toEndOf="@+id/reg_et_email"
+            app:layout_constraintStart_toStartOf="@+id/reg_et_email"
             app:layout_constraintTop_toBottomOf="@+id/tv_Registro" />
 
         <EditText
@@ -96,14 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="44dp"
             android:background="@color/material_dynamic_neutral90"
             android:drawablePadding="10dp"
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:padding="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColorHint="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/tv_terminosYcondiciones"
+            app:layout_constraintEnd_toEndOf="@+id/tv_terminosYcondiciones"
+            app:layout_constraintStart_toStartOf="@+id/tv_terminosYcondiciones"
             app:layout_constraintTop_toBottomOf="@+id/reg_et_email" />
 
         <CheckBox
@@ -116,8 +83,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_et_password"
-            app:layout_constraintVertical_bias="0.303" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.696" />
 
         <TextView
             android:id="@+id/tv_terminosYcondiciones"
@@ -127,12 +94,11 @@
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/cb_terminosYcondiciones"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.114"
-            app:layout_constraintStart_toEndOf="@+id/cb_terminosYcondiciones"
-            app:layout_constraintTop_toBottomOf="@+id/reg_et_password"
-            app:layout_constraintVertical_bias="0.904" />
+            app:layout_constraintBottom_toTopOf="@+id/btRegistro"
+            app:layout_constraintEnd_toEndOf="@+id/btRegistro"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/btRegistro"
+            app:layout_constraintTop_toBottomOf="@+id/reg_et_password" />
 
         <Button
             android:id="@+id/btRegistro"
@@ -145,10 +111,8 @@
             android:textSize="18sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_terminosYcondiciones"
-            app:layout_constraintVertical_bias="0.25" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_terminosYcondiciones"
+            tools:layout_editor_absoluteX="21dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>
