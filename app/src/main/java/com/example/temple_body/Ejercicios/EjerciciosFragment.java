@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.temple_body.Ejercicios.llamadaAPIMusculos.Ejercicio;
 import com.example.temple_body.Ejercicios.llamadaAPIMusculos.ServiceEjercicios;
 import com.example.temple_body.R;
+import com.google.firebase.Firebase;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

@@ -3,62 +3,100 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.temple_body.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Registro#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class Registro extends Fragment {
+    public Registro() {}
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText usuario,email,contrasena;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    CheckBox checkTerminos;
 
-    public Registro() {
-        // Required empty public constructor
-    }
+    Button registro;
+    FirebaseAuth mauth;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment loginPrincipal.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Registro newInstance(String param1, String param2) {
-        Registro fragment = new Registro();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    DatabaseReference mDatabase;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro, container, false);
+        View layout= inflater.inflate(R.layout.fragment_registro, container, false);
+        usuario=layout.findViewById(R.id.reg_et_usuario);
+        contrasena=layout.findViewById(R.id.reg_et_password);
+        email=layout.findViewById(R.id.reg_et_email);
+        checkTerminos=layout.findViewById(R.id.cb_terminosYcondiciones);
+        registro=layout.findViewById(R.id.btRegistro);
+
+
+        mauth=FirebaseAuth.getInstance();
+        mDatabase= FirebaseDatabase.getInstance().getReference();
+
+
+        registro.setOnClickListener(v -> {
+            if(usuario.getText().toString().isEmpty()){
+                usuario.setError("Introduce nombre de usuario");
+            }else if(contrasena.getText().toString().isEmpty()){
+                contrasena.setError("Introduce contraseña");
+            }else if (email.getText().toString().isEmpty()) {
+                email.setError("El correo esta vacio o no es valido");
+            }else if(!checkTerminos.isChecked()){
+                checkTerminos.setError("Lee las condiciones y terminos");
+            }else{
+                registrarUsuario();
+            }
+        });
+
+        return layout;
     }
+
+    private void registrarUsuario() {
+        mauth.createUserWithEmailAndPassword(email.getText().toString(),contrasena.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    String userId = mauth.getCurrentUser().getUid(); // Obtener el ID de usuario generado por Firebase
+
+                    Map<String, Object> mapa=new HashMap<>();
+                    mapa.put("nombreUsuario",usuario.getText().toString());
+                    mapa.put("email",email.getText().toString());
+                    mapa.put("contraseña",contrasena.getText().toString());
+
+                    // Guardar los datos en la base de datos con el ID de usuario
+                    mDatabase.child("Users").child(userId).setValue(mapa);
+
+                    // Pasar argumentos al fragmento loginPrincipal
+                    Bundle args = new Bundle();
+                    args.putString("userId", userId);
+                    args.putString("email", email.getText().toString());
+                    args.putString("contraseña", contrasena.getText().toString());
+                    args.putString("nombreUsuario", usuario.getText().toString());
+
+                    FragmentManager fragmentManager = getParentFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.fragmentRegistro, new Perfil());
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+            }
+        });
+    }
+
 }

@@ -14,59 +14,19 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.temple_body.R;
+import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link androidx.fragment.app.Fragment} subclass.
- * Use the {@link loginPrincipal#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class loginPrincipal extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public loginPrincipal() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment loginPrincipal.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static loginPrincipal newInstance(String param1, String param2) {
-        loginPrincipal fragment = new loginPrincipal();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public loginPrincipal() {}
     public static  final  String User = "prueba";
     public static  final  String Pass = "prueba";
     EditText etUsuario;
     EditText etPassword;
     Button btIniciarSesion;
     TextView tvRegistrarse;
+
+    FirebaseAuth mauth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,42 +37,37 @@ public class loginPrincipal extends Fragment {
         etPassword = layout.findViewById(R.id.ALetPassword);
         btIniciarSesion = layout.findViewById(R.id.ALbtAccept);
         tvRegistrarse = layout.findViewById(R.id.ALtvRegisterlink);
+        mauth=FirebaseAuth.getInstance();
 
-        btIniciarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String usuario = etUsuario.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+        btIniciarSesion.setOnClickListener(v -> {
+            String usuario = etUsuario.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
-                if (usuario.equals(User) && password.equals(Pass)) {
-                    // Las credenciales son correctas, navegar al perfil Fragment
-                    FragmentManager fragmentManager = getParentFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragmentLogin, new Perfil());
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                } else {
-                    // Las credenciales son incorrectas, mostrar AlertDialog
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("Error")
-                            .setMessage("Usuario o contraseña incorrectos, Es prueba, prueba.")
-                            .setPositiveButton("Aceptar", null);
+            if (usuario.equals(User) && password.equals(Pass)) {
+                // Las credenciales son correctas, navegar al perfil Fragment
+                FragmentManager fragmentManager = getParentFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragmentLogin, new Perfil());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            } else {
+                // Las credenciales son incorrectas, mostrar AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Error")
+                        .setMessage("Usuario o contraseña incorrectos, Es prueba, prueba.")
+                        .setPositiveButton("Aceptar", null);
 
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
-        tvRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getParentFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.fragmentLogin, new Registro());
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
+        tvRegistrarse.setOnClickListener(v -> {
+            FragmentManager fragmentManager = getParentFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragmentLogin, new Registro());
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
 
         return layout;

@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "251040193094",
-    "firebase_url": "https://proyectoandroid-4c361-default-rtdb.firebaseio.com",
-    "project_id": "proyectoandroid-4c361",
-    "storage_bucket": "proyectoandroid-4c361.appspot.com"
+    "project_number": "677115545787",
+    "project_id": "temple-body-1dea1",
+    "storage_bucket": "temple-body-1dea1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:251040193094:android:523d58d92be4ab350b8847",
+        "mobilesdk_app_id": "1:677115545787:android:63b079ac1e867c738a019e",
         "android_client_info": {
           "package_name": "com.example.temple_body"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCCGcazHjxMQjfkUMh25sHvaBdhZsPny5U"
+          "current_key": "AIzaSyBv_KzjJ7k4ayzmOZFpi4s-_oWjoWlKqJA"
         }
       ],
       "services": {
