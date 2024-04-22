@@ -1,5 +1,7 @@
 package com.example.temple_body.Login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,59 +10,83 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class loginPrincipal extends Fragment {
 
     public loginPrincipal() {}
-    public static  final  String User = "prueba";
-    public static  final  String Pass = "prueba";
 
     private static final String MENSAJEERROR="Usuario o contraseña incorrectos, Es prueba, prueba.";
-    EditText etUsuario;
+    EditText etCorreoElectronico;
     EditText etPassword;
     Button btIniciarSesion;
     TextView tvRegistrarse;
 
     FirebaseAuth mauth;
+    DatabaseReference dr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_login_principal, container, false);
 
-        etUsuario = layout.findViewById(R.id.ALetUsuario);
+        etCorreoElectronico = layout.findViewById(R.id.ALetCorreoElectronico);
         etPassword = layout.findViewById(R.id.ALetPassword);
         btIniciarSesion = layout.findViewById(R.id.ALbtAccept);
         tvRegistrarse = layout.findViewById(R.id.ALtvRegisterlink);
         mauth=FirebaseAuth.getInstance();
 
         btIniciarSesion.setOnClickListener(v -> {
-            String usuario = etUsuario.getText().toString().trim();
-            String password = etPassword.getText().toString().trim();
+            String email= etCorreoElectronico.getText().toString();
+            String contrasena=etPassword.getText().toString();
+            mauth.signInWithEmailAndPassword(email,contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        dr= FirebaseDatabase.getInstance().getReference();
+                        String idUsuario=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        String correo=FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                        dr.child("Users").child(idUsuario).child("nombreUsuario").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    String usuario = task.getResult().getValue(String.class);
+                                    viajarPerfil(correo, usuario);
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                    builder.setTitle("Error")
+                                            .setMessage("Error al obtener el nombre de usuario")
+                                            .setPositiveButton("Aceptar", null);
 
-            if (usuario.equals(User) && password.equals(Pass)) {
-                // Las credenciales son correctas, navegar al perfil Fragment
-                viajarPerfil();
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                }
+                            }
+                        });
+                    }else{
+                        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                        builder.setTitle("Error")
+                                .setMessage("Usuario o contraseña incorrectos")
+                                .setPositiveButton("Aceptar", null);
 
-            } else {
-                // Las credenciales son incorrectas, mostrar AlertDialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Error")
-                        .setMessage(MENSAJEERROR)
-                        .setPositiveButton("Aceptar", null);
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                }
+            });
         });
 
         tvRegistrarse.setOnClickListener(v -> {
@@ -69,10 +95,22 @@ public class loginPrincipal extends Fragment {
 
         return layout;
     }
-    private void viajarPerfil(){
-        NavController nav= NavHostFragment.findNavController(this);
+    private void viajarPerfil(String correo, String usuario) {
+        guardarCredencialesUsuario(correo, usuario);
+        NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_perfil);
     }
+
+
+    // Método para limpiar los datos del usuario de las preferencias compartidas
+    private void guardarCredencialesUsuario(String nombreUsuario, String correo) {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("nombreUsuario", nombreUsuario);
+        editor.putString("correo", correo);
+        editor.apply();
+    }
+
     private void viajarRegistro(){
         NavController nav= NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_registro);

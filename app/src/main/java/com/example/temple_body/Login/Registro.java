@@ -1,4 +1,7 @@
 package com.example.temple_body.Login;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +12,8 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,12 +25,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class Registro extends Fragment {
-    public Registro() {}
+    public Registro() {
+    }
 
-    EditText usuario,email,contrasena;
+    EditText usuario, email, contrasena;
 
     CheckBox checkTerminos;
 
@@ -35,31 +38,32 @@ public class Registro extends Fragment {
     FirebaseAuth mauth;
 
     DatabaseReference mDatabase;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View layout= inflater.inflate(R.layout.fragment_registro, container, false);
-        usuario=layout.findViewById(R.id.reg_et_usuario);
-        contrasena=layout.findViewById(R.id.reg_et_password);
-        email=layout.findViewById(R.id.reg_et_email);
-        checkTerminos=layout.findViewById(R.id.cb_terminosYcondiciones);
-        registro=layout.findViewById(R.id.btRegistro);
+        View layout = inflater.inflate(R.layout.fragment_registro, container, false);
+        usuario = layout.findViewById(R.id.reg_et_usuario);
+        contrasena = layout.findViewById(R.id.reg_et_password);
+        email = layout.findViewById(R.id.reg_et_email);
+        checkTerminos = layout.findViewById(R.id.cb_terminosYcondiciones);
+        registro = layout.findViewById(R.id.btRegistro);
 
 
-        mauth=FirebaseAuth.getInstance();
-        mDatabase= FirebaseDatabase.getInstance().getReference();
+        mauth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
         registro.setOnClickListener(v -> {
-            if(usuario.getText().toString().isEmpty()){
+            if (usuario.getText().toString().isEmpty()) {
                 usuario.setError("Introduce nombre de usuario");
-            }else if(contrasena.getText().toString().isEmpty()){
+            } else if (contrasena.getText().toString().isEmpty()) {
                 contrasena.setError("Introduce contraseña");
-            }else if (email.getText().toString().isEmpty()) {
-                email.setError("El correo esta vacio o no es valido");
-            }else if(!checkTerminos.isChecked()){
-                checkTerminos.setError("Lee las condiciones y terminos");
-            }else{
+            } else if (email.getText().toString().isEmpty()) {
+                email.setError("El correo está vacío o no es válido");
+            } else if (!checkTerminos.isChecked()) {
+                checkTerminos.setError("Lee las condiciones y términos");
+            } else {
                 registrarUsuario();
             }
         });
@@ -68,35 +72,46 @@ public class Registro extends Fragment {
     }
 
     private void registrarUsuario() {
-        mauth.createUserWithEmailAndPassword(email.getText().toString(),contrasena.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mauth.createUserWithEmailAndPassword(email.getText().toString(), contrasena.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
                     String userId = mauth.getCurrentUser().getUid(); // Obtener el ID de usuario generado por Firebase
 
-                    Map<String, Object> mapa=new HashMap<>();
-                    mapa.put("nombreUsuario",usuario.getText().toString());
-                    mapa.put("email",email.getText().toString());
-                    mapa.put("contraseña",contrasena.getText().toString());
+                    Map<String, Object> mapa = new HashMap<>();
+                    mapa.put("nombreUsuario", usuario.getText().toString());
+                    mapa.put("email", email.getText().toString());
+                    mapa.put("contraseña", contrasena.getText().toString());
 
                     // Guardar los datos en la base de datos con el ID de usuario
                     mDatabase.child("Users").child(userId).setValue(mapa);
 
-                    // Pasar argumentos al fragmento loginPrincipal
-                    Bundle args = new Bundle();
-                    args.putString("userId", userId);
-                    args.putString("email", email.getText().toString());
-                    args.putString("contraseña", contrasena.getText().toString());
-                    args.putString("nombreUsuario", usuario.getText().toString());
+                    // Guardar las credenciales del usuario en SharedPreferences
+                    guardarCredencialesUsuario(usuario.getText().toString(), email.getText().toString());
 
-                   /* FragmentManager fragmentManager = getParentFragmentManager();
-                    FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.fragmentRegistro, new Perfil());
-                    transaction.addToBackStack(null);
-                    transaction.commit();*/
+                    // Pasar argumentos al fragmento perfil
+                    String nombreUsuario = usuario.getText().toString();
+                    String correo = email.getText().toString();
+                    viajarPerfil(nombreUsuario, correo);
                 }
             }
         });
+    }
+
+    private void guardarCredencialesUsuario(String nombreUsuario, String correo) {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("nombreUsuario", nombreUsuario);
+        editor.putString("correo", correo);
+        editor.apply();
+    }
+
+    private void viajarPerfil(String nombreUsuario, String correo) {
+        Bundle bundle = new Bundle();
+        bundle.putString("nombreUsuario", nombreUsuario);
+        bundle.putString("correo", correo);
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_registro_to_perfil, bundle);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.temple_body.Login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,20 +10,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 
 public class Perfil extends Fragment {
     TextView etNombre, etCorreo;
@@ -42,15 +37,7 @@ public class Perfil extends Fragment {
         ibAvatar = layout.findViewById(R.id.APibAvatarPerfil);
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        Bundle args = getArguments();
-        String usuario ="";
-        String email ="";
-        if (args != null) {
-            usuario=args.getString("nombreUsuario");
-            email=args.getString("email");
-        }
-        etNombre.setText(usuario);
-        etCorreo.setText(email);
+        cargarDatosUsuario();
 
         btConfiguracion.setOnClickListener((v) -> {
             viajarConfiguracion();
@@ -66,18 +53,27 @@ public class Perfil extends Fragment {
 
         return layout;
     }
-    private void viajarConfiguracion(){
-        NavController nav= NavHostFragment.findNavController(this);
+
+    private void cargarDatosUsuario() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+        String nombreUsuario = sharedPreferences.getString("nombreUsuario", "");
+        String correo = sharedPreferences.getString("correo", "");
+        etNombre.setText(nombreUsuario);
+        etCorreo.setText(correo);
+    }
+
+    private void viajarConfiguracion() {
+        NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_configuracion);
     }
+
     private void viajarInformacion() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_informacion);
     }
+
     private void viajarLogin() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_loginPrincipal);
     }
-
 }
-

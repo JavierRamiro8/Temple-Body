@@ -21,9 +21,9 @@
             android:textColor="#FFC107"
             android:textSize="60sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/ALetUsuario"
-            app:layout_constraintEnd_toEndOf="@+id/ALetUsuario"
-            app:layout_constraintStart_toStartOf="@+id/ALetUsuario"
+            app:layout_constraintBottom_toTopOf="@+id/ALetCorreoElectronico"
+            app:layout_constraintEnd_toEndOf="@+id/ALetCorreoElectronico"
+            app:layout_constraintStart_toStartOf="@+id/ALetCorreoElectronico"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ALbtAccept"
             app:layout_constraintEnd_toEndOf="@+id/ALbtAccept"
             app:layout_constraintStart_toStartOf="@+id/ALbtAccept"
-            app:layout_constraintTop_toBottomOf="@+id/ALetUsuario" />
+            app:layout_constraintTop_toBottomOf="@+id/ALetCorreoElectronico" />
 
         <Button
             android:id="@+id/ALbtAccept"
@@ -73,12 +73,12 @@
             tools:layout_editor_absoluteX="3dp" />
 
         <EditText
-            android:id="@+id/ALetUsuario"
+            android:id="@+id/ALetCorreoElectronico"
             android:layout_width="334dp"
             android:layout_height="62dp"
             android:background="@drawable/border_radius_et_login"
             android:drawablePadding="10dp"
-            android:hint="Usuario"
+            android:hint="Correo Electronico"
             android:inputType="text"
             android:padding="15dp"
             android:textColor="#000000"
