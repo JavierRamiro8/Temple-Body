@@ -54,7 +54,7 @@ public class GimnasiosFragment extends Fragment {
         a.setClickListener(new GimnasiosAdapter.ItemClickListener() {
             @Override
             public void onClick(View view, int position, Gimnasios gimnasio) {
-                Gimnasios miGimnasio = new Gimnasios(gimnasio.getNombre(), gimnasio.getPrecio(), gimnasio.getValoracion());
+                Gimnasios miGimnasio = new Gimnasios(gimnasio.getNombre(), gimnasio.getPrecio(), gimnasio.getValoracion(), gimnasio.getMasInfo());
                 nombre = miGimnasio.getNombre();
                 if (ContextCompat.checkSelfPermission(
                         requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) ==

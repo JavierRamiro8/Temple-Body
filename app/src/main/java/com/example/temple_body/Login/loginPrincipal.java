@@ -52,41 +52,49 @@ public class loginPrincipal extends Fragment {
         btIniciarSesion.setOnClickListener(v -> {
             String email= etCorreoElectronico.getText().toString();
             String contrasena=etPassword.getText().toString();
-            mauth.signInWithEmailAndPassword(email,contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        dr= FirebaseDatabase.getInstance().getReference();
-                        String idUsuario=FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        String correo=FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                        dr.child("Users").child(idUsuario).child("nombreUsuario").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    String usuario = task.getResult().getValue(String.class);
-                                    viajarPerfil(correo, usuario);
-                                } else {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                                    builder.setTitle("Error")
-                                            .setMessage("Error al obtener el nombre de usuario")
-                                            .setPositiveButton("Aceptar", null);
+            if(email.isEmpty()){
+                etCorreoElectronico.setError("Email vacio o nula.");
+            }
+            else if(contrasena.isEmpty()){
+                etPassword.setError("Contraseña vacia o nula");
+            }else{
+                mauth.signInWithEmailAndPassword(email,contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            dr= FirebaseDatabase.getInstance().getReference();
+                            String idUsuario=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            String correo=FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                            dr.child("Users").child(idUsuario).child("nombreUsuario").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        String usuario = task.getResult().getValue(String.class);
+                                        viajarPerfil(correo, usuario);
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                        builder.setTitle("Error")
+                                                .setMessage("Error al obtener el nombre de usuario")
+                                                .setPositiveButton("Aceptar", null);
 
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
+                                        AlertDialog dialog = builder.create();
+                                        dialog.show();
+                                    }
                                 }
-                            }
-                        });
-                    }else{
-                        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                        builder.setTitle("Error")
-                                .setMessage("Usuario o contraseña incorrectos")
-                                .setPositiveButton("Aceptar", null);
+                            });
+                        }else{
+                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                            builder.setTitle("Error")
+                                    .setMessage("Usuario o contraseña incorrectos")
+                                    .setPositiveButton("Aceptar", null);
 
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
                     }
-                }
-            });
+                });
+            }
+
         });
 
         tvRegistrarse.setOnClickListener(v -> {
@@ -96,7 +104,7 @@ public class loginPrincipal extends Fragment {
         return layout;
     }
     private void viajarPerfil(String correo, String usuario) {
-        guardarCredencialesUsuario(correo, usuario);
+        guardarCredencialesUsuario(usuario, correo);
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_perfil);
     }

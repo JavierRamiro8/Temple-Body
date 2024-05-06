@@ -1,5 +1,6 @@
 package com.example.temple_body.Gimnasios;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,21 +38,24 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
         private final TextView precio;
 
         private  final TextView valoracion;
+        private  final TextView masInfo;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            nombre = (TextView) view.findViewById(R.id.nombreSuplemento);
-            precio = (TextView) view.findViewById(R.id.marca1);
-            valoracion = (TextView) view.findViewById(R.id.marca5);
+            nombre = (TextView) view.findViewById(R.id.nombreGimnasio);
+            precio = (TextView) view.findViewById(R.id.precioGimnasio);
+            valoracion = (TextView) view.findViewById(R.id.valoracionGimnasio);
+            masInfo = (TextView) view.findViewById(R.id.masInfoGimnasio);
             view.setOnClickListener(this);
         }
 
-        public void setInfo(String i_nombre, double i_precio, double i_valoracion) {
+        public void setInfo(String i_nombre, double i_precio, double i_valoracion, String masInformacion) {
             nombre.setText(i_nombre);
             precio.setText("Precio mensual: "+String.valueOf(i_precio) + "€");
             valoracion.setText("Valoracion: "+String.valueOf(i_valoracion) + "*");
+            masInfo.setText(Html.fromHtml("<h4><u>Informacion adicional: </u></h4>" + masInformacion));
         }
 
         @Override
@@ -89,7 +93,7 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Gimnasios e = datos.get(position);
-        viewHolder.setInfo(e.getNombre(),e.getPrecio(), e.getValoracion());
+        viewHolder.setInfo(e.getNombre(),e.getPrecio(), e.getValoracion(), e.getMasInfo());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

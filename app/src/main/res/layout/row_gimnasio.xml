@@ -13,7 +13,7 @@
     android:paddingBottom="4dp">
 
     <TextView
-        android:id="@+id/nombreSuplemento"
+        android:id="@+id/nombreGimnasio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_tv_rows"
@@ -25,7 +25,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/marca1"
+        android:id="@+id/precioGimnasio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_tv_rows"
@@ -36,12 +36,23 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/marca5"
+        android:id="@+id/valoracionGimnasio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_tv_rows"
         android:padding="4dp"
         android:text="4.6"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/masInfoGimnasio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:paddingBottom="30px"
+        android:text="Informacion"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />

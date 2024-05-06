@@ -40,7 +40,7 @@ public class SuplementosAdapter extends RecyclerView.Adapter<SuplementosAdapter.
             super(view);
             // Define click listener for the ViewHolder's View
 
-            nombre = (TextView) view.findViewById(R.id.nombreSuplemento);
+            nombre = (TextView) view.findViewById(R.id.nombreGimnasio);
             descripcion = (TextView) view.findViewById(R.id.descripcionSuplemento);
             view.setOnClickListener(this);
         }
