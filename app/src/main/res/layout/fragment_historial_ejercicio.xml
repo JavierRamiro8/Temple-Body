@@ -78,15 +78,13 @@
         <Button
             android:id="@+id/BTGenerar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_width="169dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="8dp"
             android:text="Generar"
             android:textColor="@color/black"
             app:backgroundTint="#61FD00"
-            app:layout_constraintBottom_toTopOf="@+id/BTSalir"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
@@ -160,29 +158,40 @@
         <Button
             android:id="@+id/BTSalir"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_width="169dp"
+            android:layout_height="47dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:text="Regresar"
             android:textColor="@color/black"
             app:backgroundTint="#F44336"
-            app:layout_constraintBottom_toTopOf="@+id/recycleHistorial"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BTGenerar"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toEndOf="@+id/BTGenerar"
+            app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleHistorial"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btFiltrar" />
+
+        <Button
+            android:id="@+id/btFiltrar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:text="Filtrar por fecha"
+            android:textColor="@color/black"
+            app:backgroundTint="#FFC107"
+            app:layout_constraintEnd_toEndOf="@+id/BTSalir"
+            app:layout_constraintStart_toStartOf="@+id/BTGenerar"
             app:layout_constraintTop_toBottomOf="@+id/BTSalir" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,22 +7,30 @@
     tools:context=".Login.fragmentsInformacion.fragCondicionesUso">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="680dp" >
-
-        <TextView
-            android:id="@+id/fragmentCondicionesUso"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-    </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="332dp"
+            android:layout_height="615dp"
+            app:layout_constraintBottom_toTopOf="@+id/ACUbtRegreso"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/fragmentCondicionesUso"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#000000"
+                android:text="Condiciones de uso"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </androidx.core.widget.NestedScrollView>
 
         <Button
             android:id="@+id/ACUbtRegreso"
