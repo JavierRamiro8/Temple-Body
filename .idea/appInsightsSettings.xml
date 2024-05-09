@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.temple_body" />
-                  <option name="mobileSdkAppId" value="1:251040193094:android:523d58d92be4ab350b8847" />
-                  <option name="projectId" value="proyectoandroid-4c361" />
-                  <option name="projectNumber" value="251040193094" />
+                  <option name="mobileSdkAppId" value="1:677115545787:android:63b079ac1e867c738a019e" />
+                  <option name="projectId" value="temple-body-1dea1" />
+                  <option name="projectNumber" value="677115545787" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

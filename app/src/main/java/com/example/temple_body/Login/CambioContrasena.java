@@ -1,53 +1,141 @@
 package com.example.temple_body.Login;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.temple_body.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class CambioContrasena extends Fragment {
     public CambioContrasena() {}
 
-    EditText etUsuario, etCorreo, etPassOld, etPassNew;
+    EditText etCorreo;
     Button btCambiar, btRegresar;
+
+    private static int regresoLayout =0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_cambio_contrasena, container, false);
-
-        etUsuario = layout.findViewById(R.id.ACPetUsuario);
+        cargarLayoutIdaVuelta();
         etCorreo = layout.findViewById(R.id.ACPetMail);
-        etPassOld = layout.findViewById(R.id.ACPetOLDpassword);
-        etPassNew = layout.findViewById(R.id.ACPetNEWpassword);
         btCambiar = layout.findViewById(R.id.ACPbtCambiar);
         btRegresar = layout.findViewById(R.id.ACPbtRegresar);
 
         btCambiar.setOnClickListener(v -> {
-            viajarPerfil();
+            int invalidado=0;
+            if(etCorreo.getText().toString().isEmpty()){
+                etCorreo.setError("Introduce correo válido");
+                invalidado++;
+            }
+            if(invalidado==0){
+                cambioContrasena(etCorreo.getText().toString().trim());
+            }
         });
 
         btRegresar.setOnClickListener(v ->{
-            viajarConfiguracion();
+            if(regresoLayout ==0){
+                viajarConfiguracion();
+            }else{
+                viajarLogin();
+            }
         });
         return layout;
     }
-    private void viajarPerfil() {
-        NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_cambioContrasena_to_perfil2);
+
+
+
+    private void cambioContrasena(String correo) {
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        usersRef.orderByChild("email").equalTo(correo).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    enviarCorreoRestablecimiento(correo);
+                } else {
+                    mostrarErrorCorreoNoEncontrado();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
+        });
+    }
+
+    private void enviarCorreoRestablecimiento(String correo) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.setLanguageCode("es");
+        mAuth.sendPasswordResetEmail(correo).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                mostrarExitoCorreoEnviado();
+            } else {
+                mostrarErrorCorreoNoEnviado();
+            }
+        });
+    }
+
+    private void mostrarErrorCorreoNoEncontrado() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Error")
+                .setMessage("Error, no se pudo encontrar un correo en nuestros sistemas")
+                .setPositiveButton("Aceptar", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void mostrarExitoCorreoEnviado() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Enviado")
+                .setMessage("Correo enviado con exito")
+                .setPositiveButton("Aceptar", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    private void mostrarErrorCorreoNoEnviado() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Error")
+                .setMessage("Error al enviar el correo de recuperación ")
+                .setPositiveButton("Aceptar", null);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void cargarLayoutIdaVuelta() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutCambioContrasena", Context.MODE_PRIVATE);
+        regresoLayout = sharedPreferences.getInt("layoutLoginCambio",1);
     }
     private void viajarConfiguracion() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_cambioContrasena_to_configuracion);
+    }
+    private void viajarLogin() {
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_cambioContrasena_to_loginPrincipal);
     }
 }

@@ -8,57 +8,34 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@drawable/icono3">
 
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+        <ImageButton
+            android:id="@+id/APibAvatarPerfil"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/templebody" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/icono3"
-        tools:context=".perfil">
+            android:src="@drawable/usuario"
+            app:layout_constraintBottom_toTopOf="@+id/APtvNombrePerfil"
+            app:layout_constraintEnd_toEndOf="@+id/APtvNombrePerfil"
+            app:layout_constraintStart_toStartOf="@+id/APtvNombrePerfil"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/APtvNombrePerfil"
             android:layout_width="350dp"
             android:layout_height="40dp"
-            android:text="Name"
+            android:text="Bienvenido"
             android:textColor="#FFFFFF"
             android:textSize="24dp"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.353" />
+            app:layout_constraintBottom_toTopOf="@+id/APtvEmail"
+            app:layout_constraintEnd_toEndOf="@+id/APtvEmail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/APtvEmail"
+            app:layout_constraintTop_toBottomOf="@+id/APibAvatarPerfil" />
 
         <TextView
             android:id="@+id/APtvEmail"
@@ -68,12 +45,10 @@
             android:textColor="#FFFFFF"
             android:textSize="24dp"
             android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APtvNombrePerfil"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/APtvNombrePerfil"
-            app:layout_constraintTop_toBottomOf="@+id/APtvNombrePerfil"
-            app:layout_constraintVertical_bias="0.10" />
+            app:layout_constraintBottom_toTopOf="@+id/APbtInformacion"
+            app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
+            app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
+            app:layout_constraintTop_toBottomOf="@+id/APtvNombrePerfil" />
 
         <Button
             android:id="@+id/APbtInformacion"
@@ -84,11 +59,10 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APtvEmail"
-            app:layout_constraintStart_toStartOf="@+id/APtvEmail"
-            app:layout_constraintTop_toBottomOf="@+id/APtvEmail"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintBottom_toTopOf="@+id/APbtConfiguracion"
+            app:layout_constraintEnd_toEndOf="@+id/APbtConfiguracion"
+            app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
+            app:layout_constraintTop_toBottomOf="@+id/APtvEmail" />
 
         <Button
             android:id="@+id/APbtConfiguracion"
@@ -99,11 +73,10 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
-            app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
-            app:layout_constraintTop_toBottomOf="@+id/APbtInformacion"
-            app:layout_constraintVertical_bias="0.17" />
+            app:layout_constraintBottom_toTopOf="@+id/APbtCerrarSesion"
+            app:layout_constraintEnd_toEndOf="@+id/APbtCerrarSesion"
+            app:layout_constraintStart_toStartOf="@+id/APbtCerrarSesion"
+            app:layout_constraintTop_toBottomOf="@+id/APbtInformacion" />
 
         <Button
             android:id="@+id/APbtCerrarSesion"
@@ -115,25 +88,9 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APbtConfiguracion"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
-            app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion"
-            app:layout_constraintVertical_bias="0.30" />
-
-        <ImageButton
-            android:id="@+id/APibAvatarPerfil"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:src="@drawable/usuario"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            app:layout_constraintBottom_toTopOf="@+id/APtvNombrePerfil"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

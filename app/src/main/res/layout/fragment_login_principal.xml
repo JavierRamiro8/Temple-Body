@@ -38,9 +38,9 @@
             android:padding="15dp"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            app:layout_constraintBottom_toTopOf="@+id/ALbtAccept"
-            app:layout_constraintEnd_toEndOf="@+id/ALbtAccept"
-            app:layout_constraintStart_toStartOf="@+id/ALbtAccept"
+            app:layout_constraintBottom_toTopOf="@+id/tvCambioContrasena"
+            app:layout_constraintEnd_toEndOf="@+id/tvCambioContrasena"
+            app:layout_constraintStart_toStartOf="@+id/tvCambioContrasena"
             app:layout_constraintTop_toBottomOf="@+id/ALetCorreoElectronico" />
 
         <Button
@@ -56,7 +56,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ALtvRegisterlink"
             app:layout_constraintEnd_toEndOf="@+id/ALtvRegisterlink"
             app:layout_constraintStart_toStartOf="@+id/ALtvRegisterlink"
-            app:layout_constraintTop_toBottomOf="@+id/ALetPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCambioContrasena" />
 
         <TextView
             android:id="@+id/ALtvRegisterlink"
@@ -87,6 +87,17 @@
             app:layout_constraintEnd_toEndOf="@+id/ALetPassword"
             app:layout_constraintStart_toStartOf="@+id/ALetPassword"
             app:layout_constraintTop_toBottomOf="@+id/tvBienvenida" />
+
+        <TextView
+            android:id="@+id/tvCambioContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se me ha olvidado la contraseña"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/ALbtAccept"
+            app:layout_constraintEnd_toEndOf="@+id/ALbtAccept"
+            app:layout_constraintStart_toStartOf="@+id/ALbtAccept"
+            app:layout_constraintTop_toBottomOf="@+id/ALetPassword" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

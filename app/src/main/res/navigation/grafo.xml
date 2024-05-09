@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_loginPrincipal_to_perfil"
             app:destination="@id/perfil" />
+        <action
+            android:id="@+id/action_loginPrincipal_to_cambioContrasena"
+            app:destination="@id/cambioContrasena" />
     </fragment>
     <fragment
         android:id="@+id/registro"
@@ -161,5 +164,8 @@
         <action
             android:id="@+id/action_cambioContrasena_to_perfil2"
             app:destination="@id/perfil" />
+        <action
+            android:id="@+id/action_cambioContrasena_to_loginPrincipal"
+            app:destination="@id/loginPrincipal" />
     </fragment>
 </navigation>

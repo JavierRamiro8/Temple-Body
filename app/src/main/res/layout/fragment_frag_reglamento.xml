@@ -10,13 +10,12 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="680dp" >
+        android:layout_height="636dp">
 
         <TextView
             android:id="@+id/fragmentReglamento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"
             android:textColor="@color/white"
             android:textSize="24sp" />
     </androidx.core.widget.NestedScrollView>

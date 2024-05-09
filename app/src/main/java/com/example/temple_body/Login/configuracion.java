@@ -1,7 +1,9 @@
 package com.example.temple_body.Login;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -94,6 +96,7 @@ public class configuracion extends Fragment {
         });
 
         btModificar.setOnClickListener(v -> {
+            guardarLayoutIdaVuelta();
             viajarCambioCotrasena();
         });
 
@@ -116,6 +119,12 @@ public class configuracion extends Fragment {
         Intent i = new Intent(Intent.ACTION_VIEW, uri);
         i.putExtra("mail_body", "Problema con la cuenta.");
         startActivity(i);
+    }
+    private void guardarLayoutIdaVuelta() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutCambioContrasena", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("layoutLoginCambio", 0);
+        editor.apply();
     }
     private void requestLlamada(){
         Intent phoneIntent = new Intent(Intent.ACTION_CALL);

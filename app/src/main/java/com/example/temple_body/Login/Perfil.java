@@ -59,7 +59,7 @@ public class Perfil extends Fragment {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
         String nombreUsuario = sharedPreferences.getString("nombreUsuario", "");
         String correo = sharedPreferences.getString("correo", "");
-        etNombre.setText(nombreUsuario);
+        etNombre.append(" "+nombreUsuario);
         etCorreo.setText(correo);
     }
 

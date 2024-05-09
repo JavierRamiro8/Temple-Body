@@ -33,7 +33,7 @@ public class loginPrincipal extends Fragment {
     EditText etCorreoElectronico;
     EditText etPassword;
     Button btIniciarSesion;
-    TextView tvRegistrarse;
+    TextView tvRegistrarse,tvCambioContrasena;
 
     FirebaseAuth mauth;
     DatabaseReference dr;
@@ -47,6 +47,7 @@ public class loginPrincipal extends Fragment {
         etPassword = layout.findViewById(R.id.ALetPassword);
         btIniciarSesion = layout.findViewById(R.id.ALbtAccept);
         tvRegistrarse = layout.findViewById(R.id.ALtvRegisterlink);
+        tvCambioContrasena=layout.findViewById(R.id.tvCambioContrasena);
         mauth=FirebaseAuth.getInstance();
 
         btIniciarSesion.setOnClickListener(v -> {
@@ -101,6 +102,11 @@ public class loginPrincipal extends Fragment {
             viajarRegistro();
         });
 
+        tvCambioContrasena.setOnClickListener(v ->{
+            guardarLayoutIdaVuelta();
+            viajarCambioContrasena();
+        });
+
         return layout;
     }
     private void viajarPerfil(String correo, String usuario) {
@@ -119,8 +125,19 @@ public class loginPrincipal extends Fragment {
         editor.apply();
     }
 
+    private void guardarLayoutIdaVuelta() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutCambioContrasena", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("layoutLoginCambio", 1);
+        editor.apply();
+    }
+
     private void viajarRegistro(){
         NavController nav= NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_registro);
+    }
+    private void viajarCambioContrasena(){
+        NavController nav= NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_loginPrincipal_to_cambioContrasena);
     }
 }
