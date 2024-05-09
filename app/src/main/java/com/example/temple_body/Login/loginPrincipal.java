@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,8 +36,10 @@ public class loginPrincipal extends Fragment {
     Button btIniciarSesion;
     TextView tvRegistrarse,tvCambioContrasena;
 
-    FirebaseAuth mauth;
-    DatabaseReference dr;
+    private FirebaseAuth mauth;
+    private DatabaseReference dr;
+
+    private FirebaseAuth.AuthStateListener authStateListener ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,39 +54,53 @@ public class loginPrincipal extends Fragment {
         mauth=FirebaseAuth.getInstance();
 
         btIniciarSesion.setOnClickListener(v -> {
-            String email= etCorreoElectronico.getText().toString();
-            String contrasena=etPassword.getText().toString();
-            if(email.isEmpty()){
+            String email = etCorreoElectronico.getText().toString();
+            String contrasena = etPassword.getText().toString();
+            if (email.isEmpty()) {
                 etCorreoElectronico.setError("Email vacio o nula.");
-            }
-            else if(contrasena.isEmpty()){
+            } else if (contrasena.isEmpty()) {
                 etPassword.setError("Contraseña vacia o nula");
-            }else{
-                mauth.signInWithEmailAndPassword(email,contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+            } else {
+                mauth.signInWithEmailAndPassword(email, contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            dr= FirebaseDatabase.getInstance().getReference();
-                            String idUsuario=FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            String correo=FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                            dr.child("Users").child(idUsuario).child("nombreUsuario").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        String usuario = task.getResult().getValue(String.class);
-                                        viajarPerfil(correo, usuario);
-                                    } else {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                                        builder.setTitle("Error")
-                                                .setMessage("Error al obtener el nombre de usuario")
-                                                .setPositiveButton("Aceptar", null);
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            assert user != null;
+                            if (user.isEmailVerified()) {
+                                // El correo electrónico está verificado, procede con el inicio de sesión
+                                String idUsuario = user.getUid();
+                                String correo = user.getEmail();
+                                dr = FirebaseDatabase.getInstance().getReference();
+                                dr.child("Users").child(idUsuario).child("nombreUsuario").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            String usuario = task.getResult().getValue(String.class);
+                                            viajarPerfil(correo, usuario);
+                                        } else {
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                            builder.setTitle("Error")
+                                                    .setMessage("Error al obtener el nombre de usuario")
+                                                    .setPositiveButton("Aceptar", null);
 
-                                        AlertDialog dialog = builder.create();
-                                        dialog.show();
+                                            AlertDialog dialog = builder.create();
+                                            dialog.show();
+                                        }
                                     }
-                                }
-                            });
-                        }else{
+                                });
+                            } else {
+                                // El correo electrónico no está verificado, muestra un mensaje de error
+                                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                builder.setTitle("Error")
+                                        .setMessage("Recuerda que tienes que verificarte por correo electrónico, si no se ha enviado el correo de verificacion, contáctenos")
+                                        .setPositiveButton("Aceptar", null);
+
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                            }
+                        } else {
+                            // Error al iniciar sesión
                             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                             builder.setTitle("Error")
                                     .setMessage("Usuario o contraseña incorrectos")
@@ -95,8 +112,8 @@ public class loginPrincipal extends Fragment {
                     }
                 });
             }
-
         });
+
 
         tvRegistrarse.setOnClickListener(v -> {
             viajarRegistro();

@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -102,7 +103,6 @@ public class Registro extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String userId = mauth.getCurrentUser().getUid(); // Obtener el ID de usuario generado por Firebase
-
                     Map<String, Object> mapa = new HashMap<>();
                     mapa.put("nombreUsuario", usuario.getText().toString());
                     mapa.put("email", email.getText().toString());
@@ -110,14 +110,10 @@ public class Registro extends Fragment {
 
                     // Guardar los datos en la base de datos con el ID de usuario
                     mDatabase.child("Users").child(userId).setValue(mapa);
-
-                    // Guardar las credenciales del usuario en SharedPreferences
-                    guardarCredencialesUsuario(usuario.getText().toString(), email.getText().toString());
-
-                    // Pasar argumentos al fragmento perfil
-                    String nombreUsuario = usuario.getText().toString();
-                    String correo = email.getText().toString();
-                    viajarPerfil(nombreUsuario, correo);
+                    ventanaEmergenteAvisoEmailVer();
+                    FirebaseUser user=mauth.getCurrentUser();
+                    user.sendEmailVerification();
+                    viajarLogin();
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                     builder.setTitle("Error")
@@ -128,23 +124,23 @@ public class Registro extends Fragment {
                     dialog.show();
                 }
             }
+
+            private void ventanaEmergenteAvisoEmailVer() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("Mensaje de verificación")
+                        .setMessage("Gracias por registrarte, te hemos enviado un correo para probar que no eres un robot ;)")
+                        .setPositiveButton("Aceptar", null);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
         });
     }
 
-    private void guardarCredencialesUsuario(String nombreUsuario, String correo) {
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("nombreUsuario", nombreUsuario);
-        editor.putString("correo", correo);
-        editor.apply();
-    }
 
-    private void viajarPerfil(String nombreUsuario, String correo) {
-        Bundle bundle = new Bundle();
-        bundle.putString("nombreUsuario", nombreUsuario);
-        bundle.putString("correo", correo);
+    private void viajarLogin() {
         NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_registro_to_perfil, bundle);
+        nav.navigate(R.id.action_registro_to_loginPrincipal);
     }
 
 }
