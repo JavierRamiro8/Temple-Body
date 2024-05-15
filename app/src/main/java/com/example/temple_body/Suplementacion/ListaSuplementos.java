@@ -62,6 +62,7 @@ public class ListaSuplementos extends AppCompatActivity {
         marcasRecomendadas.setText("Marcas Recomendadas");
 
         String opcion = spinnerSuplementos.getSelectedItem().toString();
+
         spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view,
@@ -77,6 +78,7 @@ public class ListaSuplementos extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
+
             a = new SuplementosAdapter(Suplementos.generador(opcion));
             rcv.setAdapter(a);
 

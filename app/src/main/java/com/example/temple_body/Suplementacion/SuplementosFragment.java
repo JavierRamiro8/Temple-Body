@@ -33,6 +33,8 @@ public class SuplementosFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public String OPCION_SELECTED;
+    public boolean OPCION_SELECCIONADA;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -108,8 +110,12 @@ public class SuplementosFragment extends Fragment {
         big_supps.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
 
-
         String opcion = spinnerSuplementos.getSelectedItem().toString();
+        if(opcion != null || !opcion.isEmpty() ){
+            OPCION_SELECCIONADA = true;
+        } else{
+            OPCION_SELECCIONADA = false;
+        }
         spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -134,8 +140,14 @@ public class SuplementosFragment extends Fragment {
             if (ContextCompat.checkSelfPermission(
                     requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
+                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://proenutrition.es/");
+                if(OPCION_SELECCIONADA){
+                    abrirWeb("https://proenutrition.es/module/iqitsearch/searchiqit?s=" + OPCION_SELECTED);
+                }else{
+                    abrirWeb("https://proenutrition.es/");
+                }
+
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -145,8 +157,13 @@ public class SuplementosFragment extends Fragment {
             if (ContextCompat.checkSelfPermission(
                     requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
+                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://www.hsnstore.com/");
+                if(OPCION_SELECCIONADA){
+                    abrirWeb("https://www.hsnstore.com/?q=" + OPCION_SELECTED);
+                }else{
+                    abrirWeb("https://www.hsnstore.com/");
+                }
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -156,8 +173,14 @@ public class SuplementosFragment extends Fragment {
             if (ContextCompat.checkSelfPermission(
                     requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
+                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://www.prozis.com/es/es");
+                if(OPCION_SELECCIONADA){
+                    abrirWeb("https://www.prozis.com/es/es/search?text=" + OPCION_SELECTED);
+                }else{
+                    abrirWeb("https://www.prozis.com/es/es");
+                }
+
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
@@ -167,8 +190,13 @@ public class SuplementosFragment extends Fragment {
             if (ContextCompat.checkSelfPermission(
                     requireContext(), Manifest.permission.INTERNET) ==
                     PackageManager.PERMISSION_GRANTED) {
+                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
                 // Permiso concedido, realizar la acción
-                abrirWeb("https://bigsupps.site/");
+                if(OPCION_SELECCIONADA){
+                    abrirWeb("https://bigsupps.site/search?type=product,article,page&q=*" + OPCION_SELECTED + "*");
+                }else{
+                    abrirWeb("https://bigsupps.site/");
+                }
             } else {
                 // Solicitar permiso al usuario
                 requestPermissionLauncher.launch(Manifest.permission.INTERNET);
