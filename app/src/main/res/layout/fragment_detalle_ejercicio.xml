@@ -64,24 +64,46 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:text="Ver video explicativo"
             android:textColor="@color/black"
-            app:backgroundTint="#4AF800"
+            app:backgroundTint="#51FF07"
             app:iconTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/descripcion"
-            app:layout_constraintStart_toStartOf="@+id/descripcion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descripcion"
             app:strokeColor="@color/black" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
             android:id="@+id/descripcion"
-            android:layout_width="392dp"
-            android:layout_height="374dp"
-            android:layout_marginTop="14dp"
+            android:layout_width="368dp"
+            android:layout_height="275dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/border_color_encabezado"
             app:layout_constraintEnd_toEndOf="@+id/TVTituloHistorial"
             app:layout_constraintStart_toStartOf="@+id/TVTituloHistorial"
-            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textoDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="Descripcion del ejercicio"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </ScrollView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

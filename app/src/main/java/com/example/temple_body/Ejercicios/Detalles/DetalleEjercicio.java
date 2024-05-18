@@ -7,14 +7,13 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.temple_body.Ejercicios.Detalles.RecycleDetalles.AdapterDetalleEjercicio;
@@ -31,9 +30,11 @@ import retrofit2.Response;
 public class DetalleEjercicio extends Fragment {
 
     private static final String nombreEjercicio = "nombreEjercicio";
+    private static final String descripcionEjercicio = "descripcionEjercicio";
     private static final String URL_BUSQUEDA = "https://www.youtube.com/results?search_query=";
     private AdapterDetalleEjercicio adapter;
-    private RecyclerView descripcion;
+    private ScrollView descripcion;
+    private TextView textoDescripcion;
     private TextView titulo;
     private Button historial, salida, video;
     private Bundle args;
@@ -43,6 +44,8 @@ public class DetalleEjercicio extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detalle_ejercicio, container, false);
         descripcion = view.findViewById(R.id.descripcion);
+        textoDescripcion = view.findViewById(R.id.textoDescripcion);
+
         historial = view.findViewById(R.id.historial);
         salida = view.findViewById(R.id.salida);
         titulo = view.findViewById(R.id.TVTituloHistorial);
@@ -52,12 +55,7 @@ public class DetalleEjercicio extends Fragment {
         if (args != null && args.containsKey(nombreEjercicio)) {
             String getTituloEjercicio = args.getString(nombreEjercicio);
             titulo.setText(getTituloEjercicio);
-
-            adapter = new AdapterDetalleEjercicio(getTituloEjercicio);
-
             //en las 2 lineas siguientes es para setear el adapter e IMPORTANTE: el LinearLayoutManager es para recoger el row, necesita saber de donde lo saca!!!
-            descripcion.setAdapter(adapter);
-            descripcion.setLayoutManager(new LinearLayoutManager(getContext()));
             apiDescripcion(getTituloEjercicio);
         } else {
             Log.e("DetalleEjercicio", "El argumento 'nombreEjercicio' es nulo o no está presente en los argumentos");
@@ -89,7 +87,7 @@ public class DetalleEjercicio extends Fragment {
                         JsonObject ejercicio = getEjercicios.get(0).getAsJsonObject();
                         if (ejercicio.has("instructions") && !ejercicio.get("instructions").isJsonNull()) {
                             String descripcionEjercicio = ejercicio.get("instructions").getAsString();
-                            adapter.addDescripcion(descripcionEjercicio);//esto es para añadir la descripcion al RecycleView
+                            textoDescripcion.setText(descripcionEjercicio);//esto es para añadir la descripcion al RecycleView
                         } else {
                             Log.e("DetalleEjercicio", "No se encontraron instrucciones para este ejercicio");
                         }

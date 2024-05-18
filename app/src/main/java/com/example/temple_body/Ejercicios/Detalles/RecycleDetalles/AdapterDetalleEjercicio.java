@@ -47,7 +47,7 @@ public class AdapterDetalleEjercicio extends RecyclerView.Adapter<AdapterDetalle
 
         public descripcionEjercicio(View itemView) {
             super(itemView);
-            descripcionEjercicioSeleccionado = itemView.findViewById(R.id.descripcionEjercicio);
+            descripcionEjercicioSeleccionado = itemView.findViewById(R.id.textoDescripcion);
         }
 
         public void bind(String descripcion) {
