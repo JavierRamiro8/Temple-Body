@@ -1,5 +1,7 @@
 package com.example.temple_body.Ejercicios.Detalles;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,10 +31,11 @@ import retrofit2.Response;
 public class DetalleEjercicio extends Fragment {
 
     private static final String nombreEjercicio = "nombreEjercicio";
+    private static final String URL_BUSQUEDA = "https://www.youtube.com/results?search_query=";
     private AdapterDetalleEjercicio adapter;
     private RecyclerView descripcion;
     private TextView titulo;
-    private Button historial, salida;
+    private Button historial, salida, video;
     private Bundle args;
 
     @Override
@@ -43,6 +46,7 @@ public class DetalleEjercicio extends Fragment {
         historial = view.findViewById(R.id.historial);
         salida = view.findViewById(R.id.salida);
         titulo = view.findViewById(R.id.TVTituloHistorial);
+        video = view.findViewById(R.id.video);
         args = getArguments();
 
         if (args != null && args.containsKey(nombreEjercicio)) {
@@ -58,7 +62,16 @@ public class DetalleEjercicio extends Fragment {
         } else {
             Log.e("DetalleEjercicio", "El argumento 'nombreEjercicio' es nulo o no está presente en los argumentos");
         }
-
+        video.setOnClickListener(v -> {
+            String ejercicio = titulo.getText().toString();
+            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+            intent.putExtra(SearchManager.QUERY, URL_BUSQUEDA + ejercicio);
+            if (ejercicio != null) {
+                startActivity(intent);
+            } else {
+                Log.e("DetalleEjercicio", "El argumento 'ejercicio' es nulo o no está presente en los argumentos");
+            }
+        });
         historial.setOnClickListener(v -> openHistorialFragment(titulo.getText().toString()));
         salida.setOnClickListener(v -> closeDetalleFragment());
         return view;
@@ -107,4 +120,3 @@ public class DetalleEjercicio extends Fragment {
         nav.navigate(R.id.action_detalleEjercicio_to_ejerciciosFragment2);
     }
 }
-

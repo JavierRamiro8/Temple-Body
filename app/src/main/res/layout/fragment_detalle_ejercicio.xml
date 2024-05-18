@@ -20,14 +20,15 @@
             android:textColor="@color/black"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/historial"
+            app:layout_constraintStart_toStartOf="@+id/historial"
             app:layout_constraintTop_toBottomOf="@+id/historial" />
 
         <TextView
             android:id="@+id/TVTituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
@@ -39,9 +40,8 @@
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/descripcion"
-            app:layout_constraintEnd_toEndOf="@+id/descripcion"
-            app:layout_constraintStart_toStartOf="@+id/descripcion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -49,23 +49,40 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="Historial"
             android:textColor="@color/black"
             app:backgroundTint="#FFC107"
             app:iconTint="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/salida"
-            app:layout_constraintEnd_toEndOf="@+id/salida"
-            app:layout_constraintStart_toStartOf="@+id/salida"
+            app:layout_constraintEnd_toEndOf="@+id/video"
+            app:layout_constraintStart_toStartOf="@+id/video"
+            app:layout_constraintTop_toBottomOf="@+id/video"
+            app:strokeColor="@color/black" />
+
+        <Button
+            android:id="@+id/video"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ver video explicativo"
+            android:textColor="@color/black"
+            app:backgroundTint="#4AF800"
+            app:iconTint="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/descripcion"
+            app:layout_constraintStart_toStartOf="@+id/descripcion"
             app:layout_constraintTop_toBottomOf="@+id/descripcion"
             app:strokeColor="@color/black" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/descripcion"
-            android:layout_width="400dp"
-            android:layout_height="472dp"
-            app:layout_constraintBottom_toTopOf="@+id/historial"
-            app:layout_constraintEnd_toEndOf="@+id/historial"
-            app:layout_constraintStart_toStartOf="@+id/historial"
+            android:layout_width="392dp"
+            android:layout_height="374dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/TVTituloHistorial"
+            app:layout_constraintStart_toStartOf="@+id/TVTituloHistorial"
             app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
