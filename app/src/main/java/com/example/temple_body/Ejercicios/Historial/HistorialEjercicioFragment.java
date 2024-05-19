@@ -37,8 +37,8 @@ public class HistorialEjercicioFragment extends Fragment {
     private EditText repeticiones;
     private EditText series;
     private TextView tituloNombreEjercicio;
-    private Button datepicker,generar,salir;
-    private String fecha;
+    private Button datepicker,generar,salir,filtrarFecha;
+    private String fecha, fechaFiltrada;
     private MutableLiveData<List<Historial>> liveHistorial = new MutableLiveData<>();
     private RecyclerView resultado;
 
@@ -58,6 +58,7 @@ public class HistorialEjercicioFragment extends Fragment {
         generar = view.findViewById(R.id.BTGenerar);
         salir = view.findViewById(R.id.BTSalir);
         datepicker=view.findViewById(R.id.datePicker);
+        filtrarFecha=view.findViewById(R.id.filtrarFecha);
         Bundle args=getArguments();
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         resultado.setLayoutManager(layoutManager);
@@ -96,6 +97,24 @@ public class HistorialEjercicioFragment extends Fragment {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                     fecha=dateFormat.format(new Date(selection));
                     datepicker.setText(fecha);
+                });
+                materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
+            }
+        });
+        filtrarFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> materialDatePicker=MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Selecciona una fecha")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .setCalendarConstraints(new CalendarConstraints.Builder()
+                                .setValidator(DateValidatorPointBackward.now())
+                                .build())
+                        .build();
+                materialDatePicker.addOnPositiveButtonClickListener(selection -> {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    fechaFiltrada=dateFormat.format(new Date(selection));
+                    filtrarFecha.setText("Fecha: " + fechaFiltrada + "\n\n Filtrar por fecha");
                 });
                 materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
             }

@@ -67,6 +67,10 @@ public class DetalleEjercicio extends Fragment {
         if (textoOculto) {
             textoDescripcion.setText("");
         }
+        if (args != null && args.containsKey(nombreEjercicio)) {
+            getTituloEjercicio = args.getString(nombreEjercicio);
+            titulo.setText(getTituloEjercicio);
+        }
 
         verExplicacion.setOnClickListener(v -> {
             if (textoOculto) {
@@ -75,8 +79,6 @@ public class DetalleEjercicio extends Fragment {
                     descripcion.requestLayout();
                     //en las 2 lineas siguientes es para setear el adapter e IMPORTANTE: el LinearLayoutManager es para recoger el row, necesita saber de donde lo saca!!!
                     apiDescripcion(getTituloEjercicio);
-                    getTituloEjercicio = args.getString(nombreEjercicio);
-                    titulo.setText(getTituloEjercicio);
                 } else {
                     getTituloEjercicio = null;
                     Log.e("DetalleEjercicio", "El argumento 'nombreEjercicio' es nulo o no está presente en los argumentos");
