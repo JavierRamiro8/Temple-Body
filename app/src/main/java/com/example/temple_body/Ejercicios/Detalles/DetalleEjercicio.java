@@ -36,8 +36,10 @@ public class DetalleEjercicio extends Fragment {
     private ScrollView descripcion;
     private TextView textoDescripcion;
     private TextView titulo;
-    private Button historial, salida, video;
+    private Button historial, salida, video, verExplicacion;
     private Bundle args;
+    Boolean textoOculto = true;
+    String getTituloEjercicio = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,21 +47,13 @@ public class DetalleEjercicio extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalle_ejercicio, container, false);
         descripcion = view.findViewById(R.id.descripcion);
         textoDescripcion = view.findViewById(R.id.textoDescripcion);
-
+        verExplicacion = view.findViewById(R.id.verExplicacion);
         historial = view.findViewById(R.id.historial);
         salida = view.findViewById(R.id.salida);
         titulo = view.findViewById(R.id.TVTituloHistorial);
         video = view.findViewById(R.id.video);
         args = getArguments();
-
-        if (args != null && args.containsKey(nombreEjercicio)) {
-            String getTituloEjercicio = args.getString(nombreEjercicio);
-            titulo.setText(getTituloEjercicio);
-            //en las 2 lineas siguientes es para setear el adapter e IMPORTANTE: el LinearLayoutManager es para recoger el row, necesita saber de donde lo saca!!!
-            apiDescripcion(getTituloEjercicio);
-        } else {
-            Log.e("DetalleEjercicio", "El argumento 'nombreEjercicio' es nulo o no está presente en los argumentos");
-        }
+        descripcion.getLayoutParams().height = 5;
         video.setOnClickListener(v -> {
             String ejercicio = titulo.getText().toString();
             Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
@@ -68,6 +62,31 @@ public class DetalleEjercicio extends Fragment {
                 startActivity(intent);
             } else {
                 Log.e("DetalleEjercicio", "El argumento 'ejercicio' es nulo o no está presente en los argumentos");
+            }
+        });
+        if (textoOculto) {
+            textoDescripcion.setText("");
+        }
+
+        verExplicacion.setOnClickListener(v -> {
+            if (textoOculto) {
+                if (args != null && args.containsKey(nombreEjercicio)) {
+                    descripcion.getLayoutParams().height = 500;
+                    descripcion.requestLayout();
+                    //en las 2 lineas siguientes es para setear el adapter e IMPORTANTE: el LinearLayoutManager es para recoger el row, necesita saber de donde lo saca!!!
+                    apiDescripcion(getTituloEjercicio);
+                    getTituloEjercicio = args.getString(nombreEjercicio);
+                    titulo.setText(getTituloEjercicio);
+                } else {
+                    getTituloEjercicio = null;
+                    Log.e("DetalleEjercicio", "El argumento 'nombreEjercicio' es nulo o no está presente en los argumentos");
+                }
+                textoOculto = false;
+            } else {
+                descripcion.getLayoutParams().height = 5;
+                descripcion.requestLayout();
+                textoDescripcion.setText("");
+                textoOculto = true;
             }
         });
         historial.setOnClickListener(v -> openHistorialFragment(titulo.getText().toString()));
