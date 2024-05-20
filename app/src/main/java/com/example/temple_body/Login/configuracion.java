@@ -45,7 +45,7 @@ public class configuracion extends Fragment {
         btRegresar = layout.findViewById(R.id.ACbtRegresar);
         btProbCuenta  = layout.findViewById(R.id.ACbtProblemasCuenta);
         btModificar = layout.findViewById(R.id.ACbtModificarDatos);
-
+        guardarLayoutLogin();
         pbActualiza.setVisibility(View.INVISIBLE);
 
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -138,6 +138,12 @@ public class configuracion extends Fragment {
     private void viajarCambioCotrasena() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_configuracion_to_cambioContrasena);
+    }
+    private void guardarLayoutLogin() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("cargaLayoutLogin", 3);
+        editor.apply();
     }
 
 }

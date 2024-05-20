@@ -1,5 +1,9 @@
 package com.example.temple_body;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
@@ -57,7 +61,20 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                             navController.navigate(R.id.gimnasiosFragment);
                             break;
                         case 4:
-                            navController.navigate(R.id.loginPrincipal);
+                            switch (cargarLayoutLogin()){
+                                case 1:
+                                    navController.navigate(R.id.loginPrincipal);
+                                    break;
+                                case 2:
+                                    navController.navigate(R.id.perfil);
+                                    break;
+                                case 3:
+                                    navController.navigate(R.id.configuracion);
+                                    break;
+                                case 4:
+                                    navController.navigate(R.id.informacion);
+                                    break;
+                            }
                             break;
                     }
                 }
@@ -119,5 +136,11 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         super.onStart();
         // Initialize the NavController when the activity is started
         navController = Navigation.findNavController(this, R.id.fragmentContainerView);
+    }
+    private int cargarLayoutLogin() {
+        SharedPreferences sharedPreferences = getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
+        int xmlElegido=sharedPreferences.getInt("cargaLayoutLogin",1);
+        return xmlElegido;
+
     }
 }

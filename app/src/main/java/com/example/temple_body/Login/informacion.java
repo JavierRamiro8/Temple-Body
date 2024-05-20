@@ -1,7 +1,9 @@
 package com.example.temple_body.Login;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -41,7 +43,7 @@ public class informacion extends Fragment {
         btCondiciones = layout.findViewById(R.id.AIbtCondicionesUso);
         btRegresar = layout.findViewById(R.id.AIbtRegresar);
         btTelegram = layout.findViewById(R.id.AIbtTelegram);
-
+        guardarLayoutLogin();
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
@@ -113,5 +115,11 @@ public class informacion extends Fragment {
     private void viajarPerfil() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_informacion_to_perfil);
+    }
+    private void guardarLayoutLogin() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("cargaLayoutLogin", 4);
+        editor.apply();
     }
 }

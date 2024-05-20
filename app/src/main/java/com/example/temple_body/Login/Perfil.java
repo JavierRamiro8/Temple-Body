@@ -37,7 +37,7 @@ public class Perfil extends Fragment {
         btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
         ibAvatar = layout.findViewById(R.id.APibAvatarPerfil);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
+        guardarLayoutLogin();
         cargarDatosUsuario();
 
         btConfiguracion.setOnClickListener((v) -> {
@@ -77,5 +77,11 @@ public class Perfil extends Fragment {
         FirebaseAuth.getInstance().signOut();
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_loginPrincipal);
+    }
+    private void guardarLayoutLogin() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("cargaLayoutLogin", 2);
+        editor.apply();
     }
 }

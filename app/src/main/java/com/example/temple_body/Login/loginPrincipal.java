@@ -45,7 +45,7 @@ public class loginPrincipal extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_login_principal, container, false);
-
+        guardarLayoutLogin();
         etCorreoElectronico = layout.findViewById(R.id.ALetCorreoElectronico);
         etPassword = layout.findViewById(R.id.ALetPassword);
         btIniciarSesion = layout.findViewById(R.id.ALbtAccept);
@@ -146,6 +146,12 @@ public class loginPrincipal extends Fragment {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutCambioContrasena", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putInt("layoutLoginCambio", 1);
+        editor.apply();
+    }
+    private void guardarLayoutLogin() {
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("cargaLayoutLogin", 1);
         editor.apply();
     }
 
