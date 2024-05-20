@@ -172,18 +172,16 @@ public class HistorialEjercicioFragment extends Fragment {
     private void registrarEjercicio(String idUsuario) {
         if (idUsuario != null) {
             Map<String, Object> mapa = new HashMap<>();
-            mapa.put("uidUsuario", idUsuario.toString());
-            mapa.put("nombreEjercicio", tituloNombreEjercicio.getText().toString());
             mapa.put("pesoEjercicio", peso.getText().toString());
             mapa.put("repeticionesEjercicio", repeticiones.getText().toString());
             mapa.put("seriesEjercicio", series.getText().toString());
             mapa.put("fechaEjercicio", fecha.toString());
             String[] splitFecha = fecha.split("/");
             StringBuilder fechaBD = new StringBuilder("");
-            fechaBD.append(splitFecha[0]).append("/").append(splitFecha[1]).append("/").append(splitFecha[2]);
+            fechaBD.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
 
             // Guardar los datos en la base de datos
-            mDatabase.child("Ejercicios").child(idUsuario).child(String.valueOf(fechaBD)).setValue(mapa);
+            mDatabase.child("Ejercicios").child(idUsuario).child(fechaBD.toString()).child(tituloNombreEjercicio.getText().toString()).setValue(mapa);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle("Error")
