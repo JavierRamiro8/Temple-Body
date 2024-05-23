@@ -78,12 +78,9 @@ public class HistorialEjercicioFragment extends Fragment {
         generar = view.findViewById(R.id.BTGenerar);
         salir = view.findViewById(R.id.BTSalir);
         datepicker = view.findViewById(R.id.datePicker);
-        filtrarFecha = view.findViewById(R.id.filtrarFecha);
+
         Bundle args = getArguments();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        resultado.setLayoutManager(layoutManager);
-        AdapterHistorialEjercicio adapter = new AdapterHistorialEjercicio(new ArrayList<>());
-        resultado.setAdapter(adapter);
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -130,58 +127,6 @@ public class HistorialEjercicioFragment extends Fragment {
                 materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
             }
         });
-        filtrarFecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                        .setTitleText("Selecciona una fecha")
-                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                        .setCalendarConstraints(new CalendarConstraints.Builder()
-                                .setValidator(DateValidatorPointBackward.now())
-                                .build())
-                        .build();
-                materialDatePicker.addOnPositiveButtonClickListener(selection -> {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                    fechaFiltrada = dateFormat.format(new Date(selection));
-                    String fechaString = fechaFiltrada.toString();
-                    String[] splitFecha = fechaString.split("/");
-                    StringBuilder fechaFormateada = new StringBuilder("");
-                    fechaFormateada.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
-                    filtrarFecha.setText("Fecha: " + fechaFiltrada + "\n\n Filtrar por fecha");
-                    Log.e("Error: ", idUsuario);
-                    Log.e("Error: ", tituloNombreEjercicio.getText().toString());
-                    Log.e("Error: ", String.valueOf(fechaFormateada));
-
-                    //Aqui tiene que ir la lógica de filtrar la fecha y la bbdd
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Ejercicios").child(idUsuario).child(tituloNombreEjercicio.getText().toString()).child(String.valueOf(fechaFormateada));
-
-                    ref.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                String peso = dataSnapshot.child("pesoEjercicio").getValue(String.class);
-                                String repeticiones = dataSnapshot.child("repeticionesEjercicio").getValue(String.class);
-                                String series = dataSnapshot.child("seriesEjercicio").getValue(String.class);
-                                String fecha = dataSnapshot.child("fechaEjercicio").getValue(String.class);
-
-                                // Llama al método para agregar datos y actualizar el TextView
-                                agregarHistorial(Integer.parseInt(peso), Integer.parseInt(repeticiones), Integer.parseInt(series), fecha, idUsuario);
-                            } else {
-                                Log.d("MainActivity", "No se encontraron datos para la fecha y el ejercicio seleccionados.");
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            Log.w("MainActivity", "Error en la consulta", databaseError.toException());
-                        }
-                    });
-
-
-                });
-                materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
-            }
-        });
         salir.setOnClickListener(v -> {
             closeHistorialFragment();
         });
@@ -195,8 +140,8 @@ public class HistorialEjercicioFragment extends Fragment {
         nav.navigate(R.id.action_historialEjercicioFragment_to_detalleEjercicio, bundle);
     }
 
-    public void agregarHistorial(int peso, int repeticiones, int series, String fecha, String idUsuario) {
-        Historial historial = new Historial(peso, repeticiones, series, fecha);
+    public void agregarHistorial(String nombreEjercicio, int peso, int repeticiones, int series, String fecha, String idUsuario) {
+        Historial historial = new Historial(nombreEjercicio, peso, repeticiones, series, fecha);
         ((AdapterHistorialEjercicio) resultado.getAdapter()).addHistorial(historial);
 
     }
@@ -212,7 +157,7 @@ public class HistorialEjercicioFragment extends Fragment {
             fechaBD.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
 
             // Guardar los datos en la base de datos
-            mDatabase.child("Ejercicios").child(idUsuario).child(tituloNombreEjercicio.getText().toString()).child(fechaBD.toString()).setValue(mapa);
+            mDatabase.child("Ejercicios").child(idUsuario).child(fechaBD.toString()).child(tituloNombreEjercicio.getText().toString()).setValue(mapa);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle("Error")

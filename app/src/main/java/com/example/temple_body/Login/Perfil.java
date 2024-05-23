@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Perfil extends Fragment {
     TextView etNombre, etCorreo;
-    Button btInformacion, btConfiguracion, btCerrarSesion;
+    Button btInformacion, btConfiguracion, btCerrarSesion, btHistorial;
     ImageButton ibAvatar;
     DatabaseReference mDatabase;
 
@@ -33,6 +33,7 @@ public class Perfil extends Fragment {
         etNombre = layout.findViewById(R.id.APtvNombrePerfil);
         etCorreo = layout.findViewById(R.id.APtvEmail);
         btConfiguracion = layout.findViewById(R.id.APbtConfiguracion);
+        btHistorial = layout.findViewById(R.id.APbtHistorial);
         btInformacion = layout.findViewById(R.id.APbtInformacion);
         btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
         ibAvatar = layout.findViewById(R.id.APibAvatarPerfil);
@@ -42,6 +43,10 @@ public class Perfil extends Fragment {
 
         btConfiguracion.setOnClickListener((v) -> {
             viajarConfiguracion();
+        });
+
+        btHistorial.setOnClickListener((v) -> {
+            viajarHistorial();
         });
 
         btInformacion.setOnClickListener((v) -> {
@@ -77,6 +82,12 @@ public class Perfil extends Fragment {
         FirebaseAuth.getInstance().signOut();
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_perfil_to_loginPrincipal);
+    }
+
+    private void viajarHistorial() {
+        FirebaseAuth.getInstance().signOut();
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_perfil_to_historialFragment);
     }
     private void guardarLayoutLogin() {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);

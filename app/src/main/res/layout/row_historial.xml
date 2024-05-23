@@ -24,6 +24,16 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/nombreEjercicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_tv_rows"
+        android:padding="4dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/pesoEjercicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

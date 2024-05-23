@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.temple_body.Ejercicios.Historial.RecycleHistorial.Historial;
 import com.example.temple_body.R;
 
 import java.util.List;
@@ -46,11 +45,13 @@ public class AdapterHistorial extends RecyclerView.Adapter<AdapterHistorial.Hist
 
     public static class HistorialEjercicioViewHolder extends RecyclerView.ViewHolder {
 
-        TextView fecha, peso, repeticiones, series;
+        TextView nombreEjercicio, fecha, peso, repeticiones, series;
 
         public HistorialEjercicioViewHolder(@NonNull View itemView) {
             super(itemView);
+
             fecha = itemView.findViewById(R.id.fechaEjercicio);
+            nombreEjercicio = itemView.findViewById(R.id.nombreEjercicio);
             peso = itemView.findViewById(R.id.pesoEjercicio);
             repeticiones = itemView.findViewById(R.id.repeticionesEjercicio);
             series = itemView.findViewById(R.id.seriesEjercicio);
@@ -58,6 +59,7 @@ public class AdapterHistorial extends RecyclerView.Adapter<AdapterHistorial.Hist
 
         public void bind(Historial historial) {
             fecha.setText(historial.getFecha());
+            nombreEjercicio.setText("Ejercicio: " + historial.getNombreEjercicio());
             peso.setText("Peso: " + String.valueOf(historial.getPeso() + "kg"));
             repeticiones.setText("Repeticiones: " + String.valueOf(historial.getRepeticiones()));
             series.setText("Series: " + String.valueOf(historial.getSeries()));

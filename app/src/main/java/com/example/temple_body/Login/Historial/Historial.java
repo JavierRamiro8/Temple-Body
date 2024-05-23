@@ -1,4 +1,4 @@
-package com.example.temple_body.Ejercicios.Historial.RecycleHistorial;
+package com.example.temple_body.Login.Historial;
 
 public class Historial {
     private int peso;

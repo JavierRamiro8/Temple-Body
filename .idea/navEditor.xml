@@ -17,6 +17,25 @@
                             <option name="y" value="732" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_cambioContrasena_to_configuracion">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_cambioContrasena_to_loginPrincipal">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_cambioContrasena_to_perfil2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -31,6 +50,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_configuracion_to_cambioContrasena">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_configuracion_to_perfil">
                               <value>
                                 <LayoutPositions />
@@ -184,6 +208,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="historialFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-259" />
+                            <option name="y" value="58" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_historialFragment_to_perfil">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="informacion">
                     <value>
                       <LayoutPositions>
@@ -231,6 +276,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_loginPrincipal_to_cambioContrasena">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_loginPrincipal_to_perfil">
                               <value>
                                 <LayoutPositions />
@@ -258,6 +308,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_perfil_to_configuracion">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_perfil_to_historialFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
