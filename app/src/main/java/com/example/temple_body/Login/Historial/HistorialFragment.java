@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class HistorialEjercicioFragment extends Fragment {
+public class HistorialFragment extends Fragment {
 
     private static String nombreEjercicio = "nombreEjercicio";
     private EditText peso;
@@ -62,10 +62,6 @@ public class HistorialEjercicioFragment extends Fragment {
     FirebaseAuth mauth;
     DatabaseReference mDatabase;
 
-
-    public HistorialEjercicioFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,13 +69,13 @@ public class HistorialEjercicioFragment extends Fragment {
         peso = view.findViewById(R.id.EDPeso);
         repeticiones = view.findViewById(R.id.EDRepeticiones);
         series = view.findViewById(R.id.EDSeries);
-        tituloNombreEjercicio = view.findViewById(R.id.TVTituloHistorial);
+
         resultado = view.findViewById(R.id.recycleHistorial);
         generar = view.findViewById(R.id.BTGenerar);
         salir = view.findViewById(R.id.BTSalir);
-        datepicker = view.findViewById(R.id.datePicker);
+
         filtrarFecha = view.findViewById(R.id.filtrarFecha);
-        Bundle args = getArguments();
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         resultado.setLayoutManager(layoutManager);
         AdapterHistorialEjercicio adapter = new AdapterHistorialEjercicio(new ArrayList<>());
@@ -88,48 +84,6 @@ public class HistorialEjercicioFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String idUsuario = user.getUid();
-
-        if (args != null && args.containsKey(nombreEjercicio)) {
-            String getTituloEjercicio = args.getString(nombreEjercicio);
-            tituloNombreEjercicio.setText(getTituloEjercicio);
-        }
-        generar.setOnClickListener(v -> {
-            if (peso.getText().toString().isEmpty()) {
-                peso.setError("Por favor Introduzca Peso");
-            } else if (repeticiones.getText().toString().isEmpty()) {
-                repeticiones.setError("Por favor Introduzca Repeticiones");
-            } else if (series.getText().toString().isEmpty()) {
-                series.setError("Por favor Introduzca las series");
-            } else if (datepicker.getText().equals("Selecciona Fecha")) {
-                datepicker.setError("Por favor Introduzca la fecha");
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle("Datos Registrados")
-                        .setMessage("Tu historial se ha subido correctamente.")
-                        .setPositiveButton("Aceptar", null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                registrarEjercicio(idUsuario);
-            }
-        });
-        datepicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                        .setTitleText("Selecciona una fecha")
-                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                        .setCalendarConstraints(new CalendarConstraints.Builder()
-                                .setValidator(DateValidatorPointBackward.now())
-                                .build())
-                        .build();
-                materialDatePicker.addOnPositiveButtonClickListener(selection -> {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                    fecha = dateFormat.format(new Date(selection));
-                    datepicker.setText(fecha);
-                });
-                materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
-            }
-        });
         filtrarFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -200,6 +154,7 @@ public class HistorialEjercicioFragment extends Fragment {
         ((AdapterHistorialEjercicio) resultado.getAdapter()).addHistorial(historial);
 
     }
+
     private void registrarEjercicio(String idUsuario) {
         if (idUsuario != null) {
             Map<String, Object> mapa = new HashMap<>();
@@ -222,8 +177,4 @@ public class HistorialEjercicioFragment extends Fragment {
             dialog.show();
         }
     }
-
 }
-
-
-
