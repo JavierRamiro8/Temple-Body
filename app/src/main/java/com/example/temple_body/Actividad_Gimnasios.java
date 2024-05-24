@@ -13,6 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
@@ -34,6 +35,7 @@ public class Actividad_Gimnasios extends AppCompatActivity {
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.manzana));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.mapa));
         bottomNavigation.add(new MeowBottomNavigation.Model(4, R.drawable.usuario));
+        bottomNavigation.show(4,true);
 
 
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -54,7 +56,19 @@ public class Actividad_Gimnasios extends AppCompatActivity {
                 if (navController != null) {
                     switch (model.getId()) {
                         case 1:
-                            navController.navigate(R.id.ejerciciosFragment);
+                            if(cargarLayoutLogin()==1){
+                                new MaterialAlertDialogBuilder(Actividad_Gimnasios.this)
+                                        .setTitle("ERROR")
+                                        .setMessage("Necesitas estar logeado para acceder a esta caracteristica")
+                                        .setPositiveButton("OK", (dialog, which) -> {
+                                            bottomNavigation.show(4,true);
+
+                                            navController.navigate(R.id.loginPrincipal);
+                                        })
+                                        .show();
+                            }else{
+                                navController.navigate(R.id.ejerciciosFragment);
+                            }
                             break;
                         case 2:
                             navController.navigate(R.id.suplementosFragment);
