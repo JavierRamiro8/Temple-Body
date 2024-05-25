@@ -19,23 +19,18 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="169dp"
             android:layout_height="47dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="112dp"
             android:text="Regresar"
             android:textColor="@color/black"
             app:backgroundTint="#F44336"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/recycleHistorial"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/recycleHistorial"
-            app:layout_constraintTop_toBottomOf="@+id/recycleHistorial"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycleHistorial" />
 
         <TextView
             android:id="@+id/TVTituloHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
             android:background="@drawable/border_color_encabezado"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
@@ -47,8 +42,9 @@
             android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/filtrarFecha"
+            app:layout_constraintEnd_toEndOf="@+id/filtrarFecha"
+            app:layout_constraintStart_toStartOf="@+id/filtrarFecha"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -56,22 +52,21 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:text="Filtrar por fecha"
             android:textColor="@color/black"
             app:backgroundTint="#FFC107"
-            app:layout_constraintEnd_toEndOf="@+id/TVTituloHistorial"
-            app:layout_constraintHorizontal_bias="0.515"
-            app:layout_constraintStart_toStartOf="@+id/TVTituloHistorial"
+            app:layout_constraintBottom_toTopOf="@+id/recycleHistorial"
+            app:layout_constraintEnd_toEndOf="@+id/recycleHistorial"
+            app:layout_constraintStart_toStartOf="@+id/recycleHistorial"
             app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleHistorial"
             android:layout_width="397dp"
             android:layout_height="383dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/filtrarFecha"
-            app:layout_constraintStart_toStartOf="@+id/filtrarFecha"
+            app:layout_constraintBottom_toTopOf="@+id/BTSalir"
+            app:layout_constraintEnd_toEndOf="@+id/BTSalir"
+            app:layout_constraintStart_toStartOf="@+id/BTSalir"
             app:layout_constraintTop_toBottomOf="@+id/filtrarFecha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
