@@ -208,14 +208,23 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="historialFragment2">
+                  <entry key="historialFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="394" />
-                            <option name="y" value="1752" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_historialFragment2_to_perfil">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -303,6 +312,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_perfil_to_historialFragment2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_perfil_to_informacion">
                               <value>
                                 <LayoutPositions />
@@ -340,6 +354,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="reproductorVideo">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="838" />
+                            <option name="y" value="364" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
