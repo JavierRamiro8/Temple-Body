@@ -8,24 +8,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.VideoView;
 
 import com.example.temple_body.R;
+import com.example.temple_body.Settings.EnlacesVideos;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class reproductorVideo extends Fragment {
-    WebView reproductorVideo;
+    WebView reproducirVideo;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View layout= inflater.inflate(R.layout.fragment_reproductor_video, container, false);
-        reproductorVideo=layout.findViewById(R.id.reproductor);
-        reproductorVideo.clearCache(true);
-        reproductorVideo.getSettings().setJavaScriptEnabled(true);
-        reproductorVideo.getSettings().getAllowContentAccess();
-        reproductorVideo.getSettings().getAllowFileAccessFromFileURLs();
-        reproductorVideo.getSettings().getAllowUniversalAccessFromFileURLs();
-        String youtubeURL = "https://www.youtube.com/embed/wWoQ7PFSYlk?si=6LKOWPquxoEMb4wF";
-        reproductorVideo.loadUrl(youtubeURL);
+        Bundle args= getArguments();
+        String nombreEjercicio=args.getString("nombreEjercicio");
+        reproducirVideo =layout.findViewById(R.id.reproductor);
+        reproducirVideo.clearCache(true);
+        reproducirVideo.getSettings().setJavaScriptEnabled(true);
+        reproducirVideo.getSettings().getAllowContentAccess();
+        reproducirVideo.getSettings().getAllowFileAccessFromFileURLs();
+        reproducirVideo.getSettings().getAllowUniversalAccessFromFileURLs();
+        String youtubeURL = new EnlacesVideos().enlaceReproductorVideo(nombreEjercicio);
+        if(youtubeURL.isEmpty()){
+            new MaterialAlertDialogBuilder(requireActivity())
+                    .setTitle("Error")
+                    .setMessage("El video no esta disponible, vuelve a intentarlo en otro momento")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                    })
+                    .show();
+        }
+        reproducirVideo.loadUrl(youtubeURL);
 
         return layout;
     }
