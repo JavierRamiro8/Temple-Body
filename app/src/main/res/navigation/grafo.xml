@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_detalleEjercicio_to_ejerciciosFragment2"
             app:destination="@id/ejerciciosFragment" />
+        <action
+            android:id="@+id/action_detalleEjercicio_to_reproductorVideo"
+            app:destination="@id/reproductorVideo" />
     </fragment>
     <fragment
         android:id="@+id/historialEjercicioFragment"
@@ -86,7 +89,7 @@
             android:id="@+id/action_perfil_to_informacion"
             app:destination="@id/informacion" />
         <action
-            android:id="@+id/action_perfil_to_historialFragment"
+            android:id="@+id/action_perfil_to_historialFragment2"
             app:destination="@id/historialFragment" />
     </fragment>
     <fragment
@@ -173,10 +176,19 @@
     </fragment>
     <fragment
         android:id="@+id/historialFragment"
-        android:name="com.example.temple_body.Ejercicios.Historial.HistorialFragment"
-        android:label="HistorialFragment" >
+        android:name="com.example.temple_body.Login.Historial.HistorialFragment"
+        android:label="HistorialFragment">
         <action
-            android:id="@+id/action_historialFragment_to_perfil"
+            android:id="@+id/action_historialFragment2_to_perfil"
             app:destination="@id/perfil" />
+    </fragment>
+    <fragment
+        android:id="@+id/reproductorVideo"
+        android:name="com.example.temple_body.Ejercicios.Detalles.Video.reproductorVideo"
+        android:label="fragment_reproductor_video"
+        tools:layout="@layout/fragment_reproductor_video" >
+        <action
+            android:id="@+id/action_reproductorVideo_to_detalleEjercicio"
+            app:destination="@id/detalleEjercicio" />
     </fragment>
 </navigation>

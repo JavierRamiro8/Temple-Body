@@ -1,0 +1,174 @@
+package com.example.temple_body.Settings;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class EnlacesVideos {
+    private Map<String, String> mapaEnlaces = new HashMap<>();
+
+    public String enlaceReproductorVideo(String nombreEjercicio) {
+        String enlaceEjercicio = "";
+        crearMapa();
+        enlaceEjercicio = encontrarEjercicio(nombreEjercicio);
+        if (enlaceEjercicio==null || enlaceEjercicio.isEmpty()) {
+            enlaceEjercicio = "https://www.youtube.com/embed/FhnP5YkYkf4?si=Yc3AZv1l5yLqc8Gw";
+        }
+
+        return enlaceEjercicio;
+    }
+
+    private void crearMapa() {
+        mapaEnlaces.put("Alternating sit-through with crunch", "https://www.youtube.com/embed/XI_hPZMbORE?si=PVY_YaQJ8Hf-0BFX");
+        mapaEnlaces.put("Atlas Stones", "https://www.youtube.com/embed/vIIm07WNSfo?si=jTKMSagpq5zQQULi");
+        mapaEnlaces.put("Axle Deadlift", "https://www.youtube.com/embed/flVaOK1olik?si=1wfqKqaWW2nr0Uo0");
+        mapaEnlaces.put("Back extension", "https://www.youtube.com/embed/tIZppe-RB0g?si=-sB1EaxGWE8otZJ8");
+        mapaEnlaces.put("Balance Board", "https://www.youtube.com/embed/ObtgTAIsUMc?si=N3G5qxv26TKRnZoA");
+        mapaEnlaces.put("Barbell back squat to box", "https://www.youtube.com/embed/nBc_2Jyp3tM?si=S0tyuc3ejcShVBTL");
+        mapaEnlaces.put("Barbell behind-the-back shrug", "https://www.youtube.com/embed/OoUQRw91D94?si=OOa8IRwm7d9f2qXT");
+        mapaEnlaces.put("Barbell Bench Press - Medium Grip", "https://www.youtube.com/embed/RsobeWfbBcY?si=WbWsW0nMTSxoNE13");
+        mapaEnlaces.put("Barbell Curl", "https://www.youtube.com/embed/QZEqB6wUPxQ?si=LarUBVYqqCAq0CBE");
+        mapaEnlaces.put("Barbell Deadlift", "https://www.youtube.com/embed/yPqv3ejnZvc?si=ZYsaVkicpkfoKbDM");
+        mapaEnlaces.put("Barbell deficit deadlift", "https://www.youtube.com/embed/CpWsUsqBtN8?si=5AnMiKOCWSau6MfE");
+        mapaEnlaces.put("Barbell Full Squat", "https://www.youtube.com/embed/gcNh17Ckjgg?si=wn_NrVtlXPREYR97");
+        mapaEnlaces.put("Barbell glute bridge", "https://www.youtube.com/embed/0od5lwWMGV8?si=jwMT_K6_P7wH-4jh");
+        mapaEnlaces.put("Barbell Hip Thrust", "https://www.youtube.com/embed/Zp26q4BY5HE?si=5je7iGyRyGTvTycd");
+        mapaEnlaces.put("Barbell Seated Calf Raise", "https://www.youtube.com/embed/cTDb06WfDf8?si=gtrG0i_B_NM2uEub");
+        mapaEnlaces.put("Barbell shrug", "https://www.youtube.com/embed/M_MjF5Nm_h4?si=d9uRpGnNjuYrmmy-");
+        mapaEnlaces.put("Bent Over Two-Arm Long Bar Row", "https://www.youtube.com/embed/FWJR5Ve8bnQ?si=yyPoqnrX8P6hgcKh");
+        mapaEnlaces.put("Biceps curl to shoulder press", "https://www.youtube.com/embed/22dN1hdBqk0?si=RoQRZSyJYvxdnFf9");
+        mapaEnlaces.put("Bodyweight Flyes", "https://www.youtube.com/embed/jiZm5q2w4N0?si=qW6GymE5JJCtVr0t");
+        mapaEnlaces.put("Bottoms Up", "https://www.youtube.com/embed/TJjRZBpY75I?si=z4bgmvCdsMfQ8SIl");
+        mapaEnlaces.put("Cable V-bar push-down", "https://www.youtube.com/embed/8BXNngvMVdM?si=iNcfQ5KQUSyJM_wX");
+        mapaEnlaces.put("Calf Press", "https://www.youtube.com/embed/Hu8i9d_IgpM?si=kHu1xURktxQCluS5");
+        mapaEnlaces.put("Calf Press On The Leg Press Machine", "https://www.youtube.com/embed/IrxfRHGiGE0?si=n7Owe4V8Afk4rrTF");
+        mapaEnlaces.put("Calf-Machine Shoulder Shrug", "https://www.youtube.com/embed/8Qla9t5I8rc?si=D94lZmfXT7SWD3ZC");
+        mapaEnlaces.put("Chest dip", "https://www.youtube.com/embed/oA8Sxv2WeOs?si=I08o6gNjZTJDA3A5");
+        mapaEnlaces.put("Chin To Chest Stretch", "https://www.youtube.com/embed/8apKBBDPrYc?si=nwpQK8uu4uZnr-gx");
+        mapaEnlaces.put("Clam", "https://www.youtube.com/embed/jF6iE0shJKk?si=RJ808PR4dxJlvFwY");
+        mapaEnlaces.put("Clean Deadlift", "https://www.youtube.com/embed/r3w6gRzfVqw?si=ecfk0KZsdFthwPtK");
+        mapaEnlaces.put("Clean from Blocks", "https://www.youtube.com/embed/T4EAdzwVEg4?si=6gahmQZJ6x1ZT0yQ");
+        mapaEnlaces.put("Close-grip bench press", "https://www.youtube.com/embed/XEFDMwmrLAM?si=n_hF4SbBlSjH-rHD");
+        mapaEnlaces.put("Close-Grip Front Lat Pulldown", "https://www.youtube.com/embed/ecRF8ERf2q4?si=YmVHGVdvb1KQ8TQG");
+        mapaEnlaces.put("Close-grip pull-down", "https://www.youtube.com/embed/IjoFCmLX7z0?si=qpK48uulstcryiJk");
+        mapaEnlaces.put("Cocoons", "https://www.youtube.com/embed/hONrtSx_eiM?si=3hbJ6HezuLIhhcc8");
+        mapaEnlaces.put("Concentration curl", "https://www.youtube.com/embed/Jvj2wV0vOYU?si=UtXN8X3Ml6wyY3iY");
+        mapaEnlaces.put("Deadlift with Bands", "https://www.youtube.com/embed/obM6SBVa-MU?si=HE-ing0DuidjXJR3");
+        mapaEnlaces.put("Deadlift with Chains", "https://www.youtube.com/embed/NjReHsMBpGQ?si=ZGxfBtjW6oEkl7KG");
+        mapaEnlaces.put("Decline Dumbbell Flyes", "https://www.youtube.com/embed/ilcbmIoz9S4?si=dDJZd7WpjQdTqSiF");
+        mapaEnlaces.put("Decline EZ-bar skullcrusher", "https://www.youtube.com/embed/OpRLGph7El8?si=jMVOxs4vjNGF6AQ0");
+        mapaEnlaces.put("Decline reverse crunch", "https://www.youtube.com/embed/YcMj0EEadQo?si=aSVyOVHW4SRlvB8p");
+        mapaEnlaces.put("Dumbbell Bench Press", "https://www.youtube.com/embed/VmB1G1K7v94?si=LedOFaFJDphIk3rW");
+        mapaEnlaces.put("Dumbbell farmer's walk", "https://www.youtube.com/embed/nqGfgIVteoM?si=VQHyJv4OwKzkLykQ");
+        mapaEnlaces.put("Dumbbell floor press", "https://www.youtube.com/embed/uUGDRwge4F8?si=pPZlrW1Lk2dr-ksD");
+        mapaEnlaces.put("Dumbbell Flyes", "https://www.youtube.com/embed/Nhvz9EzdJ4U?si=9J7HBkhgFWlB43CD");
+        mapaEnlaces.put("Dumbbell spell caster", "https://www.youtube.com/embed/FhnP5YkYkf4?si=Yc3AZv1l5yLqc8Gw");
+        mapaEnlaces.put("Dumbbell V-Sit Cross Jab", "");
+        mapaEnlaces.put("Elbow plank", "");
+        mapaEnlaces.put("EZ-Bar Curl", "");
+        mapaEnlaces.put("EZ-Bar Skullcrusher", "");
+        mapaEnlaces.put("EZ-bar spider curl", "");
+        mapaEnlaces.put("Fire Hydrant", "");
+        mapaEnlaces.put("Flexor Incline Dumbbell Curls", "");
+        mapaEnlaces.put("Flutter Kicks", "");
+        mapaEnlaces.put("Glute bridge", "");
+        mapaEnlaces.put("Glute ham raise-", "");
+        mapaEnlaces.put("Glute Kickback", "");
+        mapaEnlaces.put("Hammer Curls", "");
+        mapaEnlaces.put("Hang Clean", "");
+        mapaEnlaces.put("Hip Circles (Prone)", "");
+        mapaEnlaces.put("Hyperextensions With No Hyperextension Bench", "");
+        mapaEnlaces.put("Iliotibial band SMR", "");
+        mapaEnlaces.put("Incline dumbbell bench press", "");
+        mapaEnlaces.put("Incline dumbbell row", "");
+        mapaEnlaces.put("Incline Hammer Curls", "");
+        mapaEnlaces.put("Isometric Neck Exercise - Front And Back", "");
+        mapaEnlaces.put("Isometric Neck Exercise - Sides", "");
+        mapaEnlaces.put("IT Band and Glute Stretch", "");
+        mapaEnlaces.put("Jumping rope", "");
+        mapaEnlaces.put("Kettlebell sumo deadlift high pull", "");
+        mapaEnlaces.put("Kettlebell thruster", "");
+        mapaEnlaces.put("Kneeling cable triceps extension", "");
+        mapaEnlaces.put("Kneeling Squat", "");
+        mapaEnlaces.put("Landmine twist", "");
+        mapaEnlaces.put("Leverage Shrug", "");
+        mapaEnlaces.put("Low-cable cross-over", "");
+        mapaEnlaces.put("Lying Face Down Plate Neck Resistance", "");
+        mapaEnlaces.put("Lying Face Up Plate Neck Resistance", "");
+        mapaEnlaces.put("Monster Walk", "");
+        mapaEnlaces.put("Muscle Up", "");
+        mapaEnlaces.put("Natural Glute Ham Raise", "");
+        mapaEnlaces.put("Neck Bridge Prone", "");
+        mapaEnlaces.put("Neck-SMR", "");
+        mapaEnlaces.put("One-Arm Dumbbell Row", "");
+        mapaEnlaces.put("One-Arm Long Bar Row", "");
+        mapaEnlaces.put("Palms-down wrist curl over bench", "");
+        mapaEnlaces.put("Palms-up wrist curl over bench", "");
+        mapaEnlaces.put("Power Clean from Blocks", "");
+        mapaEnlaces.put("Power Snatch", "");
+        mapaEnlaces.put("Power snatch-", "");
+        mapaEnlaces.put("Pull-up", "");
+        mapaEnlaces.put("Pullups", "");
+        mapaEnlaces.put("Push-press", "");
+        mapaEnlaces.put("Push-Ups - Close Triceps Position", "");
+        mapaEnlaces.put("Pushups", "");
+        mapaEnlaces.put("Rack Pull with Bands", "");
+        mapaEnlaces.put("Reverse Band Box Squat", "");
+        mapaEnlaces.put("Reverse Grip Triceps Pushdown", "");
+        mapaEnlaces.put("Reverse-grip bent-over row", "");
+        mapaEnlaces.put("Rickshaw Carry", "");
+        mapaEnlaces.put("Rocking Standing Calf Raise", "");
+        mapaEnlaces.put("Rocky Pull-Ups", "");
+        mapaEnlaces.put("Romanian Deadlift from Deficit", "");
+        mapaEnlaces.put("Romanian Deadlift With Dumbbells", "");
+        mapaEnlaces.put("Rope climb", "");
+        mapaEnlaces.put("Rower", "");
+        mapaEnlaces.put("Seated Cable Rows", "");
+        mapaEnlaces.put("Seated Calf Raise", "");
+        mapaEnlaces.put("Seated finger curl", "");
+        mapaEnlaces.put("Seated Head Harness Neck Resistance", "");
+        mapaEnlaces.put("Seated One-Arm Dumbbell Palms-Up Wrist Curl", "");
+        mapaEnlaces.put("Seated Two-Arm Palms-Up Low-Pulley Wrist Curl", "");
+        mapaEnlaces.put("Shotgun row", "");
+        mapaEnlaces.put("Side Neck Stretch", "");
+        mapaEnlaces.put("Single-arm cable triceps extension", "");
+        mapaEnlaces.put("Single-leg cable hip extension", "");
+        mapaEnlaces.put("Single-leg glute bridge", "");
+        mapaEnlaces.put("Single-leg lying cross-over stretch", "");
+        mapaEnlaces.put("Single-Leg Press", "");
+        mapaEnlaces.put("Smith Machine Calf Raise", "");
+        mapaEnlaces.put("Smith machine shrug", "");
+        mapaEnlaces.put("Snatch Deadlift", "");
+        mapaEnlaces.put("Spider crawl", "");
+        mapaEnlaces.put("Standing barbell calf raise", "");
+        mapaEnlaces.put("Standing behind-the-back wrist curl", "");
+        mapaEnlaces.put("Standing cable low-to-high twist", "");
+        mapaEnlaces.put("Standing Calf Raises", "");
+        mapaEnlaces.put("Standing dumbbell shrug", "");
+        mapaEnlaces.put("Standing dumbbell upright row", "");
+        mapaEnlaces.put("Standing Hip Circles", "");
+        mapaEnlaces.put("Step-up with knee raise", "");
+        mapaEnlaces.put("Straight-bar wrist roll-up", "");
+        mapaEnlaces.put("Sumo deadlift", "");
+        mapaEnlaces.put("Superman", "");
+        mapaEnlaces.put("Suspended ab fall-out", "");
+        mapaEnlaces.put("T-Bar Row", "");
+        mapaEnlaces.put("T-Bar Row with Handle", "");
+        mapaEnlaces.put("Thigh abductor", "");
+        mapaEnlaces.put("Tire flip", "");
+        mapaEnlaces.put("Triceps dip", "");
+        mapaEnlaces.put("V-bar pull-up", "");
+        mapaEnlaces.put("Weighted bench dip", "");
+        mapaEnlaces.put("Weighted donkey calf raise", "");
+        mapaEnlaces.put("Weighted pull-up", "");
+        mapaEnlaces.put("Wide-grip barbell curl", "");
+        mapaEnlaces.put("Windmills", "");
+        mapaEnlaces.put("Wrist Roller", "");
+        mapaEnlaces.put("Zottman Curl", "");
+    }
+
+    private String encontrarEjercicio(String nombreEjercicio) {
+        String enlace = "";
+        enlace = mapaEnlaces.get(nombreEjercicio);
+        return enlace;
+    }
+}

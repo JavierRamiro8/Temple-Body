@@ -13,7 +13,6 @@ import com.example.temple_body.R;
 import java.util.List;
 
 public class AdapterHistorial extends RecyclerView.Adapter<AdapterHistorial.HistorialEjercicioViewHolder> {
-
     private List<Historial> historiales;
 
     public AdapterHistorial(List<Historial> historiales) {
@@ -38,18 +37,17 @@ public class AdapterHistorial extends RecyclerView.Adapter<AdapterHistorial.Hist
         return historiales.size();
     }
 
-    public void addHistorial(Historial historial) {
-        historiales.add(historial);
+    public void updateHistorialList(List<Historial> nuevosHistoriales) {
+        historiales.clear();
+        historiales.addAll(nuevosHistoriales);
         notifyDataSetChanged();
     }
 
     public static class HistorialEjercicioViewHolder extends RecyclerView.ViewHolder {
-
         TextView nombreEjercicio, fecha, peso, repeticiones, series;
 
         public HistorialEjercicioViewHolder(@NonNull View itemView) {
             super(itemView);
-
             fecha = itemView.findViewById(R.id.fechaEjercicio);
             nombreEjercicio = itemView.findViewById(R.id.nombreEjercicio);
             peso = itemView.findViewById(R.id.pesoEjercicio);
@@ -60,10 +58,11 @@ public class AdapterHistorial extends RecyclerView.Adapter<AdapterHistorial.Hist
         public void bind(Historial historial) {
             fecha.setText(historial.getFecha());
             nombreEjercicio.setText("Ejercicio: " + historial.getNombreEjercicio());
-            peso.setText("Peso: " + String.valueOf(historial.getPeso() + "kg"));
-            repeticiones.setText("Repeticiones: " + String.valueOf(historial.getRepeticiones()));
-            series.setText("Series: " + String.valueOf(historial.getSeries()));
+            peso.setText("Peso: " + historial.getPeso() + "kg");
+            repeticiones.setText("Repeticiones: " + historial.getRepeticiones());
+            series.setText("Series: " + historial.getSeries());
         }
     }
 }
+
 

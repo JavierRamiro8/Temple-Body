@@ -55,14 +55,7 @@ public class DetalleEjercicio extends Fragment {
         args = getArguments();
         descripcion.getLayoutParams().height = 5;
         video.setOnClickListener(v -> {
-            String ejercicio = titulo.getText().toString();
-            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-            intent.putExtra(SearchManager.QUERY, URL_BUSQUEDA + ejercicio);
-            if (ejercicio != null) {
-                startActivity(intent);
-            } else {
-                Log.e("DetalleEjercicio", "El argumento 'ejercicio' es nulo o no está presente en los argumentos");
-            }
+            viajarReproductorVideo(titulo.getText().toString());
         });
         if (textoOculto) {
             textoDescripcion.setText("");
@@ -77,7 +70,6 @@ public class DetalleEjercicio extends Fragment {
                 if (args != null && args.containsKey(nombreEjercicio)) {
                     descripcion.getLayoutParams().height = 500;
                     descripcion.requestLayout();
-                    //en las 2 lineas siguientes es para setear el adapter e IMPORTANTE: el LinearLayoutManager es para recoger el row, necesita saber de donde lo saca!!!
                     apiDescripcion(getTituloEjercicio);
                 } else {
                     getTituloEjercicio = null;
@@ -132,6 +124,13 @@ public class DetalleEjercicio extends Fragment {
         bundle.putString("nombreEjercicio", ejercicio);
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_detalleEjercicio_to_historialEjercicioFragment3, bundle);
+    }
+
+    private void viajarReproductorVideo(String ejercicio) {
+        Bundle bundle = new Bundle();
+        bundle.putString("nombreEjercicio", ejercicio);
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_detalleEjercicio_to_reproductorVideo, bundle);
     }
 
     private void closeDetalleFragment() {

@@ -85,9 +85,8 @@ public class Perfil extends Fragment {
     }
 
     private void viajarHistorial() {
-        FirebaseAuth.getInstance().signOut();
         NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_perfil_to_historialFragment);
+        nav.navigate(R.id.action_perfil_to_historialFragment2);
     }
     private void guardarLayoutLogin() {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
