@@ -157,7 +157,7 @@ public class HistorialEjercicioFragment extends Fragment {
             fechaBD.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
 
             // Guardar los datos en la base de datos
-            mDatabase.child("Ejercicios").child(idUsuario).child(fechaBD.toString()).child(tituloNombreEjercicio.getText().toString()).setValue(mapa);
+            mDatabase.child("Ejercicios").child(idUsuario).child(tituloNombreEjercicio.getText().toString()).child(fechaBD.toString()).setValue(mapa);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle("Error")

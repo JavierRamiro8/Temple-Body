@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="Temple Body">
+      <SelectionState runConfigName="Actividad_Gimnasios">
         <option name="selectionMode" value="DROPDOWN" />
         <DropdownSelection timestamp="2024-05-26T16:17:31.830401600Z">
           <Target type="DEFAULT_BOOT">
