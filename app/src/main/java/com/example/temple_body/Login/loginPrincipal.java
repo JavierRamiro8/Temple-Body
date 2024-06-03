@@ -28,18 +28,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class loginPrincipal extends Fragment {
 
-    public loginPrincipal() {}
+    public loginPrincipal() {
+    }
 
-    private static final String MENSAJEERROR="Usuario o contraseña incorrectos, Es prueba, prueba.";
+    private static final String MENSAJEERROR = "Usuario o contraseña incorrectos, Es prueba, prueba.";
     EditText etCorreoElectronico;
     EditText etPassword;
     Button btIniciarSesion;
-    TextView tvRegistrarse,tvCambioContrasena;
+    TextView tvRegistrarse, tvCambioContrasena;
 
     private FirebaseAuth mauth;
     private DatabaseReference dr;
 
-    private FirebaseAuth.AuthStateListener authStateListener ;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,16 +51,19 @@ public class loginPrincipal extends Fragment {
         etPassword = layout.findViewById(R.id.ALetPassword);
         btIniciarSesion = layout.findViewById(R.id.ALbtAccept);
         tvRegistrarse = layout.findViewById(R.id.ALtvRegisterlink);
-        tvCambioContrasena=layout.findViewById(R.id.tvCambioContrasena);
-        mauth=FirebaseAuth.getInstance();
+        tvCambioContrasena = layout.findViewById(R.id.tvCambioContrasena);
+        mauth = FirebaseAuth.getInstance();
 
         btIniciarSesion.setOnClickListener(v -> {
+            btIniciarSesion.setEnabled(false);
             String email = etCorreoElectronico.getText().toString();
             String contrasena = etPassword.getText().toString();
             if (email.isEmpty()) {
                 etCorreoElectronico.setError("Email vacio o nula.");
+                btIniciarSesion.setEnabled(true);
             } else if (contrasena.isEmpty()) {
                 etPassword.setError("Contraseña vacia o nula");
+                btIniciarSesion.setEnabled(true);
             } else {
                 mauth.signInWithEmailAndPassword(email, contrasena).addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -86,6 +90,7 @@ public class loginPrincipal extends Fragment {
 
                                             AlertDialog dialog = builder.create();
                                             dialog.show();
+                                            btIniciarSesion.setEnabled(true);
                                         }
                                     }
                                 });
@@ -98,6 +103,8 @@ public class loginPrincipal extends Fragment {
 
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
+                                btIniciarSesion.setEnabled(true);
+
                             }
                         } else {
                             // Error al iniciar sesión
@@ -108,6 +115,8 @@ public class loginPrincipal extends Fragment {
 
                             AlertDialog dialog = builder.create();
                             dialog.show();
+                            btIniciarSesion.setEnabled(true);
+
                         }
                     }
                 });
@@ -119,13 +128,14 @@ public class loginPrincipal extends Fragment {
             viajarRegistro();
         });
 
-        tvCambioContrasena.setOnClickListener(v ->{
+        tvCambioContrasena.setOnClickListener(v -> {
             guardarLayoutIdaVuelta();
             viajarCambioContrasena();
         });
 
         return layout;
     }
+
     private void viajarPerfil(String correo, String usuario) {
         guardarCredencialesUsuario(usuario, correo);
         NavController nav = NavHostFragment.findNavController(this);
@@ -144,23 +154,25 @@ public class loginPrincipal extends Fragment {
 
     private void guardarLayoutIdaVuelta() {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutCambioContrasena", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("layoutLoginCambio", 1);
         editor.apply();
     }
+
     private void guardarLayoutLogin() {
         SharedPreferences sharedPreferences = requireContext().getSharedPreferences("cargaLayoutLogin", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("cargaLayoutLogin", 1);
         editor.apply();
     }
 
-    private void viajarRegistro(){
-        NavController nav= NavHostFragment.findNavController(this);
+    private void viajarRegistro() {
+        NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_registro);
     }
-    private void viajarCambioContrasena(){
-        NavController nav= NavHostFragment.findNavController(this);
+
+    private void viajarCambioContrasena() {
+        NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginPrincipal_to_cambioContrasena);
     }
 }
