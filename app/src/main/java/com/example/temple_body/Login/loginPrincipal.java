@@ -30,8 +30,6 @@ public class loginPrincipal extends Fragment {
 
     public loginPrincipal() {
     }
-
-    private static final String MENSAJEERROR = "Usuario o contraseña incorrectos, Es prueba, prueba.";
     EditText etCorreoElectronico;
     EditText etPassword;
     Button btIniciarSesion;

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -38,6 +39,7 @@ public class Registro extends Fragment {
 
     CheckBox checkTerminos;
 
+    TextView iniciarSesionText;
     Button registro;
     FirebaseAuth mauth;
 
@@ -54,8 +56,10 @@ public class Registro extends Fragment {
         email = layout.findViewById(R.id.reg_et_email);
         checkTerminos = layout.findViewById(R.id.cb_terminosYcondiciones);
         registro = layout.findViewById(R.id.btRegistro);
-
-
+        iniciarSesionText=layout.findViewById(R.id.IniciarSesion);
+        iniciarSesionText.setOnClickListener(v -> {
+            viajarLogin();
+        });
         mauth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         checkTerminos.setOnClickListener(v -> {
