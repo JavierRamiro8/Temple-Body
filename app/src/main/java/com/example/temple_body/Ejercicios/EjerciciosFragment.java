@@ -64,38 +64,38 @@ public class EjerciciosFragment extends Fragment {
     }
 
     private void getEjercicios() {
-        Call<JsonArray> call;
-        if (spinnerEjercicios.getSelectedItem().toString().equals("Abdominales")) {
+        Call<JsonArray> call = null;
+        if (spinnerEjercicios.getSelectedItem().toString().equals("abdominals")) {
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");
-        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Abductores")) {
+        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Abductors")) {
             call = ServiceEjercicios.getAPI().getEjercicio("abductors");
-        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Adductores")) {
+        } else if (spinnerEjercicios.getSelectedItem().toString().equals("Adductors")) {
             call = ServiceEjercicios.getAPI().getEjercicio("adductors");
         } else if(spinnerEjercicios.getSelectedItem().toString().equals("Biceps")) {
             call = ServiceEjercicios.getAPI().getEjercicio("biceps");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Gemelos")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Calves")) {
             call = ServiceEjercicios.getAPI().getEjercicio("calves");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Pecho")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Chest")) {
             call = ServiceEjercicios.getAPI().getEjercicio("chest");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Antebrazos")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Forearms")) {
             call = ServiceEjercicios.getAPI().getEjercicio("forearms");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Gluteos")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Glutes")) {
             call = ServiceEjercicios.getAPI().getEjercicio("glutes");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Femoral")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Hamstrings")) {
             call = ServiceEjercicios.getAPI().getEjercicio("hamstrings");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Dorsales")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Lats")) {
             call = ServiceEjercicios.getAPI().getEjercicio("lats");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Lumbar")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Lower back")) {
             call = ServiceEjercicios.getAPI().getEjercicio("lower_back");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Espalda Media")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Middle back")) {
             call = ServiceEjercicios.getAPI().getEjercicio("middle_back");
         }else if(spinnerEjercicios.getSelectedItem().toString().equals("Cuello")) {
             call = ServiceEjercicios.getAPI().getEjercicio("neck");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Cuadriceps")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Quadriceps")) {
             call = ServiceEjercicios.getAPI().getEjercicio("quadriceps");
-        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Trapecios")) {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Traps")) {
             call = ServiceEjercicios.getAPI().getEjercicio("traps");
-        }else {
+        }else if(spinnerEjercicios.getSelectedItem().toString().equals("Triceps")){
             call = ServiceEjercicios.getAPI().getEjercicio("triceps");
         }
 
