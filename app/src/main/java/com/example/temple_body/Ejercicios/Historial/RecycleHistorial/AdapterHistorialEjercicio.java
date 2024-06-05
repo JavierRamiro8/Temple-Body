@@ -45,11 +45,12 @@ public class AdapterHistorialEjercicio extends RecyclerView.Adapter<AdapterHisto
 
     public static class HistorialEjercicioViewHolder extends RecyclerView.ViewHolder {
 
-        TextView fecha, peso, repeticiones, series;
+        TextView fecha, peso, repeticiones, series, nombre;
 
         public HistorialEjercicioViewHolder(@NonNull View itemView) {
             super(itemView);
             fecha = itemView.findViewById(R.id.fechaEjercicio);
+            nombre = itemView.findViewById(R.id.nombreEjercicio);
             peso = itemView.findViewById(R.id.pesoEjercicio);
             repeticiones = itemView.findViewById(R.id.repeticionesEjercicio);
             series = itemView.findViewById(R.id.seriesEjercicio);
@@ -57,6 +58,7 @@ public class AdapterHistorialEjercicio extends RecyclerView.Adapter<AdapterHisto
 
         public void bind(Historial historial) {
             fecha.setText(historial.getFecha());
+            nombre.setText("Nombre del ejercicio: " +historial.getNombreEjercicio());
             peso.setText("Peso: " + String.valueOf(historial.getPeso() + "kg"));
             repeticiones.setText("Repeticiones: " + String.valueOf(historial.getRepeticiones()));
             series.setText("Series: " + String.valueOf(historial.getSeries()));

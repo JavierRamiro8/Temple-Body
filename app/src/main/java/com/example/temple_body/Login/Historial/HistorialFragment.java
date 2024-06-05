@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -91,6 +92,13 @@ public class HistorialFragment extends Fragment {
                             adapter.updateHistorialList(listaHistorial);
                         } else {
                             Log.d("HistorialFragment", "No se encontraron datos para la fecha seleccionada.");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                            builder.setTitle("No hay datos")
+                                    .setMessage("No se encontraron datos para la fecha seleccionada.")
+                                    .setPositiveButton("Aceptar", null);
+
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         }
                     }
 

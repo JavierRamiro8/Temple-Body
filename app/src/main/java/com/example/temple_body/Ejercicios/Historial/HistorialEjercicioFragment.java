@@ -61,8 +61,9 @@ public class HistorialEjercicioFragment extends Fragment {
     private RecyclerView resultado;
     FirebaseAuth mauth;
     DatabaseReference mDatabase;
+    private int contadorDatos = 0;
 
-
+    private AdapterHistorialEjercicio adapter;
     public HistorialEjercicioFragment() {
     }
 
@@ -78,9 +79,14 @@ public class HistorialEjercicioFragment extends Fragment {
         generar = view.findViewById(R.id.BTGenerar);
         salir = view.findViewById(R.id.BTSalir);
         datepicker = view.findViewById(R.id.datePicker);
+        filtrarFecha = view.findViewById(R.id.filtrarFecha);
 
         Bundle args = getArguments();
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        resultado.setLayoutManager(layoutManager);
 
+        adapter = new AdapterHistorialEjercicio(new ArrayList<>());
+        resultado.setAdapter(adapter);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -127,6 +133,71 @@ public class HistorialEjercicioFragment extends Fragment {
                 materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
             }
         });
+        filtrarFecha.setOnClickListener(v -> {
+            MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
+                    .setTitleText("Selecciona una fecha")
+                    .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                    .setCalendarConstraints(new CalendarConstraints.Builder()
+                            .setValidator(DateValidatorPointBackward.now())
+                            .build())
+                    .build();
+            materialDatePicker.addOnPositiveButtonClickListener(selection -> {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                fechaFiltrada = dateFormat.format(new Date(selection));
+                String[] splitFecha = fechaFiltrada.split("/");
+                StringBuilder fechaFormateada = new StringBuilder();
+                fechaFormateada.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
+                filtrarFecha.setText("Fecha: " + fechaFiltrada);
+
+                // Filtrar los datos en Firebase por la fecha seleccionada
+                DatabaseReference ref = mDatabase.child("Ejercicios").child(idUsuario).child(fechaFormateada.toString());
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        List<Historial> listaHistorial = new ArrayList<>();
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot ejercicioSnapshot : dataSnapshot.getChildren()) {
+                                String nombreEjercicio = ejercicioSnapshot.getKey();
+                                String peso = ejercicioSnapshot.child("pesoEjercicio").getValue(String.class);
+                                String repeticiones = ejercicioSnapshot.child("repeticionesEjercicio").getValue(String.class);
+                                String series = ejercicioSnapshot.child("seriesEjercicio").getValue(String.class);
+                                String fecha = ejercicioSnapshot.child("fechaEjercicio").getValue(String.class);
+                                if(nombreEjercicio.equals(tituloNombreEjercicio.getText().toString())){
+                                    agregarHistorial(nombreEjercicio, Integer.parseInt(peso), Integer.parseInt(repeticiones), Integer.parseInt(series), fecha, idUsuario);
+                                    contadorDatos++;
+                                }
+                                if(contadorDatos == 0){
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                    builder.setTitle("No hay mas datos")
+                                            .setMessage("No se encontraron mas datos para la fecha seleccionada.")
+                                            .setPositiveButton("Aceptar", null);
+
+                                    AlertDialog dialog = builder.create();
+                                    dialog.show();
+                                }
+                                }
+
+                        } else {
+                            Log.d("HistorialFragment", "No se encontraron datos para la fecha seleccionada.");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                            builder.setTitle("No hay datos")
+                                    .setMessage("No se encontraron datos para la fecha seleccionada.")
+                                    .setPositiveButton("Aceptar", null);
+
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.w("HistorialFragment", "Error en la consulta", databaseError.toException());
+                    }
+                });
+            });
+            materialDatePicker.show(getActivity().getSupportFragmentManager(), "tag");
+        });
         salir.setOnClickListener(v -> {
             closeHistorialFragment();
         });
@@ -157,7 +228,7 @@ public class HistorialEjercicioFragment extends Fragment {
             fechaBD.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);
 
             // Guardar los datos en la base de datos
-            mDatabase.child("Ejercicios").child(idUsuario).child(tituloNombreEjercicio.getText().toString()).child(fechaBD.toString()).setValue(mapa);
+            mDatabase.child("Ejercicios").child(idUsuario).child(fechaBD.toString()).child(tituloNombreEjercicio.getText().toString()).setValue(mapa);
         } else {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             builder.setTitle("Error")
