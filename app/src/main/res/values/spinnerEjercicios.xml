@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner_ejercicios">
-        <item>Selecciona Musculo</item>
-        <item>Abdominales</item>
-        <item>Abductores</item>
-        <item>Adductores</item>
+        <item>Select Muscle</item>
+        <item>Abdominals</item>
+        <item>Abductors</item>
+        <item>Adductors</item>
         <item>Biceps</item>
-        <item>Gemelos</item>
-        <item>Pecho</item>
-        <item>Antebrazos</item>
-        <item>Gluteos</item>
-        <item>Femoral</item>
-        <item>Dorsales</item>
-        <item>Lumbar</item>
-        <item>Espalda Media</item>
-        <item>Cuello</item>
-        <item>Cuadriceps</item>
-        <item>Trapecios</item>
+        <item>Calves</item>
+        <item>Chest</item>
+        <item>Forearms</item>
+        <item>Glutes</item>
+        <item>Hamstrings</item>
+        <item>lats</item>
+        <item>Lower Back</item>
+        <item>Middle Back</item>
+        <item>Neck</item>
+        <item>Quadriceps</item>
+        <item>Traps</item>
         <item>Triceps</item>
     </string-array>
 </resources>

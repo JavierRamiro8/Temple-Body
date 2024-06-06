@@ -36,8 +36,6 @@ public class EjerciciosFragment extends Fragment {
     private EjercicioAdapter adapter;
     private Spinner spinnerEjercicios;
 
-    private FragmentContainerView detalles;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,7 +63,7 @@ public class EjerciciosFragment extends Fragment {
 
     private void getEjercicios() {
         Call<JsonArray> call = null;
-        if (spinnerEjercicios.getSelectedItem().toString().equals("abdominals")) {
+        if (spinnerEjercicios.getSelectedItem().toString().equals("Abdominals")) {
             call = ServiceEjercicios.getAPI().getEjercicio("abdominals");
         } else if (spinnerEjercicios.getSelectedItem().toString().equals("Abductors")) {
             call = ServiceEjercicios.getAPI().getEjercicio("abductors");

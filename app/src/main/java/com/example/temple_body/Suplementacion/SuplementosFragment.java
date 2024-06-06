@@ -94,7 +94,6 @@ public class SuplementosFragment extends Fragment {
         prozis = layout.findViewById(R.id.tvProzis);
         big_supps = layout.findViewById(R.id.tvBig);
 
-        marcasRecomendadas.setText("Marcas Recomendadas");
         marcasRecomendadas.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         proe.setText("Proe-Nutrition");

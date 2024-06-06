@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinner_suplementos">
-        <item>Selecciona suplemento</item>
-        <item>Proteinas</item>
-        <item>Creatina</item>
-        <item>Aminoacidos</item>
-        <item>Pre-entrenos</item>
-        <item>Vitaminas</item>
-        <item>Mejora del sueño</item>
+        <item>Select suplement</item>
+        <item>Proteins</item>
+        <item>Creatine</item>
+        <item>Amino acids</item>
+        <item>Pre-workouts</item>
+        <item>Vitamins</item>
+        <item>Sleep improvement</item>
     </string-array>
 </resources>
