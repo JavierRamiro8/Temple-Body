@@ -4,47 +4,50 @@ import com.example.temple_body.Suplementacion.Suplementos;
 
 public class Textos {
     //TEXTOS CONDICIONES POLITICAS Y REGLAMENTO DE LA APP
-    private final String CONDICIONES="\n"+"Condiciones de Uso de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+    private final String CONDICIONES="\n"+"Terms of Use of Temple Body - Your Ideal Training Companion\n" +
             "\n" +
-            "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física con nosotros, te pedimos que leas detenidamente nuestras condiciones de uso a continuación: \n" +
-            "1. Uso Adecuado:\n" +
-            "La aplicación Temple Body está destinada únicamente para fines de entrenamiento y acondicionamiento físico. Cualquier uso indebido, incluido el comportamiento fraudulento o malicioso, resultará en la terminación de tu cuenta.\n" +
-            "2. Derechos de Propiedad:\n" +
-            "Todos los derechos de propiedad intelectual relacionados con Temple Body, incluidos pero no limitados a logos, imágenes y contenido, son propiedad exclusiva de Temple Body. No está permitido copiar, modificar, distribuir o reproducir ningún elemento sin nuestro consentimiento explícito.\n" +
-            "3. Terminación de Cuenta:\n" +
-            "Nos reservamos el derecho de suspender o cerrar tu cuenta si violas estos términos de uso o participas en actividades que consideremos perjudiciales para la comunidad de Temple Body.\n" +
-            "Al utilizar Temple Body, te unes a una comunidad dedicada al bienestar y la salud. ¡Estamos emocionados de ser parte de tu viaje de fitness! ¡Entrena con determinación y alcanza tus metas con Temple Body!\n" +
+            "Welcome to Temple Body! We appreciate your interest and trust in our application designed to provide you with an exceptional training and gym experience. Before you dive into your physical transformation journey with us, please carefully read our terms of use below: \n" +
+            "1. Proper Use:\n" +
+            "The Temple Body application is intended solely for training and fitness purposes. Any misuse, including fraudulent or malicious behavior, will result in the termination of your account.\n" +
+            "2. Ownership Rights:\n" +
+            "All intellectual property rights related to Temple Body, including but not limited to logos, images, and content, are the exclusive property of Temple Body. It is not permitted to copy, modify, distribute, or reproduce any element without our explicit consent.\n" +
+            "3. Account Termination:\n" +
+            "We reserve the right to suspend or close your account if you violate these terms of use or engage in activities that we deem harmful to the Temple Body community.\n" +
+            "By using Temple Body, you join a community dedicated to wellness and health. We are excited to be part of your fitness journey! Train with determination and achieve your goals with Temple Body!\n" +
             "\n" +
-            "Fecha de entrada en vigencia: [01/01/2024]"+"\n \n \n";
+            "Effective date: [01/01/2024]"+"\n \n \n";
 
-    private final String POLITICAS="\n"+"Informacion y Politicas de privacidad de Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+    private final String POLITICAS="\n"+"Temple Body Information and Privacy Policies - Your Ideal Training Companion\n" +
             "\n" +
-            "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física con nosotros, te pedimos que leas detenidamente nuestra informacion y politica de privacidad a continuación: \n" +"1. Aceptación de los Términos:\n" +
-            "Al acceder y utilizar la aplicación Temple Body, aceptas cumplir con estos términos de uso. Si no estás de acuerdo con alguna parte de estos términos, te recomendamos que no utilices nuestra aplicación.\n" +
+            "Welcome to Temple Body! We appreciate your interest and trust in our application designed to provide you with an exceptional training and gym experience. Before you dive into your physical transformation journey with us, please carefully read our information and privacy policy below: \n" +
+            "1. Acceptance of Terms:\n" +
+            "By accessing and using the Temple Body application, you agree to comply with these terms of use. If you do not agree with any part of these terms, we recommend that you do not use our application.\n" +
             "\n" +
-            "2. Responsabilidad del Usuario:\n" +
-            "Eres responsable de la información que compartes, los datos que ingreses y las actividades que realices dentro de Temple Body. Te comprometes a proporcionar información precisa y a utilizar la aplicación de manera ética y legal.\n" +
-            "3. Soporte Técnico:\n" +
-            "Ofrecemos soporte técnico para resolver problemas relacionados con la aplicación. Si experimentas algún problema, contáctanos a través de los canales de soporte proporcionados en la aplicación.\n" +
-            "\n" + "4. Privacidad y Datos Personales:\n" +
-            "Nos tomamos en serio la privacidad de tus datos. Consulta nuestra política de privacidad para comprender cómo recopilamos, utilizamos y protegemos tu información personal.\n" +
+            "2. User Responsibility:\n" +
+            "You are responsible for the information you share, the data you enter, and the activities you perform within Temple Body. You agree to provide accurate information and to use the application ethically and legally.\n" +
+            "3. Technical Support:\n" +
+            "We offer technical support to resolve issues related to the application. If you experience any problems, contact us through the support channels provided in the application.\n" +
             "\n" +
-            "5. Derechos de Propiedad:\n" +
-            "Todos los derechos de propiedad intelectual relacionados con Temple Body, incluidos pero no limitados a logos, imágenes y contenido, son propiedad exclusiva de Temple Body. No está permitido copiar, modificar, distribuir o reproducir ningún elemento sin nuestro consentimiento explícito." +
-            "Al utilizar Temple Body, te unes a una comunidad dedicada al bienestar y la salud. ¡Estamos emocionados de ser parte de tu viaje de fitness! ¡Entrena con determinación y alcanza tus metas con Temple Body!\n" +
+            "4. Privacy and Personal Data:\n" +
+            "We take your data privacy seriously. Please refer to our privacy policy to understand how we collect, use, and protect your personal information.\n" +
             "\n" +
-            "Fecha de entrada en vigencia: [01/01/2024]"+"\n \n \n";
+            "5. Ownership Rights:\n" +
+            "All intellectual property rights related to Temple Body, including but not limited to logos, images, and content, are the exclusive property of Temple Body. It is not permitted to copy, modify, distribute, or reproduce any element without our explicit consent.\n" +
+            "By using Temple Body, you join a community dedicated to wellness and health. We are excited to be part of your fitness journey! Train with determination and achieve your goals with Temple Body!\n" +
+            "\n" +
+            "Effective date: [01/01/2024]"+"\n \n \n";
 
-    private final String REGLAMENTO="\n"+"Reglamento (UE) 2021/1232 \n"+"Temple Body - Tu Compañero de Entrenamiento Ideal\n" +
+    private final String REGLAMENTO="\n"+"Regulation (EU) 2021/1232 \n"+"Temple Body - Your Ideal Training Companion\n" +
             "\n" +
-            "¡Bienvenido/a a Temple Body! Agradecemos tu interés y confianza en nuestra aplicación diseñada para brindarte" +
-            " una experiencia excepcional de entrenamiento y gimnasio. Antes de sumergirte en tu viaje de transformación física " +
-            "con nosotros, te pedimos que leas detenidamente el Reglamento (UE) 2021/1232 a continuación: \n"
-            +"Reglamento (UE) 2021/1232 del Parlamento Europeo y del Consejo de 14 de julio de " +
-            "2021 por el que se establece una excepción temporal a determinadas disposiciones de la Directiva " +
-            "2002/58/CE en lo que respecta al uso de tecnologías por proveedores de servicios de comunicaciones interpersonales"+
-            "independientes de la numeración para el tratamiento de datos personales y de otro tipo con fines de lucha contra los abusos sexuales de menores en línea."
-            +"\n \n \n";
+            "Welcome to Temple Body! We appreciate your interest and trust in our application designed to provide you " +
+            "with an exceptional training and gym experience. Before you dive into your physical transformation journey " +
+            "with us, please carefully read Regulation (EU) 2021/1232 below: \n" +
+            "Regulation (EU) 2021/1232 of the European Parliament and of the Council of 14 July " +
+            "2021 establishing a temporary derogation from certain provisions of Directive " +
+            "2002/58/EC as regards the use of technologies by providers of number-independent interpersonal communication services " +
+            "for the processing of personal and other data for the purpose of combatting online child sexual abuse." +
+            "\n \n \n";
+
 
     public String getCONDICIONES() {
         return CONDICIONES;
