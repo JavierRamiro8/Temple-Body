@@ -29,8 +29,7 @@ import com.example.temple_body.R;
 public class configuracion extends Fragment {
 
     public configuracion() {}
-    Button btinfProblema, btActualiza, btProbCuenta, btRegresar, btModificar;
-    ProgressBar pbActualiza;
+    Button btinfProblema,btRegresar, btModificar;
     ActivityResultLauncher<String> requestPermissionLauncher;
 
     @Override
@@ -40,20 +39,13 @@ public class configuracion extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_configuracion, container, false);
 
         btinfProblema = layout.findViewById(R.id.ACbtInformacionProblema);
-        btActualiza = layout.findViewById(R.id.ACbtActulizarAPP);
-        pbActualiza = layout.findViewById(R.id.ACpbActualizacion);
         btRegresar = layout.findViewById(R.id.ACbtRegresar);
-        btProbCuenta  = layout.findViewById(R.id.ACbtProblemasCuenta);
         btModificar = layout.findViewById(R.id.ACbtModificarDatos);
         guardarLayoutLogin();
-        pbActualiza.setVisibility(View.INVISIBLE);
 
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
-                // Permission is granted. Continue the action or workflow in your
-                // app.
                 requestCorreo();
-                requestLlamada();
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Error")
@@ -65,22 +57,6 @@ public class configuracion extends Fragment {
             }
         });
 
-        btProbCuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(
-                        getActivity(), Manifest.permission.CALL_PHONE) ==
-                        PackageManager.PERMISSION_GRANTED) {
-                    // You can use the API that requires the permission.
-                    requestLlamada();
-                } else {
-                    // You can directly ask for the permission.
-                    // The registered ActivityResultCallback gets the result of this request.
-                    requestPermissionLauncher.launch(Manifest.permission.CALL_PHONE);
-                }
-
-            }
-        });
         btinfProblema.setOnClickListener(v -> {
             if (ContextCompat.checkSelfPermission(
                     getActivity(), Manifest.permission.SEND_SMS) ==
@@ -100,22 +76,10 @@ public class configuracion extends Fragment {
             viajarCambioCotrasena();
         });
 
-        btActualiza.setOnClickListener(v -> {
-            pbActualiza.setVisibility(View.VISIBLE);
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Info")
-                    .setMessage("Tu APP esta actualizada a la ultima version!")
-                    .setPositiveButton("Aceptar", null);
-
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            pbActualiza.setVisibility(View.INVISIBLE);
-        });
-
         return layout;
     }
     private void requestCorreo(){
-        Uri uri = Uri.parse("mailto:soporte.cuenta.templebody@gmail.com"); // Para abrir Gmail
+        Uri uri = Uri.parse("mailto:soporte@templebody.es");
         Intent i = new Intent(Intent.ACTION_VIEW, uri);
         i.putExtra("mail_body", "Problema con la cuenta.");
         startActivity(i);
@@ -125,11 +89,6 @@ public class configuracion extends Fragment {
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putInt("layoutLoginCambio", 0);
         editor.apply();
-    }
-    private void requestLlamada(){
-        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
-        phoneIntent.setData(Uri.parse("tel:0034 911 66 66 66"));
-        startActivity(phoneIntent);
     }
     private void viajarPerfil() {
         NavController nav = NavHostFragment.findNavController(this);

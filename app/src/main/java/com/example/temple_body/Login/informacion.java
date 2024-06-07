@@ -1,35 +1,26 @@
 package com.example.temple_body.Login;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.temple_body.Login.fragmentsInformacion.fragCondicionesUso;
-import com.example.temple_body.Login.fragmentsInformacion.fragPoliticasInformacion;
-import com.example.temple_body.Login.fragmentsInformacion.fragReglamento;
 import com.example.temple_body.R;
 public class informacion extends Fragment {
 
-    Button btInformacion, btCondiciones, btReglamento, btRegresar, btTelegram;
+    Button btInformacion, btCondiciones, btReglamento, btRegresar, btComunidad;
     ActivityResultLauncher<String> requestPermissionLauncher;
 
     @Override
@@ -42,35 +33,15 @@ public class informacion extends Fragment {
         btReglamento = layout.findViewById(R.id.AIbtReglamento);
         btCondiciones = layout.findViewById(R.id.AIbtCondicionesUso);
         btRegresar = layout.findViewById(R.id.AIbtRegresar);
-        btTelegram = layout.findViewById(R.id.AIbtTelegram);
+        btComunidad = layout.findViewById(R.id.AIbtTelegram);
         guardarLayoutLogin();
-        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-            if (isGranted) {
-                // Permission is granted. Continue the action or workflow in your
-                // app.
-                requestTelegram();
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Error")
-                        .setMessage("Necesitamos que acepte los permisos para poder realizar la accion.")
-                        .setPositiveButton("Aceptar", null);
 
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
        btInformacion.setOnClickListener(v -> {
            viajarInformacion();
        });
 
-        btTelegram.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(
-                    getActivity(), Manifest.permission.SEND_SMS) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                requestTelegram();
-            } else {
-                requestPermissionLauncher.launch(Manifest.permission.SEND_SMS);
-            }
+        btComunidad.setOnClickListener(v -> {
+            requestComunity();
         });
 
         btReglamento.setOnClickListener(v -> {
@@ -89,16 +60,11 @@ public class informacion extends Fragment {
 
         return layout;
     }
-    private void requestTelegram() {
-        try {
-            String toNumber = "0034 644516218";
-
-            Intent sendIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + toNumber));
-            sendIntent.setPackage("com.telegram");
-            startActivity(sendIntent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void requestComunity() {
+        String enlace="https://discord.gg/khBQwgRJ";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(enlace));
+        startActivity(intent);
     }
     private void viajarInformacion(){
         NavController nav= NavHostFragment.findNavController(this);

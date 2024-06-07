@@ -8,113 +8,89 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tvIVlogo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="#000000"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="305dp"
-            android:layout_height="145dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/templebody"
-            app:layout_constraintBottom_toBottomOf="@+id/tvIVlogo"
-            app:layout_constraintEnd_toEndOf="@+id/tvIVlogo"
-            app:layout_constraintStart_toStartOf="@+id/tvIVlogo"
-            app:layout_constraintTop_toTopOf="@+id/tvIVlogo"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/templebody" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
         android:background="@drawable/icono3"
         tools:context=".InfromacionActivity">
+
+        <TextView
+            android:id="@+id/TVTituloHistorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_color_encabezado"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:text="INFORMATION"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFC107"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/AIbtInformacionLegal"
+            app:layout_constraintEnd_toEndOf="@+id/AIbtInformacionLegal"
+            app:layout_constraintStart_toStartOf="@+id/AIbtInformacionLegal"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/AIbtInformacionLegal"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_width="315dp"
+            android:layout_height="61dp"
             android:backgroundTint="#4B8C8C8C"
             android:text="Legal Information and Privacy Policies"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.20" />
+            app:layout_constraintBottom_toTopOf="@+id/AIbtCondicionesUso"
+            app:layout_constraintEnd_toEndOf="@+id/AIbtCondicionesUso"
+            app:layout_constraintStart_toStartOf="@+id/AIbtCondicionesUso"
+            app:layout_constraintTop_toBottomOf="@+id/TVTituloHistorial" />
 
         <Button
             android:id="@+id/AIbtCondicionesUso"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="315dp"
+            android:layout_height="61dp"
             android:backgroundTint="#4B8C8C8C"
             android:text="Terms of use"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtInformacionLegal"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toTopOf="@+id/AIbtReglamento"
+            app:layout_constraintEnd_toEndOf="@+id/AIbtReglamento"
+            app:layout_constraintStart_toStartOf="@+id/AIbtReglamento"
+            app:layout_constraintTop_toBottomOf="@+id/AIbtInformacionLegal" />
 
         <Button
             android:id="@+id/AIbtReglamento"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="315dp"
+            android:layout_height="61dp"
             android:backgroundTint="#4B8C8C8C"
             android:text=" EU Regulation 2021/1232"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtCondicionesUso"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toTopOf="@+id/AIbtTelegram"
+            app:layout_constraintEnd_toEndOf="@+id/AIbtTelegram"
+            app:layout_constraintStart_toStartOf="@+id/AIbtTelegram"
+            app:layout_constraintTop_toBottomOf="@+id/AIbtCondicionesUso" />
 
         <Button
             android:id="@+id/AIbtTelegram"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="324dp"
+            android:layout_height="61dp"
             android:backgroundTint="#4B8C8C8C"
-            android:text="Telegram"
+            android:text="Comunity"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtReglamento"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toTopOf="@+id/AIbtRegresar"
+            app:layout_constraintEnd_toEndOf="@+id/AIbtRegresar"
+            app:layout_constraintStart_toStartOf="@+id/AIbtRegresar"
+            app:layout_constraintTop_toBottomOf="@+id/AIbtReglamento" />
 
         <Button
             android:id="@+id/AIbtRegresar"
@@ -128,7 +104,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AIbtReglamento" />
+            app:layout_constraintTop_toBottomOf="@+id/AIbtTelegram" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

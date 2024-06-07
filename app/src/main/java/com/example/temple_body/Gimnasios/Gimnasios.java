@@ -34,15 +34,9 @@ public class Gimnasios {
         this.precio = precio;
     }
     public double getValoracion() {return valoracion;}
-    public void setValoracion(double valoracion) {
-        this.valoracion = valoracion;
-    }
 
     public String getMasInfo() {
         return masInfo;
-    }
-    public void setMasInfo(String masInfo) {
-        this.masInfo = masInfo;
     }
 
     public static ArrayList<Gimnasios> generador() {

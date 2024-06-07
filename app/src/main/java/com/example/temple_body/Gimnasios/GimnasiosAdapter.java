@@ -55,7 +55,7 @@ public class GimnasiosAdapter extends RecyclerView.Adapter<GimnasiosAdapter.View
             nombre.setText(i_nombre);
             precio.setText("Mensual Price: "+String.valueOf(i_precio) + "€");
             valoracion.setText("Valoration: "+String.valueOf(i_valoracion) + "*");
-            masInfo.setText(Html.fromHtml("<h4><u>Additional Information</u>: </u></h4>" + masInformacion));
+            masInfo.setText("Additional Information:\n" + masInformacion);
         }
 
         @Override

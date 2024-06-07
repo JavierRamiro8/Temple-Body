@@ -80,7 +80,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="169dp"
             android:layout_height="47dp"
-            android:layout_marginStart="28dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="add history"
             android:textColor="@color/black"
@@ -165,14 +165,14 @@
             android:textColor="@color/black"
             app:backgroundTint="#F44336"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintHorizontal_bias="0.698"
             app:layout_constraintStart_toEndOf="@+id/BTGenerar"
             app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleHistorial"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="406dp"
+            android:layout_height="287dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"

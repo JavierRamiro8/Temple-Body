@@ -16,6 +16,7 @@
             android:id="@+id/fragmentReglamento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="24sp" />
     </androidx.core.widget.NestedScrollView>
