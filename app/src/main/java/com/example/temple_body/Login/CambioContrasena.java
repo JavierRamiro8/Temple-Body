@@ -16,9 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.temple_body.Actividad_Gimnasios;
 import com.example.temple_body.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -98,32 +100,29 @@ public class CambioContrasena extends Fragment {
     }
 
     private void mostrarErrorCorreoNoEncontrado() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Error")
-                .setMessage("Error, no se pudo encontrar un correo en nuestros sistemas")
-                .setPositiveButton("Aceptar", null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Error")
+                .setMessage("No se ha encontrado este correo en nuestros sistemas, correo invalido o no registrado")
+                .setPositiveButton("OK", (dialog, which) -> {
+                })
+                .show();
     }
 
     private void mostrarExitoCorreoEnviado() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Enviado")
-                .setMessage("Correo enviado con exito")
-                .setPositiveButton("Aceptar", null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Confirmación")
+                .setMessage("El correo se ha enviado con exito, revise su bandeja de entrada o la carpeta de spam!")
+                .setPositiveButton("OK", (dialog, which) -> {
+                })
+                .show();
     }
     private void mostrarErrorCorreoNoEnviado() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Error")
-                .setMessage("Error al enviar el correo de recuperación ")
-                .setPositiveButton("Aceptar", null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Error")
+                .setMessage("Error al enviar el correo de recuperacion de contraseña, correo invalido o no registrado")
+                .setPositiveButton("OK", (dialog, which) -> {
+                })
+                .show();
     }
 
     private void cargarLayoutIdaVuelta() {

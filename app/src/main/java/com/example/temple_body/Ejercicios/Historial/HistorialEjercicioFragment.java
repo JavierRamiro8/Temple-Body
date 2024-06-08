@@ -57,9 +57,7 @@ public class HistorialEjercicioFragment extends Fragment {
     private TextView tituloNombreEjercicio;
     private Button datepicker, generar, salir, filtrarFecha;
     private String fecha, fechaFiltrada;
-    private MutableLiveData<List<Historial>> liveHistorial = new MutableLiveData<>();
     private RecyclerView resultado;
-    FirebaseAuth mauth;
     DatabaseReference mDatabase;
     private int contadorDatos = 0;
 
@@ -103,9 +101,9 @@ public class HistorialEjercicioFragment extends Fragment {
                 repeticiones.setError("Por favor Introduzca Repeticiones");
             } else if (series.getText().toString().isEmpty()) {
                 series.setError("Por favor Introduzca las series");
-            } else if (datepicker.getText().equals("Selecciona Fecha")) {
+            } else if (datepicker.getText().equals("SELECT DATE") || datepicker.getText().toString().isEmpty() || fecha == null) {
                 datepicker.setError("Por favor Introduzca la fecha");
-            } else {
+            }else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                 builder.setTitle("Datos Registrados")
                         .setMessage("Tu historial se ha subido correctamente.")
@@ -222,7 +220,7 @@ public class HistorialEjercicioFragment extends Fragment {
             mapa.put("pesoEjercicio", peso.getText().toString());
             mapa.put("repeticionesEjercicio", repeticiones.getText().toString());
             mapa.put("seriesEjercicio", series.getText().toString());
-            mapa.put("fechaEjercicio", fecha.toString());
+            mapa.put("fechaEjercicio", fecha);
             String[] splitFecha = fecha.split("/");
             StringBuilder fechaBD = new StringBuilder("");
             fechaBD.append(splitFecha[0]).append("-").append(splitFecha[1]).append("-").append(splitFecha[2]);

@@ -18,10 +18,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.temple_body.Actividad_Gimnasios;
 import com.example.temple_body.R;
 import com.example.temple_body.Settings.Textos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -89,7 +91,7 @@ public class Registro extends Fragment {
                 contrasena.setError("Introduce contraseña");
             } else if (contrasena.getText().length() <= MINCARACTERESPASSWORD) {
                 contrasena.setError("la contraseña tiene que tener al menos 6 caracteres");
-            } else if (email.getText().toString().isEmpty()) {
+            } else if (!validarEmail() || email.getText().toString().isEmpty()) {
                 email.setError("El correo está vacío o no es válido");
             } else if (!checkTerminos.isChecked()) {
                 checkTerminos.setError("Lee las condiciones y términos");
@@ -119,24 +121,25 @@ public class Registro extends Fragment {
                     user.sendEmailVerification();
                     viajarLogin();
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                    builder.setTitle("Error")
-                            .setMessage("Error, es posible que ya se esté usando este mismo correo, Intentelo de nuevo!")
-                            .setPositiveButton("Aceptar", null);
-
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    new MaterialAlertDialogBuilder(requireContext())
+                            .setTitle("ERROR")
+                            .setMessage("Ya se esta usando esta cuenta de correo, por favor, quiere iniciar sesion?")
+                            .setPositiveButton("ACEPTAR", (dialog, which) -> {
+                                viajarLogin();
+                            })
+                            .setNegativeButton("CANCELAR", (dialog, which) -> {
+                                dialog.dismiss();
+                            })
+                            .show();
                 }
             }
 
             private void ventanaEmergenteAvisoEmailVer() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle("Mensaje de verificación")
+                new MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("¡Bienvenido!")
                         .setMessage("Gracias por registrarte, te hemos enviado un correo para probar que no eres un robot ;)")
-                        .setPositiveButton("Aceptar", null);
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                        .setPositiveButton("ACEPTAR", (dialog, which) -> {})
+                        .show();
             }
         });
     }
@@ -145,6 +148,11 @@ public class Registro extends Fragment {
     private void viajarLogin() {
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_registro_to_loginPrincipal);
+    }
+
+    private boolean validarEmail(){
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.getText().toString().matches(emailPattern);
     }
 
 }

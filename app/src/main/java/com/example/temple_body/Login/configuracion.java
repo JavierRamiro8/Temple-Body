@@ -43,28 +43,8 @@ public class configuracion extends Fragment {
         btModificar = layout.findViewById(R.id.ACbtModificarDatos);
         guardarLayoutLogin();
 
-        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-            if (isGranted) {
-                requestCorreo();
-            } else {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Error")
-                        .setMessage("Necesitamos que acepte los permisos para poder realizar la accion.")
-                        .setPositiveButton("Aceptar", null);
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-
         btinfProblema.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(
-                    getActivity(), Manifest.permission.SEND_SMS) ==
-                    PackageManager.PERMISSION_GRANTED) {
                 requestCorreo();
-            } else {
-                requestPermissionLauncher.launch(Manifest.permission.SEND_SMS);
-            }
         });
 
         btRegresar.setOnClickListener(v -> {

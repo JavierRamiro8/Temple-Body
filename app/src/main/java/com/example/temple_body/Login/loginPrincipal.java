@@ -19,6 +19,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.temple_body.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -70,7 +71,6 @@ public class loginPrincipal extends Fragment {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             assert user != null;
                             if (user.isEmailVerified()) {
-                                // El correo electrónico está verificado, procede con el inicio de sesión
                                 String idUsuario = user.getUid();
                                 String correo = user.getEmail();
                                 dr = FirebaseDatabase.getInstance().getReference();
@@ -81,38 +81,33 @@ public class loginPrincipal extends Fragment {
                                             String usuario = task.getResult().getValue(String.class);
                                             viajarPerfil(correo, usuario);
                                         } else {
-                                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                                            builder.setTitle("Error")
-                                                    .setMessage("Error al obtener el nombre de usuario")
-                                                    .setPositiveButton("Aceptar", null);
-
-                                            AlertDialog dialog = builder.create();
-                                            dialog.show();
+                                            new MaterialAlertDialogBuilder(requireContext())
+                                                    .setTitle("Error")
+                                                    .setMessage("Error al obtener el correo electronico del usuario")
+                                                    .setPositiveButton("ACEPTAR", (dialog, which) -> {
+                                                    })
+                                                    .show();
                                             btIniciarSesion.setEnabled(true);
                                         }
                                     }
                                 });
                             } else {
-                                // El correo electrónico no está verificado, muestra un mensaje de error
-                                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                                builder.setTitle("Error")
+                                new MaterialAlertDialogBuilder(requireContext())
+                                        .setTitle("Error")
                                         .setMessage("Recuerda que tienes que verificarte por correo electrónico, si no se ha enviado el correo de verificacion, contáctenos")
-                                        .setPositiveButton("Aceptar", null);
-
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
+                                        .setPositiveButton("ACEPTAR", (dialog, which) -> {
+                                        })
+                                        .show();
                                 btIniciarSesion.setEnabled(true);
 
                             }
                         } else {
-                            // Error al iniciar sesión
-                            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                            builder.setTitle("Error")
+                            new MaterialAlertDialogBuilder(requireContext())
+                                    .setTitle("Error")
                                     .setMessage("Usuario o contraseña incorrectos")
-                                    .setPositiveButton("Aceptar", null);
-
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
+                                    .setPositiveButton("ACEPTAR", (dialog, which) -> {
+                                    })
+                                    .show();
                             btIniciarSesion.setEnabled(true);
 
                         }
