@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Perfil extends Fragment {
     TextView etNombre, etCorreo;
     Button btInformacion, btConfiguracion, btCerrarSesion, btHistorial;
-    ImageButton ibAvatar;
     DatabaseReference mDatabase;
 
     @Override
@@ -36,7 +35,6 @@ public class Perfil extends Fragment {
         btHistorial = layout.findViewById(R.id.APbtHistorial);
         btInformacion = layout.findViewById(R.id.APbtInformacion);
         btCerrarSesion = layout.findViewById(R.id.APbtCerrarSesion);
-        ibAvatar = layout.findViewById(R.id.APibAvatarPerfil);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         guardarLayoutLogin();
         cargarDatosUsuario();

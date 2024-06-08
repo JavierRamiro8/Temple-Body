@@ -115,6 +115,7 @@ public class CambioContrasena extends Fragment {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+        viajarLogin();
     }
     private void mostrarErrorCorreoNoEnviado() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());

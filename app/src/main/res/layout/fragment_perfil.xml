@@ -11,30 +11,19 @@
         android:layout_height="match_parent"
         android:background="@drawable/icono3">
 
-        <ImageButton
-            android:id="@+id/APibAvatarPerfil"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/usuario"
-            app:layout_constraintBottom_toTopOf="@+id/APtvNombrePerfil"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/APtvNombrePerfil"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_width="351dp"
+            android:layout_height="60dp"
             android:text="Welcome"
+            android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="24dp"
+            android:textSize="39dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toTopOf="@+id/APtvEmail"
-            app:layout_constraintEnd_toEndOf="@+id/APibAvatarPerfil"
-            app:layout_constraintStart_toStartOf="@+id/APibAvatarPerfil"
-            app:layout_constraintTop_toBottomOf="@+id/APibAvatarPerfil" />
+            app:layout_constraintEnd_toEndOf="@+id/APtvEmail"
+            app:layout_constraintStart_toStartOf="@+id/APtvEmail"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/APtvEmail"
@@ -45,8 +34,8 @@
             android:textSize="24dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toTopOf="@+id/APbtHistorial"
-            app:layout_constraintEnd_toEndOf="@+id/APtvNombrePerfil"
-            app:layout_constraintStart_toStartOf="@+id/APtvNombrePerfil"
+            app:layout_constraintEnd_toEndOf="@+id/APbtHistorial"
+            app:layout_constraintStart_toStartOf="@+id/APbtHistorial"
             app:layout_constraintTop_toBottomOf="@+id/APtvNombrePerfil" />
 
         <Button
@@ -59,8 +48,8 @@
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toTopOf="@+id/APbtConfiguracion"
-            app:layout_constraintEnd_toEndOf="@+id/APbtHistorial"
-            app:layout_constraintStart_toStartOf="@+id/APbtHistorial"
+            app:layout_constraintEnd_toEndOf="@+id/APbtConfiguracion"
+            app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
             app:layout_constraintTop_toBottomOf="@+id/APbtHistorial" />
 
         <Button
@@ -73,8 +62,8 @@
             android:textSize="20sp"
             app:backgroundTint="#FFC107"
             app:layout_constraintBottom_toTopOf="@+id/APbtCerrarSesion"
-            app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
-            app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
+            app:layout_constraintEnd_toEndOf="@+id/APbtCerrarSesion"
+            app:layout_constraintStart_toStartOf="@+id/APbtCerrarSesion"
             app:layout_constraintTop_toBottomOf="@+id/APbtInformacion" />
 
         <Button
@@ -87,8 +76,8 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/APbtConfiguracion"
-            app:layout_constraintStart_toStartOf="@+id/APbtConfiguracion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/APbtConfiguracion" />
 
         <Button
@@ -101,8 +90,8 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/APbtInformacion"
-            app:layout_constraintEnd_toEndOf="@+id/APtvEmail"
-            app:layout_constraintStart_toStartOf="@+id/APtvEmail"
+            app:layout_constraintEnd_toEndOf="@+id/APbtInformacion"
+            app:layout_constraintStart_toStartOf="@+id/APbtInformacion"
             app:layout_constraintTop_toBottomOf="@+id/APtvEmail" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
