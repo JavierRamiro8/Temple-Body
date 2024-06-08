@@ -171,9 +171,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleHistorial"
-            android:layout_width="406dp"
-            android:layout_height="287dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
