@@ -21,16 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.temple_body.R;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SuplementosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SuplementosFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     public String OPCION_SELECTED;
@@ -42,24 +33,10 @@ public class SuplementosFragment extends Fragment {
 
     RecyclerView rcv;
     SuplementosAdapter a;
-    public String nombre="";
+    public String nombre = "";
     ActivityResultLauncher<String> requestPermissionLauncher;
     Spinner spinnerSuplementos;
-    TextView proe,hsn,prozis,big_supps,marcasRecomendadas;
-
-    public SuplementosFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SuplementosFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+    TextView proe, hsn, prozis, big_supps, marcasRecomendadas;
     public static SuplementosFragment newInstance(String param1, String param2) {
         SuplementosFragment fragment = new SuplementosFragment();
         Bundle args = new Bundle();
@@ -108,124 +85,62 @@ public class SuplementosFragment extends Fragment {
         big_supps.setText("Big-Supps");
         big_supps.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
-
-        String opcion = spinnerSuplementos.getSelectedItem().toString();
-        if(opcion != null || !opcion.isEmpty() ){
-            OPCION_SELECCIONADA = true;
-        } else{
-            OPCION_SELECCIONADA = false;
-        }
         spinnerSuplementos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view,
                                        int position, long id) {
                 Object item = adapterView.getItemAtPosition(position);
                 if (item != null) {
-                    a = new SuplementosAdapter(Suplementos.generador(item.toString()));
+                    OPCION_SELECTED = item.toString();
+                    OPCION_SELECCIONADA = !OPCION_SELECTED.equals("Select suplement");
+                    a = new SuplementosAdapter(Suplementos.generador(OPCION_SELECTED));
                     rcv.setAdapter(a);
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // TODO Auto-generated method stub
             }
         });
-        a = new SuplementosAdapter(Suplementos.generador(opcion));
-        rcv.setAdapter(a);
 
+        proe.setOnClickListener((View v) -> {
+            abrirWebConPermiso("https://proenutrition.es/", "https://proenutrition.es/module/iqitsearch/searchiqit?s=");
+        });
+        hsn.setOnClickListener((View v) -> {
+            abrirWebConPermiso("https://www.hsnstore.com/", "https://www.hsnstore.com/?q=");
+        });
+        prozis.setOnClickListener((View v) -> {
+            abrirWebConPermiso("https://www.prozis.com/es/es", "https://www.prozis.com/es/es/search?text=");
+        });
+        big_supps.setOnClickListener((View v) -> {
+            abrirWebConPermiso("https://bigsupps.site/", "https://bigsupps.site/search?type=product,article,page&q=");
+        });
 
-        proe.setOnClickListener((View v)->{
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(), Manifest.permission.INTERNET) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
-                // Permiso concedido, realizar la acción
-                if(OPCION_SELECCIONADA){
-                    abrirWeb("https://proenutrition.es/module/iqitsearch/searchiqit?s=" + OPCION_SELECTED);
-                }else{
-                    abrirWeb("https://proenutrition.es/");
-                }
-
-            } else {
-                // Solicitar permiso al usuario
-                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
-            }
-        });
-        hsn.setOnClickListener((View v)->{
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(), Manifest.permission.INTERNET) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
-                // Permiso concedido, realizar la acción
-                if(OPCION_SELECCIONADA){
-                    abrirWeb("https://www.hsnstore.com/?q=" + OPCION_SELECTED);
-                }else{
-                    abrirWeb("https://www.hsnstore.com/");
-                }
-            } else {
-                // Solicitar permiso al usuario
-                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
-            }
-        });
-        prozis.setOnClickListener((View v)->{
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(), Manifest.permission.INTERNET) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
-                // Permiso concedido, realizar la acción
-                if(OPCION_SELECCIONADA){
-                    abrirWeb("https://www.prozis.com/es/es/search?text=" + OPCION_SELECTED);
-                }else{
-                    abrirWeb("https://www.prozis.com/es/es");
-                }
-
-            } else {
-                // Solicitar permiso al usuario
-                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
-            }
-        });
-        big_supps.setOnClickListener((View v)->{
-            if (ContextCompat.checkSelfPermission(
-                    requireContext(), Manifest.permission.INTERNET) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                OPCION_SELECTED = spinnerSuplementos.getSelectedItem().toString();
-                // Permiso concedido, realizar la acción
-                if(OPCION_SELECCIONADA){
-                    abrirWeb("https://bigsupps.site/search?type=product,article,page&q=*" + OPCION_SELECTED + "*");
-                }else{
-                    abrirWeb("https://bigsupps.site/");
-                }
-            } else {
-                // Solicitar permiso al usuario
-                requestPermissionLauncher.launch(Manifest.permission.INTERNET);
-            }
-        });
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
-                // Permission is granted. Continue the action or workflow in your
-                // app.
+                // Permission is granted. Continue the action or workflow in your app.
                 abrirWeb("");
             } else {
-                // Explain to the user that the feature is unavailable because the
-                // feature requires a permission that the user has denied. At the
-                // same time, respect the user's decision. Don't link to system
-                // settings in an effort to convince the user to change their
-                // decision.
-
+                // Explain to the user that the feature is unavailable because the feature requires a permission that the user has denied.
+                // At the same time, respect the user's decision. Don't link to system settings in an effort to convince the user to change their decision.
             }
         });
-        a.setClickListener(new SuplementosAdapter.ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, Suplementos suplemento) {
 
-            }
-        });
         return layout;
     }
+
+    private void abrirWebConPermiso(String defaultUrl, String searchUrl) {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
+            abrirWeb(OPCION_SELECCIONADA ? searchUrl + OPCION_SELECTED : defaultUrl);
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.INTERNET);
+        }
+    }
+
     private void abrirWeb(String webSolicitada) {
-        Uri uri=Uri.parse(webSolicitada);
-        Intent webIntent = new Intent(Intent.ACTION_VIEW,uri);
+        Uri uri = Uri.parse(webSolicitada);
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(webIntent);
     }
 }

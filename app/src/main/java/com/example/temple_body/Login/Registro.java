@@ -87,12 +87,14 @@ public class Registro extends Fragment {
         registro.setOnClickListener(v -> {
             if (usuario.getText().toString().isEmpty()) {
                 usuario.setError("Introduce nombre de usuario");
-            } else if (contrasena.getText().toString().isEmpty()) {
-                contrasena.setError("Introduce contraseña");
-            } else if (contrasena.getText().length() <= MINCARACTERESPASSWORD) {
-                contrasena.setError("la contraseña tiene que tener al menos 6 caracteres");
-            } else if (!validarEmail() || email.getText().toString().isEmpty()) {
+            }else if (!validarEmail() || email.getText().toString().isEmpty()) {
                 email.setError("El correo está vacío o no es válido");
+            }else if (contrasena.getText().toString().isEmpty()) {
+                contrasena.setError("Introduce contraseña");
+            }else if (!validarEmail() || email.getText().toString().isEmpty()) {
+                email.setError("El correo está vacío o no es válido");
+            }else if (contrasena.getText().length() <= MINCARACTERESPASSWORD) {
+                contrasena.setError("la contraseña tiene que tener al menos 6 caracteres");
             } else if (!checkTerminos.isChecked()) {
                 checkTerminos.setError("Lee las condiciones y términos");
             } else {
